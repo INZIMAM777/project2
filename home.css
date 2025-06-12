@@ -1325,7 +1325,7 @@ input, select, textarea {
     }
     
     .hero-content {
-        left: 5%;
+        left: 50%;
         right: 5%;
         max-width: none;
         text-align: center;

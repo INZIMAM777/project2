@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Billionaire Hive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="home.css">
     <style>
@@ -20,7 +23,7 @@
             --light-gray: #E5E5E5;
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -190,8 +193,8 @@
             color: white;
             text-decoration: none;
             font-size: 2.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            /* font-weight: 700; */
+            /* text-transform: uppercase; */
             letter-spacing: 2px;
             position: relative;
             display: inline-block;
@@ -203,24 +206,12 @@
             transform: translateX(20px);
         }
 
-        .menu-items a::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: var(--gold);
-            transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
+        
         .menu-items a:hover::before {
             transform: translateY(0);
         }
 
         .menu-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
             margin-top: 50px;
         }
 
@@ -258,7 +249,7 @@
             }
 
             .logo {
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
 
             .menu-toggle {
@@ -267,7 +258,7 @@
             }
 
             .menu-items a {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
             .menu-footer {
@@ -515,7 +506,7 @@
         }
 
         .footer-link {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 2px;
@@ -535,7 +526,7 @@
         }
 
         .footer-social a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 1.2rem;
             transition: var(--transition);
         }
@@ -547,7 +538,7 @@
 
         .footer-copyright {
             font-family: 'Montserrat', sans-serif;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.8rem;
             letter-spacing: 1px;
         }
@@ -591,6 +582,7 @@
         }
     </style>
 </head>
+
 <body class="gallery-page">
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
@@ -611,7 +603,7 @@
             <li><a href="gallery.html" data-text="Gallery">Gallery</a></li>
             <li><a href="contact.html" data-text="Contact">Contact</a></li>
         </ul>
-        
+
         <div class="menu-footer">
             <div class="menu-contact">
                 <strong>BILLIONAIRE HIVE</strong>
@@ -637,7 +629,9 @@
     <section class="gallery-section">
         <div class="gallery-header">
             <h1 class="gallery-title">Luxury Timepiece Gallery</h1>
-            <p class="gallery-description">Explore our curated collection of exceptional timepieces, where innovation meets artistry. Each watch represents the pinnacle of horological craftsmanship, combining cutting-edge technology with timeless elegance.</p>
+            <p class="gallery-description">Explore our curated collection of exceptional timepieces, where innovation
+                meets artistry. Each watch represents the pinnacle of horological craftsmanship, combining cutting-edge
+                technology with timeless elegance.</p>
         </div>
         <div class="gallery-grid">
             <!-- Last four images first -->
@@ -645,7 +639,9 @@
                 <img src="p-richard4.jpg" alt="Richard Mille Collection">
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">Richard Mille Collection</h3>
-                    <p class="gallery-item-description">A masterpiece of modern watchmaking, showcasing revolutionary materials and innovative engineering. Each timepiece is a testament to the brand's commitment to pushing boundaries.</p>
+                    <p class="gallery-item-description">A masterpiece of modern watchmaking, showcasing revolutionary
+                        materials and innovative engineering. Each timepiece is a testament to the brand's commitment to
+                        pushing boundaries.</p>
                     <div class="gallery-item-specs">
                         <span class="gallery-item-spec"><i class="fas fa-gem"></i> Premium Materials</span>
                         <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Advanced Movement</span>
@@ -656,7 +652,9 @@
                 <img src="p-richard3.jpg" alt="Richard Mille Innovation">
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">Innovation in Motion</h3>
-                    <p class="gallery-item-description">Where cutting-edge technology meets artistic design. These timepieces represent the future of watchmaking, featuring revolutionary materials and groundbreaking mechanics.</p>
+                    <p class="gallery-item-description">Where cutting-edge technology meets artistic design. These
+                        timepieces represent the future of watchmaking, featuring revolutionary materials and
+                        groundbreaking mechanics.</p>
                     <div class="gallery-item-specs">
                         <span class="gallery-item-spec"><i class="fas fa-microchip"></i> Smart Technology</span>
                         <span class="gallery-item-spec"><i class="fas fa-paint-brush"></i> Artistic Design</span>
@@ -667,7 +665,8 @@
                 <img src="p-richard2.jpg" alt="Richard Mille Craftsmanship">
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">Masterful Craftsmanship</h3>
-                    <p class="gallery-item-description">A celebration of traditional watchmaking techniques combined with modern innovation. Each component is meticulously crafted to perfection.</p>
+                    <p class="gallery-item-description">A celebration of traditional watchmaking techniques combined
+                        with modern innovation. Each component is meticulously crafted to perfection.</p>
                     <div class="gallery-item-specs">
                         <span class="gallery-item-spec"><i class="fas fa-tools"></i> Handcrafted</span>
                         <span class="gallery-item-spec"><i class="fas fa-clock"></i> Precision</span>
@@ -678,7 +677,8 @@
                 <img src="P-richard1.jpg" alt="Richard Mille Heritage">
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">Heritage of Excellence</h3>
-                    <p class="gallery-item-description">Drawing inspiration from decades of horological mastery, these timepieces embody the perfect balance of tradition and innovation.</p>
+                    <p class="gallery-item-description">Drawing inspiration from decades of horological mastery, these
+                        timepieces embody the perfect balance of tradition and innovation.</p>
                     <div class="gallery-item-specs">
                         <span class="gallery-item-spec"><i class="fas fa-history"></i> Rich Heritage</span>
                         <span class="gallery-item-spec"><i class="fas fa-award"></i> Excellence</span>
@@ -690,7 +690,8 @@
                 <img src="jacob5.avif" alt="Jacob & Co. Masterpiece">
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">Jacob & Co. Masterpiece</h3>
-                    <p class="gallery-item-description">A symphony of mechanical artistry, where every detail tells a story of innovation and luxury. These timepieces redefine the boundaries of watchmaking.</p>
+                    <p class="gallery-item-description">A symphony of mechanical artistry, where every detail tells a
+                        story of innovation and luxury. These timepieces redefine the boundaries of watchmaking.</p>
                     <div class="gallery-item-specs">
                         <span class="gallery-item-spec"><i class="fas fa-gem"></i> Luxury</span>
                         <span class="gallery-item-spec"><i class="fas fa-magic"></i> Innovation</span>
@@ -802,7 +803,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const modal = document.getElementById('watchModal');
             const modalClose = document.getElementById('modalClose');
             const galleryItems = document.querySelectorAll('.gallery-item');
@@ -812,7 +813,7 @@
             const prevBtn = lightbox.querySelector('.prev');
             const nextBtn = lightbox.querySelector('.next');
             let currentIndex = 0;
-            
+
             // Gallery item click handler
             galleryItems.forEach((item, index) => {
                 item.addEventListener('click', () => {
@@ -821,7 +822,7 @@
                     lightbox.classList.add('active');
                 });
             });
-            
+
             // Close lightbox
             closeBtn.addEventListener('click', () => {
                 lightbox.classList.remove('active');
@@ -848,8 +849,8 @@
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (!lightbox.classList.contains('active')) return;
-                
-                switch(e.key) {
+
+                switch (e.key) {
                     case 'Escape':
                         lightbox.classList.remove('active');
                         break;
@@ -867,22 +868,17 @@
             const sideMenu = document.getElementById('sideMenu');
             const menuLinks = document.querySelectorAll('.menu-items a');
 
-            // Toggle menu on hamburger click
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                sideMenu.classList.toggle('active');
-            });
 
             // Handle menu link clicks
             menuLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const href = link.getAttribute('href');
-                    
+
                     // Add transition effect
                     sideMenu.style.opacity = '0';
                     menuToggle.classList.remove('active');
-                    
+
                     // Navigate after transition
                     setTimeout(() => {
                         window.location.href = href;
@@ -927,7 +923,7 @@
                     <span>New York</span>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>CONTACT</h3>
                 <p>+41 22 555 5555</p>
@@ -939,7 +935,7 @@
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-section">
                 <h3>NAVIGATION</h3>
                 <ul class="footer-links">
@@ -949,7 +945,7 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>NEWSLETTER</h3>
                 <p>Subscribe to receive updates on new arrivals and exclusive events</p>
@@ -959,7 +955,7 @@
                 </form>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2024 Billionaire Hive. All rights reserved.</p>
             <div class="footer-legal">
@@ -969,4 +965,5 @@
         </div>
     </footer>
 </body>
-</html> 
+
+</html>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection | Billionaire Hive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
+
     <style>
         :root {
             --gold: #D4AF37;
@@ -17,7 +20,7 @@
             --black: #0A0A0A;
             --dark-gray: #1A1A1A;
             --light-gray: #E5E5E5;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -35,7 +38,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation Bar */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* --- Navigation & Menu --- */
         .navbar {
             position: fixed;
             top: 0;
@@ -57,522 +64,337 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: white;
-            pointer-events: auto;
-            transition: var(--transition);
-            position: relative;
-            z-index: 1001;
-            font-family: 'Cinzel', serif;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            padding: 10px 0;
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .logo.hidden {
-            opacity: 0;
-            transform: translateX(-20px);
-            pointer-events: none;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -20px;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -20px;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .logo:hover::before,
-        .logo:hover::after {
-            opacity: 1;
+            text-decoration: none;
         }
 
         .logo span {
             color: var(--gold);
-            font-weight: 400;
-            opacity: 1;
-            position: relative;
-            display: inline-block;
-            transition: var(--transition);
         }
 
-        .logo span::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .logo:hover span::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* Advanced Hamburger Menu */
         .menu-toggle {
-            pointer-events: auto;
-            cursor: pointer;
-            width: 36px;
-            height: 36px;
-            position: relative;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transition);
-        }
+    width: 36px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    transition: var(--transition);
+}
 
-        .menu-toggle span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--gold) 0%, white 100%);
-            transition: var(--transition);
-            position: absolute;
-            left: 4px;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, white 100%);
+    transition: var(--transition);
+    position: absolute;
+    left: 4px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
 
-        .menu-toggle span:nth-child(1) {
-            top: 10px;
-            transform-origin: center;
-            width: 20px;
-        }
+.menu-toggle span:nth-child(1) {
+    top: 10px;
+    transform-origin: center;
+    width: 20px;
+}
 
-        .menu-toggle span:nth-child(2) {
-            top: 17px;
-            transform-origin: center;
-            width: 28px;
-        }
+.menu-toggle span:nth-child(2) {
+    top: 17px;
+    transform-origin: center;
+    width: 28px;
+}
 
-        .menu-toggle span:nth-child(3) {
-            top: 24px;
-            transform-origin: center;
-            width: 24px;
-        }
+.menu-toggle span:nth-child(3) {
+    top: 24px;
+    transform-origin: center;
+    width: 24px;
+}
 
-        .menu-toggle:hover span {
-            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-        }
+.menu-toggle:hover span {
+    background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
 
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(-3px);
-            width: 28px;
-            background: var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-        }
+/* Active State */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(-3px);
+    width: 28px;
+    background: var(--gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
 
-        .menu-toggle.active span:nth-child(2) {
-            width: 0;
-            opacity: 0;
-            transform: translateX(-10px);
-        }
+.menu-toggle.active span:nth-child(2) {
+    width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+}
 
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(3px);
-            width: 28px;
-            background: var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-        }
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(3px);
+    width: 28px;
+    background: var(--gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
 
-        /* Luxury Side Menu */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(15px);
-            z-index: 999;
-            padding: 120px 10% 60px;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-y: auto;
-        }
+/* Hover Animation */
+@keyframes hamburgerPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+}
 
-        .side-menu.active {
-            left: 0;
-        }
+.menu-toggle:hover {
+    animation: hamburgerPulse 1.5s infinite;
+}
 
-        .menu-items {
-            list-style: none;
-            margin-top: 60px;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        width: 32px;
+        height: 32px;
+    }
 
-        .menu-items li {
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.6s ease;
-        }
+    .menu-toggle span {
+        width: 24px;
+    }
 
-        .side-menu.active .menu-items li {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .menu-toggle span:nth-child(1) {
+        width: 18px;
+    }
 
-        .side-menu.active .menu-items li:nth-child(1) { transition-delay: 0.15s; }
-        .side-menu.active .menu-items li:nth-child(2) { transition-delay: 0.25s; }
-        .side-menu.active .menu-items li:nth-child(3) { transition-delay: 0.35s; }
-        .side-menu.active .menu-items li:nth-child(4) { transition-delay: 0.45s; }
+    .menu-toggle span:nth-child(3) {
+        width: 20px;
+    }
+}
 
-        .menu-items a {
-            color: white;
-            text-decoration: none;
-            font-size: 3.5rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            position: relative;
-            padding: 10px 0;
-            display: inline-block;
-            transition: var(--transition);
-        }
+@media (max-width: 576px) {
+    .menu-toggle {
+        width: 28px;
+        height: 28px;
+    }
 
-        .menu-items a::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: var(--gold);
-            width: 0;
-            overflow: hidden;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
+    .menu-toggle span {
+        width: 20px;
+        height: 1.5px;
+    }
 
-        .menu-items a:hover::before {
-            width: 100%;
-        }
+    .menu-toggle span:nth-child(1) {
+        width: 16px;
+    }
 
-        .menu-close {
-            position: absolute;
-            top: 40px;
-            right: 5%;
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            z-index: 1001;
-        }
+    .menu-toggle span:nth-child(3) {
+        width: 18px;
+    }
+}
 
-        .menu-close span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--gold);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            transition: var(--transition);
-        }
+/* Luxury Side Menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(15px);
+    z-index: 999;
+    padding: 120px 10% 60px;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    opacity: 0;
+}
 
-        .menu-close span:last-child {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
+.side-menu.active {
+    left: 0;
+    opacity: 1;
+}
 
-        .menu-close:hover span {
-            background: var(--light-gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-        }
+.menu-items {
+    list-style: none;
+    margin-top: 60px;
+}
 
-        /* Hero Section */
+.menu-items li {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s ease;
+}
+
+.side-menu.active .menu-items li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.side-menu.active .menu-items li:nth-child(1) { transition-delay: 0.15s; }
+.side-menu.active .menu-items li:nth-child(2) { transition-delay: 0.25s; }
+.side-menu.active .menu-items li:nth-child(3) { transition-delay: 0.35s; }
+.side-menu.active .menu-items li:nth-child(4) { transition-delay: 0.45s; }
+
+.menu-items a {
+    color: white;
+    text-decoration: none;
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 10px 0;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.menu-items a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-items a:hover {
+    color: var(--gold);
+    transform: translateX(10px);
+}
+
+.menu-items a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-items a.active {
+    color: var(--gold);
+}
+
+.menu-items a.active::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Menu Footer */
+.menu-footer {
+    margin-top: auto;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-contact {
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+}
+
+.menu-contact strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .menu-items a {
+        font-size: 2.5rem;
+    }
+
+    .menu-footer {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-items a {
+        font-size: 1.6rem;
+    }
+
+    .menu-contact {
+        font-size: 0.9rem;
+    }
+}
+        /* --- Hero Section --- */
         .hero {
             height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            text-align: center;
             margin-top: 80px;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(10,10,10,0.9), rgba(10,10,10,0.7));
+            inset: 0;
+            background: linear-gradient(45deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7));
             z-index: 1;
         }
 
         .hero-content {
-            position: relative;
             z-index: 2;
-            text-align: center;
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            letter-spacing: 3px;
-            color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            line-height: 2;
         }
 
         .hero-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: clamp(.5rem, 3vw, 1.2rem);
             letter-spacing: 8px;
             color: var(--light-gold);
             text-transform: uppercase;
         }
 
-        /* Collection Grid */
-        .collection-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 50px 5%;
-        }
-
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .watch-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .watch-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .watch-image-container {
-            height: 300px;
-            position: relative;
-            background: var(--dark-gray);
-            overflow: hidden;
-        }
-
-        .watch-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease-in-out;
-            opacity: 0;
-        }
-
-        .watch-card:hover .watch-image {
-            transform: scale(1.05);
-        }
-
-        .watch-details {
-            padding: 25px;
-        }
-
-        .watch-brand {
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            color: var(--gold);
-            margin-bottom: 5px;
-        }
-
-        .watch-model {
-            font-family: 'Montserrat', sans-serif;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .watch-price {
-            font-family: 'Playfair Display', serif;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .watch-specs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .spec-item {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .spec-label {
-            color: var(--gold);
-            margin-bottom: 5px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .investment-grade {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .investment-grade.High, .investment-grade.A, .investment-grade.A-plus, .investment-grade.S, .investment-grade.S-plus {
-            color: #27ae60;
-            border: 1px solid #27ae60;
-        }
-
-        .investment-grade.Medium, .investment-grade.B, .investment-grade.B-plus {
-            color: #f39c12;
-            border: 1px solid #f39c12;
-        }
-
-        .investment-grade.Low {
-            color: #e74c3c;
-            border: 1px solid #e74c3c;
-        }
-
-        /* Loading States */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            grid-column: 1 / -1;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--gold);
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .error {
-            text-align: center;
-            padding: 40px;
-            color: #e74c3c;
-            grid-column: 1 / -1;
-        }
-
-        .retry-btn {
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 12px 30px;
-            border-radius: 5px;
-            margin-top: 15px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-
-        .retry-btn:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .collection-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                letter-spacing: 4px;
-            }
-
-            .collection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .watch-brand {
-                font-size: 1.2rem;
-            }
-
-            .watch-price {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Add this CSS after the navbar styles and before the hero section */
+        /* --- Filters Section --- */
         .filters-section {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px auto;
-            max-width: 1400px;
-            width: 90%;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px 5%;
+            margin: 30px 0;
+            max-width: 1600px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .filters-header {
@@ -586,18 +408,15 @@
             font-family: 'Cinzel', serif;
             font-size: 1.5rem;
             color: var(--gold);
-            letter-spacing: 2px;
         }
 
         .filter-reset {
             background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold);
-            padding: 8px 20px;
-            border-radius: 5px;
+            padding: 10px 30px;
+            border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -609,12 +428,8 @@
 
         .filters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 25px;
-        }
-
-        .filter-group {
-            margin-bottom: 20px;
         }
 
         .filter-label {
@@ -622,251 +437,324 @@
             font-size: 0.8rem;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 10px;
             display: block;
-        }
-
-        .filter-select, .filter-input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 5px;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-select:hover, .filter-input:hover {
-            border-color: var(--gold);
-        }
-
-        .filter-select:focus, .filter-input:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .filter-range {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .filter-range input {
-            flex: 1;
-        }
-
-        .filter-range-separator {
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-
-        .filter-checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .filter-checkbox {
-            display: none;
-        }
-
-        .filter-checkbox-label {
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-checkbox:checked + .filter-checkbox-label {
-            background: var(--gold);
-            color: var(--black);
-            border-color: var(--gold);
-        }
-
-        .filter-checkbox-label:hover {
-            border-color: var(--gold);
-        }
-
-        
-        @media (max-width: 768px) {
-            .filters-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Collection Page Specific Responsive Styles */
-        .collection-header {
-            padding: clamp(4rem, 10vw, 8rem) 0 clamp(2rem, 5vw, 4rem);
-            text-align: center;
-        }
-
-        .collection-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: clamp(1rem, 3vw, 2rem);
-        }
-
-        .collection-description {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 clamp(1rem, 3vw, 2rem);
-        }
-
-        .filters-container {
-            position: sticky;
-            top: 80px;
-            height: fit-content;
-            padding: clamp(1rem, 3vw, 2rem);
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            margin-bottom: clamp(1.5rem, 4vw, 3rem);
-        }
-
-        .filter-group {
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
-        }
-
-        .filter-label {
-            display: block;
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
-            color: var(--gold);
         }
 
         .filter-select,
         .filter-input {
             width: 100%;
-            padding: clamp(0.75rem, 2vw, 1rem);
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
             color: white;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .active-filters {
             display: flex;
             flex-wrap: wrap;
-            gap: clamp(0.5rem, 1.5vw, 1rem);
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .active-filter {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+            gap: 8px;
+            padding: 8px 15px;
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--gold);
-            border-radius: 4px;
-            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Montserrat';
             cursor: pointer;
-            transition: var(--transition);
         }
 
-        .watch-grid {
+        /* --- Collection & Cards --- */
+        .collection-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 50px 5%;
+        }
+
+        .collection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: clamp(1rem, 2vw, 1.5rem);
-            padding: clamp(1rem, 3vw, 2rem);
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 35px;
         }
 
         .watch-card {
             position: relative;
-            aspect-ratio: 3/4;
+            aspect-ratio: 1/1.5;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 12px;
             background: var(--dark-gray);
+            border: 1px solid rgba(212, 175, 55, 0.1);
             transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .watch-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .watch-image-container {
+            height: 55%;
+            position: relative;
+            overflow: hidden;
         }
 
         .watch-image {
             width: 100%;
-            height: 70%;
-            overflow: hidden;
-        }
-
-        .watch-image img {
-            width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.6s ease, opacity 0.6s ease;
         }
 
-        .watch-info {
-            padding: clamp(0.75rem, 2vw, 1rem);
-        }
-
-        .watch-info h3 {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
-        }
-
-        .watch-info .price {
-            font-size: clamp(0.875rem, 2vw, 1rem);
-            color: var(--gold);
-            margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+        .watch-card:hover .watch-image {
+            transform: scale(1.1);
         }
 
         .watch-details {
+            padding: 25px;
+            height: 50%;
             display: flex;
-            gap: clamp(0.5rem, 1.5vw, 1rem);
-            font-size: clamp(0.75rem, 2vw, 0.875rem);
-            color: var(--light-gray);
+            flex-direction: column;
+        }
+
+        .watch-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 2px;
+        }
+
+        .watch-model {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        .quick-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .spec-item {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .spec-label {
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .watch-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .quick-view-btn {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .investment-grade {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: 'Montserrat';
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+
+        .investment-grade.S-plus,
+        .investment-grade.S,
+        .investment-grade.A-plus {
+            color: #27ae60;
+            border: 1px solid #27ae60;
+        }
+
+        /* --- Loading & Error --- */
+        .loading,
+        .error {
+            text-align: center;
+            padding: 40px;
+            grid-column: 1 / -1;
+            font-family: 'Montserrat';
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--gold);
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- Modal --- */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.visible {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--dark-gray);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            max-height: 90vh;
+        }
+
+        .modal-backdrop.visible .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 0 0 12px;
+        }
+
+        .modal-details {
+            padding: 40px;
+            overflow-y: auto;
+            font-family: 'Montserrat';
+        }
+
+        .modal-details h2 {
+            font-family: 'Cinzel';
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-details h3 {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .modal-description {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .modal-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .modal-spec-item .spec-label {
+            color: var(--gold);
+        }
+
+        .modal-spec-item .spec-value {
+            color: #fff;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            .filters-container {
-                position: relative;
-                top: 0;
-                margin: 0 clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
-            }
-
-            .watch-grid {
-                grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-            }
-        }
-
-        @media (max-width: 576px) {
-            .collection-header {
-                padding: clamp(3rem, 8vw, 6rem) 0 clamp(1.5rem, 4vw, 3rem);
-            }
-
-            .watch-grid {
+            .modal-content {
                 grid-template-columns: 1fr;
-                padding: 0.75rem;
+                max-height: 80vh;
             }
 
-            .active-filters {
-                padding: 0 0.75rem;
+            .modal-image {
+                height: 300px;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .modal-details {
+                padding: 25px;
             }
         }
     </style>
 </head>
+
 <body class="collection-page">
-    <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
         <a href="index.html" class="logo">BILLIONAIRE <span>HIVE</span></a>
     </nav>
 
-    <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
         <ul class="menu-items">
             <li><a href="index.html" data-text="Home">Home</a></li>
@@ -897,572 +785,53 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Exclusive Collection</h1>
-            <div class="hero-subtitle">Curated Timepieces</div>
+            <p class="hero-subtitle">Curated Timepieces of Unrivaled Prestige</p>
         </div>
     </section>
 
-    <!-- Filters Section -->
-    <button id="toggleFiltersBtn" class="filter-reset" style="margin:30px auto 0 5%;display:block;">Filter</button>
+    <div style="padding: 0 5%; max-width: 1600px; margin: auto;">
+        <button id="toggleFiltersBtn" class="filter-reset">Filter Collection</button>
+    </div>
     <div class="filters-section" id="filtersSection" style="display:none;">
         <div class="filters-header">
             <h2 class="filters-title">Refine Collection</h2>
-            <button class="filter-reset" id="resetFilters">Reset All Filters</button>
+            <button class="filter-reset" id="resetFilters">Reset All</button>
         </div>
         <div class="filters-grid">
-            <!-- Basic Filters -->
-            <div class="filter-group">
-                <label class="filter-label">Brand</label>
-                <select class="filter-select" id="brandFilter">
-                    <option value="">All Brands</option>
-                </select>
+            <div class="filter-group"><label class="filter-label" for="brandFilter">Brand</label><select
+                    class="filter-select" id="brandFilter"></select></div>
+            <div class="filter-group"><label class="filter-label">Price Range (USD)</label>
+                <div class="filter-range"><input type="number" class="filter-input" id="minPrice"
+                        placeholder="Min"><span class="filter-range-separator">-</span><input type="number"
+                        class="filter-input" id="maxPrice" placeholder="Max"></div>
             </div>
-
-            <div class="filter-group">
-                <label class="filter-label">Price Range (USD)</label>
-                <div class="filter-range">
-                    <input type="number" class="filter-input" id="minPrice" placeholder="Min">
-                    <span class="filter-range-separator">-</span>
-                    <input type="number" class="filter-input" id="maxPrice" placeholder="Max">
-                </div>
-            </div>
-
-            <div class="filter-group">
-                <label class="filter-label">Year</label>
-                <select class="filter-select" id="yearFilter">
-                    <option value="">All Years</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label class="filter-label">Movement Type</label>
-                <select class="filter-select" id="movementFilter">
-                    <option value="">All Movements</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label class="filter-label">Investment Grade</label>
-                <select class="filter-select" id="gradeFilter">
-                    <option value="">All Grades</option>
-                </select>
-            </div>
+            <div class="filter-group"><label class="filter-label" for="yearFilter">Year</label><select
+                    class="filter-select" id="yearFilter"></select></div>
+            <div class="filter-group"><label class="filter-label" for="movementFilter">Movement</label><select
+                    class="filter-select" id="movementFilter"></select></div>
+            <div class="filter-group"><label class="filter-label" for="gradeFilter">Investment Grade</label><select
+                    class="filter-select" id="gradeFilter"></select></div>
         </div>
         <div class="active-filters" id="activeFilters"></div>
     </div>
 
-    <!-- Collection Grid -->
     <div class="collection-container">
         <div class="collection-grid" id="watch-container">
-        <div class="loading">
-            <div class="spinner"></div>
-            <p>Loading luxury watches...</p>
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading Luxury Watches...</p>
             </div>
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('watch-container');
-    const IMAGE_CACHE = JSON.parse(localStorage.getItem('watchImageCache')) || {};
-    const CACHE_EXPIRY_DAYS = 7;
-    const BATCH_SIZE = 5;
-    const BATCH_DELAY = 500;
+    <div id="modal-container"></div>
 
-    // Filter functionality variables
-    let allWatches = [];
-    let filteredWatches = [];
-
-    loadWatchCollection();
-
-    async function loadWatchCollection() {
-        try {
-            showLoading();
-            allWatches = await loadWatchData();
-            
-            if (!allWatches || allWatches.length === 0) {
-                showError("No watches found in the collection");
-                return;
-            }
-
-            // Initialize filters
-            initializeFilters();
-            filteredWatches = [...allWatches];
-            await processWatchesInBatches(filteredWatches);
-            
-        } catch (error) {
-            console.error("Error loading watch collection:", error);
-            showError("Failed to load watch collection. Please try again.");
-        }
-    }
-
-    async function loadWatchData() {
-        try {
-            const response = await fetch('watches1.json');
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            const data = await response.json();
-            return Array.isArray(data) ? data : data.watches;
-        } catch (error) {
-            console.error("Error loading watch data:", error);
-            throw error;
-        }
-    }
-
-    async function processWatchesInBatches(watches) {
-        container.innerHTML = '';
-        
-        for (let i = 0; i < watches.length; i += BATCH_SIZE) {
-            const batch = watches.slice(i, i + BATCH_SIZE);
-            const batchCards = await Promise.all(batch.map(watch => createWatchCard(watch)));
-            batchCards.forEach(card => container.appendChild(card));
-            
-            if (i + BATCH_SIZE < watches.length) {
-                await new Promise(resolve => setTimeout(resolve, BATCH_DELAY));
-            }
-        }
-    }
-
-    function createWatchCard(watch) {
-        const card = document.createElement('div');
-        card.className = 'watch-card';
-        
-        const investmentGrade = watch.analytics?.investmentGrade || 'N/A';
-        const formattedGrade = investmentGrade.replace('+', '-plus');
-        
-        card.innerHTML = `
-            <div class="watch-image-container">
-                <div class="spinner" style="margin:0;"></div>
-            </div>
-            <div class="watch-details">
-                <div class="watch-brand">${escapeHtml(watch.brand) || 'Unknown Brand'}</div>
-                <div class="watch-model">${escapeHtml(watch.model) || 'Unknown Model'}</div>
-                <div class="watch-price">${formatPrice(watch.price, watch.currency)}</div>
-                <div class="watch-specs">
-                    <div class="spec-item">
-                        <div class="spec-label">Material</div>
-                        ${escapeHtml(watch.caseMaterial) || 'N/A'}
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Band</div>
-                        ${escapeHtml(watch.bandMaterial) || 'N/A'}
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Water Resistance</div>
-                        ${escapeHtml(watch.waterResistance) || 'N/A'}
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Size</div>
-                        ${escapeHtml(watch.caseSize) || 'N/A'}mm
-                    </div>
-                </div>
-                    <span class="investment-grade ${formattedGrade}">
-                        ${investmentGrade}
-                    </span>
-            </div>
-        `;
-
-        loadWatchImage(watch, card);
-        return card;
-    }
-
-    async function loadWatchImage(watch, cardElement) {
-        const imageContainer = cardElement.querySelector('.watch-image-container');
-        if (!imageContainer) return;
-
-        // Show loading spinner
-        imageContainer.innerHTML = '<div class="spinner"></div>';
-
-        try {
-            // Try to load image from multiple sources
-            const imageUrl = await getReliableImageUrl(watch);
-            updateCardImage(cardElement, imageUrl, watch);
-        } catch (error) {
-            console.error(`Error loading image for ${watch.brand} ${watch.model}:`, error);
-            updateCardImage(cardElement, getFallbackImage(watch), watch);
-        }
-    }
-
-    async function getReliableImageUrl(watch) {
-        // Create a consistent image URL based on the watch model
-        const modelSlug = watch.model
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '');
-
-        // List of possible image sources
-        const imageSources = [
-            // Direct image URL from the watch data
-            watch.image,
-            // Watchfinder images
-            `https://images.watchfinder.co.uk/${watch.brand.toLowerCase()}/${modelSlug}.jpg`,
-            // Alternative watch images
-            `https://www.chrono24.com/images/watch/${modelSlug}.jpg`,
-            // Stock photos
-            `https://images.unsplash.com/photo-${modelSlug}?auto=format&fit=crop&w=800&q=80`,
-            // Placeholder with watch details
-            getFallbackImage(watch)
-        ];
-
-        // Try each source until one works
-        for (const source of imageSources) {
-            if (!source) continue;
-            
-            try {
-                const isValid = await testImage(source);
-                if (isValid) {
-                    return source;
-                }
-        } catch (error) {
-                console.warn(`Failed to load image from ${source}:`, error);
-            }
-        }
-
-        // If all sources fail, return fallback
-        return getFallbackImage(watch);
-    }
-
-    async function testImage(url) {
-        return new Promise((resolve) => {
-            if (!url) {
-                resolve(false);
-                return;
-            }
-
-            const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false);
-            img.src = url;
-
-            // Add timeout
-            setTimeout(() => resolve(false), 5000);
-        });
-    }
-
-    function updateCardImage(cardElement, imageUrl, watch) {
-        const imageContainer = cardElement.querySelector('.watch-image-container');
-        if (!imageContainer) return;
-        
-        const img = new Image();
-        img.className = 'watch-image';
-        img.src = imageUrl;
-        img.alt = `${watch.brand} ${watch.model}`;
-        img.loading = 'lazy';
-        
-        img.onload = () => {
-            imageContainer.innerHTML = '';
-            imageContainer.appendChild(img);
-            img.style.opacity = '0';
-            requestAnimationFrame(() => {
-                img.style.opacity = '1';
-            });
-        };
-        
-        img.onerror = () => {
-            imageContainer.innerHTML = '';
-            const fallbackImg = new Image();
-            fallbackImg.src = getFallbackImage(watch);
-            fallbackImg.className = 'watch-image';
-            imageContainer.appendChild(fallbackImg);
-        };
-    }
-
-    function getFallbackImage(watch) {
-        const grade = watch.analytics?.investmentGrade || 'default';
-        const color = getGradeColor(grade);
-        
-        // Create a more visually appealing fallback image
-        return `https://placehold.co/800x600/1a1a1a/${color}/png?text=${encodeURIComponent(
-            `${watch.brand}\n${watch.model}`
-        )}&font=montserrat&fontsize=24`;
-    }
-
-    function getGradeColor(grade) {
-        const colors = {
-            'A+': '27ae60',
-            'S': '27ae60',
-            'S+': '27ae60',
-            'A': '27ae60',
-            'B+': 'f39c12',
-            'default': '3498db'
-        };
-        return colors[grade] || colors.default;
-    }
-
-    function escapeHtml(unsafe) {
-        if (!unsafe) return unsafe;
-        return unsafe.toString()
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-
-    function formatPrice(price, currency = 'USD') {
-        if (!price) return 'N/A';
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: currency || 'USD',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        }).format(price);
-    }
-
-    function showLoading() {
-        container.innerHTML = `
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Loading luxury watch collection...</p>
-            </div>
-        `;
-    }
-
-    function showError(message) {
-        container.innerHTML = `
-            <div class="error">
-                <p>${message}</p>
-                <button class="retry-btn" onclick="window.location.reload()">Retry</button>
-            </div>
-        `;
-    }
-
-    function initializeFilters() {
-        // Populate brand filter
-        const brands = [...new Set(allWatches.map(watch => watch.brand))].filter(Boolean).sort();
-        populateSelect('brandFilter', brands);
-
-        // Populate year filter
-        const years = [...new Set(allWatches.map(watch => watch.year))].filter(Boolean).sort((a, b) => b - a);
-        populateSelect('yearFilter', years);
-
-        // Populate movement filter with unique values from data
-        const movements = [...new Set(allWatches.map(watch => watch.movement))].filter(Boolean).sort();
-        populateSelect('movementFilter', movements);
-
-        // Populate investment grade filter with unique values from data
-        const grades = [...new Set(allWatches.map(watch => watch.analytics?.investmentGrade))].filter(Boolean).sort();
-        populateSelect('gradeFilter', grades);
-
-        // Set min/max values for numerical filters
-        const minPrice = Math.min(...allWatches.map(watch => watch.price));
-        const maxPrice = Math.max(...allWatches.map(watch => watch.price));
-        document.getElementById('minPrice').placeholder = `Min: $${minPrice.toLocaleString()}`;
-        document.getElementById('maxPrice').placeholder = `Max: $${maxPrice.toLocaleString()}`;
-
-        // Add event listeners
-        const filterInputs = document.querySelectorAll('.filter-select, .filter-input');
-        filterInputs.forEach(input => {
-            input.addEventListener('change', applyFilters);
-            input.addEventListener('input', applyFilters);
-        });
-    }
-
-    function populateSelect(elementId, options) {
-        const select = document.getElementById(elementId);
-        select.innerHTML = '<option value="">All Options</option>';
-        options.forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.value = option;
-            optionElement.textContent = option;
-            select.appendChild(optionElement);
-        });
-    }
-
-    function applyFilters() {
-        const filters = {
-            brand: document.getElementById('brandFilter').value,
-            minPrice: document.getElementById('minPrice').value,
-            maxPrice: document.getElementById('maxPrice').value,
-            year: document.getElementById('yearFilter').value,
-            movement: document.getElementById('movementFilter').value,
-            grade: document.getElementById('gradeFilter').value
-        };
-
-        filteredWatches = allWatches.filter(watch => {
-            return (
-                (!filters.brand || watch.brand === filters.brand) &&
-                (!filters.minPrice || watch.price >= Number(filters.minPrice)) &&
-                (!filters.maxPrice || watch.price <= Number(filters.maxPrice)) &&
-                (!filters.year || watch.year === Number(filters.year)) &&
-                (!filters.movement || watch.movement === filters.movement) &&
-                (!filters.grade || watch.analytics?.investmentGrade === filters.grade)
-            );
-        });
-
-        updateActiveFilters(filters);
-        processWatchesInBatches(filteredWatches);
-    }
-
-    function updateActiveFilters(filters) {
-        const activeFilters = document.getElementById('activeFilters');
-        activeFilters.innerHTML = '';
-
-        Object.entries(filters).forEach(([key, value]) => {
-            if (value) {
-                let label = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
-                let displayValue = value;
-
-                // Format values based on filter type
-                if (key === 'minPrice' || key === 'maxPrice') {
-                    displayValue = `$${Number(value).toLocaleString()}`;
-                } else if (key === 'minCaseSize' || key === 'maxCaseSize') {
-                    displayValue = `${value}mm`;
-                } else if (key === 'minRating' || key === 'maxRating') {
-                    displayValue = `${value}★`;
-                } else if (key === 'minPopularity' || key === 'maxPopularity') {
-                    displayValue = `${value}%`;
-                }
-
-                addActiveFilter(label, displayValue, () => {
-                    document.getElementById(key + 'Filter').value = '';
-                    if (key.startsWith('min') || key.startsWith('max')) {
-                        document.getElementById(key).value = '';
-                    }
-                    applyFilters();
-                });
-            }
-        });
-    }
-
-    function addActiveFilter(label, value, removeCallback) {
-        const activeFilters = document.getElementById('activeFilters');
-        const filter = document.createElement('div');
-        filter.className = 'active-filter';
-        filter.innerHTML = `
-            ${label}: ${value}
-            <i class="fas fa-times"></i>
-        `;
-        filter.addEventListener('click', removeCallback);
-        activeFilters.appendChild(filter);
-    }
-
-    function resetFilters() {
-        const filterInputs = document.querySelectorAll('.filter-select, .filter-input');
-        filterInputs.forEach(input => {
-            input.value = '';
-        });
-        filteredWatches = [...allWatches];
-        updateActiveFilters({});
-        processWatchesInBatches(filteredWatches);
-    }
-
-    // Filter toggle button logic
-    const toggleBtn = document.getElementById('toggleFiltersBtn');
-    const filtersSection = document.getElementById('filtersSection');
-    toggleBtn.addEventListener('click', function() {
-        if (filtersSection.style.display === 'none') {
-            filtersSection.style.display = 'block';
-        } else {
-            filtersSection.style.display = 'none';
-        }
-    });
-
-    // Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const sideMenu = document.getElementById('sideMenu');
-    const menuClose = document.getElementById('menuClose');
-    const navbar = document.getElementById('navbar');
-    const logo = document.querySelector('.logo');
-
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        sideMenu.classList.toggle('active');
-        logo.classList.toggle('hidden');
-        document.body.style.overflow = sideMenu.classList.contains('active') ? 'hidden' : '';
-    });
-
-    menuClose.addEventListener('click', function() {
-        menuToggle.classList.remove('active');
-        sideMenu.classList.remove('active');
-        logo.classList.remove('hidden');
-        document.body.style.overflow = '';
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            sideMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    window.loadWatchCollection = loadWatchCollection;
-    window.resetFilters = resetFilters;
-});
-</script>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="menu.js"></script>
-    <script src="collection.js"></script>
-
-    <!-- Enhanced Footer -->
-    <footer class="enhanced-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>BILLIONAIRE HIVE</h3>
-                <p>Exclusive Timepiece Collection</p>
-                <p>By Appointment Only</p>
-                <div class="location-list">
-                    <span>Geneva</span>
-                    <span>Dubai</span>
-                    <span>Hong Kong</span>
-                    <span>New York</span>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <p>+41 22 555 5555</p>
-                <p>concierge@billionairehive.com</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3>NAVIGATION</h3>
-                <ul class="footer-links">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="collection.html">Collection</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>NEWSLETTER</h3>
-                <p>Subscribe to receive updates on new arrivals and exclusive events</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Billionaire Hive. All rights reserved.</p>
-            <div class="footer-legal">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
+    <script src="collection.js">
+       
+    </script>
 </body>
+
 </html>
