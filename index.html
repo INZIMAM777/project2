@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billionaire Hive | Exclusive Timepieces</title>
+    <meta name="description" content="Exclusive collection of the world's most prestigious timepieces for discerning collectors">
+    <meta name="keywords" content="luxury watches, Richard Mille, Patek Philippe, watch collection, billionaire timepieces">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div class="loader" id="loader">
+        <div class="loader-logo">BILLIONAIRE <span>HIVE</span></div>
+        <div class="loader-spinner"></div>
+        <div class="loading-progress">LOADING EXCLUSIVE COLLECTION</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo">BILLIONAIRE <span>HIVE</span></a>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <ul class="menu-items">
+            <li><a href="index.html" data-text="Home">Home</a></li>
+            <li><a href="about.html" data-text="About">About</a></li>
+            <li><a href="collection.html" data-text="Collection">Collection</a></li>
+            <li><a href="gallery.html" data-text="Gallery">Gallery</a></li>
+            <li><a href="contact.html" data-text="Contact">Contact</a></li>
+        </ul>
+        
+        <div class="menu-footer">
+            <div class="menu-contact">
+                <strong>BILLIONAIRE HIVE</strong>
+                Exclusive Timepiece Collection<br>
+                By Appointment Only<br>
+                Geneva • Dubai • Hong Kong • New York
+            </div>
+            <div class="menu-contact">
+                <strong>CONTACT</strong>
+                +41 22 555 5555<br>
+                concierge@billionairehive.com
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smooth scroll container -->
+    <div class="scroll-container" id="scroll-container">
+        <!-- Slide 1 - Richard Mille -->
+        <div class="video-slide" id="slide1">
+            <video class="slide-video" autoplay muted loop playsinline>
+                <source src="richard1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="text-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title"><span>Timeless</span> <span>Masterpieces</span></h1>
+                <div class="brand-subtitle">Crafting perfection for the elite</div>
+                <a href="collection.html" class="hero-cta">Explore Collection</a>
+            </div>
+            <div class="watch-counter">
+                <span class="counter-current">01</span>
+                <span class="counter-separator">/</span>
+                <span class="counter-total">03</span>
+            </div>
+        </div>
+
+        <!-- Slide 2 - Patek Philippe -->
+        <div class="video-slide" id="slide2">
+            <video class="slide-video" autoplay muted loop playsinline>
+                <source src="patek1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="text-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title"><span>Precision</span> <span>Engineering</span></h1>
+                <div class="brand-subtitle">Where innovation meets tradition</div>
+                <a href="collection.html" class="hero-cta">Discover Craftsmanship</a>
+            </div>
+            <div class="watch-counter">
+                <span class="counter-current">02</span>
+                <span class="counter-separator">/</span>
+                <span class="counter-total">03</span>
+            </div>
+        </div>
+
+        <!-- Slide 3 - Patek Philippe 2 -->
+        <div class="video-slide" id="slide3">
+            <video class="slide-video" autoplay muted loop playsinline>
+                <source src="patek2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="text-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title"><span>Luxury</span> <span>Redefined</span></h1>
+                <div class="brand-subtitle">For those who demand excellence</div>
+                <a href="collection.html" class="hero-cta">View Collection</a>
+            </div>
+            <div class="watch-counter">
+                <span class="counter-current">03</span>
+                <span class="counter-separator">/</span>
+                <span class="counter-total">03</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">Scroll to explore</div>
+
+    <!-- Navigation dots -->
+    <div class="nav-dots" id="navDots">
+        <div class="nav-dot active" data-target="slide1" aria-label="Go to Timeless Masterpieces section">
+            <span class="dot-label">Timeless Masterpieces</span>
+        </div>
+        <div class="nav-dot" data-target="slide2" aria-label="Go to Precision Engineering section">
+            <span class="dot-label">Precision Engineering</span>
+        </div>
+        <div class="nav-dot" data-target="slide3" aria-label="Go to Luxury Redefined section">
+            <span class="dot-label">Luxury Redefined</span>
+        </div>
+    </div>
+
+    <!-- Featured Watches Section -->
+    <section class="featured-watches" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Featured Timepieces</h2>
+            <p>Discover our most exclusive and sought-after watches</p>
+        </div>
+        <div class="watches-grid">
+            <div class="watch-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="watch-image">
+                    <img src="RM 056 Sapphire Tourbillon.jpg" alt="RM 056 Sapphire Tourbillon">
+                </div>
+                <div class="watch-info">
+                    <h3>RM 056 Sapphire Tourbillon</h3>
+                    <p>Richard Mille</p>
+                    <a href="collection.html#rm056" class="watch-link">View Details</a>
+                </div>
+            </div>
+            <div class="watch-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="watch-image">
+                    <img src="Grand Complications 5208P.jpg" alt="Grand Complications 5208P">
+                </div>
+                <div class="watch-info">
+                    <h3>Grand Complications 5208P</h3>
+                    <p>Patek Philippe</p>
+                    <a href="collection.html#5208p" class="watch-link">View Details</a>
+                </div>
+            </div>
+            <div class="watch-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="watch-image">
+                    <img src="Royal Oak Concept Flying Tourbillon.jpg" alt="Royal Oak Concept Flying Tourbillon">
+                </div>
+                <div class="watch-info">
+                    <h3>Royal Oak Concept Flying Tourbillon</h3>
+                    <p>Audemars Piguet</p>
+                    <a href="collection.html#roconcept" class="watch-link">View Details</a>
+                </div>
+            </div>
+    </div>
+    </section>
+
+    <!-- Latest Arrivals Section -->
+    <section class="latest-arrivals" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Latest Arrivals</h2>
+            <p>Be the first to explore our newest acquisitions</p>
+        </div>
+        <div class="arrivals-slider">
+            <div class="arrival-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="arrival-image">
+                    <img src="Daytona 116500LN (Ceramic).jpg" alt="Daytona 116500LN">
+                    <div class="arrival-overlay">
+                        <span class="arrival-tag">New</span>
+                    </div>
+                </div>
+                <div class="arrival-info">
+                    <h3>Daytona 116500LN</h3>
+                    <p>Rolex</p>
+                </div>
+            </div>
+            <div class="arrival-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="arrival-image">
+                    <img src="Nautilus Travel Time Chronograph.webp" alt="Nautilus Travel Time">
+                    <div class="arrival-overlay">
+                        <span class="arrival-tag">New</span>
+                    </div>
+                </div>
+                <div class="arrival-info">
+                    <h3>Nautilus Travel Time</h3>
+                    <p>Patek Philippe</p>
+                </div>
+            </div>
+            <div class="arrival-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="arrival-image">
+                    <img src="Code 11.59 Selfwinding.jpg" alt="Code 11.59">
+                    <div class="arrival-overlay">
+                        <span class="arrival-tag">New</span>
+                    </div>
+                </div>
+                <div class="arrival-info">
+                    <h3>Code 11.59</h3>
+                    <p>Audemars Piguet</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Showcase Section -->
+    <section class="brand-showcase" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Exclusive Brands</h2>
+            <p>Curated selection of the world's most prestigious watchmakers</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="brand-image">
+                    <img src="jacob1.avif" alt="Richard Mille">
+                </div>
+                <div class="brand-info">
+                    <h3>Richard Mille</h3>
+                    <p>Innovation in horology</p>
+                </div>
+            </div>
+            <div class="brand-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="brand-image">
+                    <img src="P-richard1.jpg" alt="Patek Philippe">
+                </div>
+                <div class="brand-info">
+                    <h3>Patek Philippe</h3>
+                    <p>Tradition of excellence</p>
+                </div>
+            </div>
+            <div class="brand-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="brand-image">
+                    <img src="p-richard2.jpg" alt="Audemars Piguet">
+                </div>
+                <div class="brand-info">
+                    <h3>Audemars Piguet</h3>
+                    <p>Art of watchmaking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>What our distinguished clients say about us</p>
+        </div>
+        <div class="testimonials-slider">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-content">
+                    <p>"Billionaire Hive has an unparalleled collection of timepieces. Their attention to detail and service is exceptional."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>James Wilson</h4>
+                    <p>Private Collector</p>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-content">
+                    <p>"The expertise and knowledge of their team is remarkable. They helped me find the perfect addition to my collection."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Sarah Chen</h4>
+                    <p>Watch Enthusiast</p>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-content">
+                    <p>"An extraordinary experience from start to finish. Their private viewing appointments are truly special."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Michael Rodriguez</h4>
+                    <p>Luxury Investor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" data-aos="fade-up">
+        <div class="newsletter-content">
+            <h2>Join Our Exclusive Circle</h2>
+            <p>Subscribe to receive updates on new arrivals, private events, and exclusive offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BILLIONAIRE HIVE</h3>
+                <p>Exclusive Timepiece Collection</p>
+                <p>By Appointment Only</p>
+                <div class="location-list">
+                    <span>Geneva</span>
+                    <span>Dubai</span>
+                    <span>Hong Kong</span>
+                    <span>New York</span>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <p>+41 22 555 5555</p>
+                <p>concierge@billionairehive.com</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>NAVIGATION</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="collection.html">Collection</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe to receive updates on new arrivals and exclusive events</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Billionaire Hive. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                z<a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>

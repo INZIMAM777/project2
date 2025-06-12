@@ -1,0 +1,2153 @@
+{
+  
+  "watches": [
+    {
+      "id": "RM-001",
+      "brand": "Richard Mille",
+      "model": "RM 011 Felipe Massa",
+      "price": 185000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.8,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "RM 011 Felipe Massa.jpg",
+      "analytics": {
+        "popularity": 94,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+12% YoY)",
+        "investmentGrade": "A+"
+      }
+    },
+    {
+      "id": "RM-002",
+      "brand": "Richard Mille",
+      "model": "RM 035 Rafael Nadal",
+      "price": 250000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.9,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT & Quartz",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "RM 035 Rafael Nadal.jpg",
+      "analytics": {
+        "popularity": 96,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+18% YoY)",
+        "investmentGrade": "S"
+      }
+    },
+    {
+      "id": "RM-003",
+      "brand": "Richard Mille",
+      "model": "RM 027 Nadal Tourbillon",
+      "price": 750000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.9,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Titanium",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "RM 027 Nadal Tourbillon.jpg",
+      "analytics": {
+        "popularity": 95,
+        "marketDemand": "Extreme",
+        "priceTrend": "Rising (+22% YoY)",
+        "investmentGrade": "S+"
+      }
+    },
+    {
+      "id": "RM-004",
+      "brand": "Richard Mille",
+      "model": "RM 056 Sapphire Tourbillon",
+      "price": 2000000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 5,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Sapphire Crystal",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 43,
+      "image": "RM 056 Sapphire Tourbillon.jpg",
+      "analytics": {
+        "popularity": 98,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Stable (Limited Edition)",
+        "investmentGrade": "S+"
+      }
+    },
+    {
+      "id": "RM-005",
+      "brand": "Richard Mille",
+      "model": "RM 67-02 Charles Leclerc",
+      "price": 320000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.7,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Textile",
+      "waterResistance": "50m",
+      "caseSize": 38,
+      "image": "RM 67-02 Charles Leclerc.jpg",
+      "analytics": {
+        "popularity": 93,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+15% YoY)",
+        "investmentGrade": "A+"
+      }
+    },
+    {
+      "id": "RM-006",
+      "brand": "Richard Mille",
+      "model": "RM 50-03 McLaren F1 Tourbillon",
+      "price": 1200000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.8,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Titanium",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 44,
+      "image": "https://images.watchfinder.co.uk/richard-mille/rm-50-03-mclaren-f1.jpg",
+      "analytics": {
+        "popularity": 92,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Stable (Limited Edition)",
+        "investmentGrade": "S"
+      }
+    },
+    {
+      "id": "RM-007",
+      "brand": "Richard Mille",
+      "model": "RM 65-01 Split-Seconds Chronograph",
+      "price": 450000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.9,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 44,
+      "image": "https://images.watchfinder.co.uk/richard-mille/rm-65-01-split-seconds.jpg",
+      "analytics": {
+        "popularity": 97,
+        "marketDemand": "Extreme",
+        "priceTrend": "Rising (+20% YoY)",
+        "investmentGrade": "S"
+      }
+    },
+    {
+      "id": "RM-008",
+      "brand": "Richard Mille",
+      "model": "RM 055 Bubba Watson",
+      "price": 380000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.6,
+      "movement": "Automatic",
+      "caseMaterial": "Quartz TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "https://images.watchfinder.co.uk/richard-mille/rm-055-bubba-watson.jpg",
+      "analytics": {
+        "popularity": 89,
+        "marketDemand": "High",
+        "priceTrend": "Rising (+10% YoY)",
+        "investmentGrade": "A"
+      }
+    },
+    {
+      "id": "RM-009",
+      "brand": "Richard Mille",
+      "model": "RM 21-02 Tourbillon Aerodyne",
+      "price": 950000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.7,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Gold",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 46,
+      "image": "https://via.placeholder.com/300x200?text=RM+21-02+Tourbillon+Aerodyne",
+      "analytics": {
+        "popularity": 91,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Stable (Limited Edition)",
+        "investmentGrade": "S"
+      }
+    },
+    {
+      "id": "RM-010",
+      "brand": "Richard Mille",
+      "model": "RM 72-01 Lifestyle Chronograph",
+      "price": 280000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.5,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 38,
+      "image": "https://images.watchfinder.co.uk/richard-mille/rm-72-01-lifestyle-chronograph.jpg",
+      "analytics": {
+        "popularity": 88,
+        "marketDemand": "High",
+        "priceTrend": "Rising (+8% YoY)",
+        "investmentGrade": "A"
+      }
+    },
+    {
+      "id": "RM-011",
+      "brand": "Richard Mille",
+      "model": "RM 07-01 Ladies Automatic",
+      "price": 220000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.4,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT & Ceramic",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 36,
+      "image": "https://images.watchfinder.co.uk/richard-mille/rm-07-01-ladies-automatic.jpg",
+      "analytics": {
+        "popularity": 85,
+        "marketDemand": "Medium",
+        "priceTrend": "Stable (+5% YoY)",
+        "investmentGrade": "B+"
+      }
+    },
+    {
+      "id": "RM-012",
+      "brand": "Richard Mille",
+      "model": "RM 52-05 Pharrell Williams",
+      "price": 650000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.8,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Gold",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 42,
+      "image": "https://via.placeholder.com/300x200?text=RM+52-05+Pharrell+Williams",
+      "analytics": {
+        "popularity": 93,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+15% YoY)",
+        "investmentGrade": "A+"
+      }
+    },
+    {
+      "id": "RM-013",
+      "brand": "Richard Mille",
+      "model": "RM 63-02 World Timer",
+      "price": 290000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.6,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "https://via.placeholder.com/300x200?text=RM+63-02+World+Timer",
+      "analytics": {
+        "popularity": 90,
+        "marketDemand": "High",
+        "priceTrend": "Rising (+12% YoY)",
+        "investmentGrade": "A"
+      }
+    },
+    {
+      "id": "RM-014",
+      "brand": "Richard Mille",
+      "model": "RM 62-01 ACJ Tourbillon",
+      "price": 1100000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.9,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Titanium & Ceramic",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 44,
+      "image": "https://via.placeholder.com/300x200?text=RM+62-01+ACJ+Tourbillon",
+      "analytics": {
+        "popularity": 96,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Stable (Limited Edition)",
+        "investmentGrade": "S+"
+      }
+    },
+    {
+      "id": "RM-015",
+      "brand": "Richard Mille",
+      "model": "RM 53-01 Pablo Mac Donough",
+      "price": 850000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.7,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Sapphire",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 42,
+      "image": "https://via.placeholder.com/300x200?text=RM+53-01+Pablo+Mac+Donough",
+      "analytics": {
+        "popularity": 94,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+18% YoY)",
+        "investmentGrade": "S"
+      }
+    },
+    {
+      "id": "RM-016",
+      "brand": "Richard Mille",
+      "model": "RM 61-01 Yohan Blake",
+      "price": 320000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.5,
+      "movement": "Automatic",
+      "caseMaterial": "Carbon TPT",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "https://via.placeholder.com/300x200?text=RM+61-01+Yohan+Blake",
+      "analytics": {
+        "popularity": 87,
+        "marketDemand": "High",
+        "priceTrend": "Rising (+10% YoY)",
+        "investmentGrade": "A"
+      }
+    },
+    {
+      "id": "RM-017",
+      "brand": "Richard Mille",
+      "model": "RM 70-01 Alain Prost",
+      "price": 480000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.8,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Titanium",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 44,
+      "image": "https://via.placeholder.com/300x200?text=RM+70-01+Alain+Prost",
+      "analytics": {
+        "popularity": 95,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+20% YoY)",
+        "investmentGrade": "A+"
+      }
+    },
+    {
+      "id": "RM-018",
+      "brand": "Richard Mille",
+      "model": "RM 40-01 Bubba Watson Tourbillon",
+      "price": 680000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.7,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Quartz",
+      "bandMaterial": "Rubber",
+      "waterResistance": "50m",
+      "caseSize": 42,
+      "image": "https://via.placeholder.com/300x200?text=RM+40-01+Bubba+Watson+Tourbillon",
+      "analytics": {
+        "popularity": 92,
+        "marketDemand": "Very High",
+        "priceTrend": "Rising (+15% YoY)",
+        "investmentGrade": "A+"
+      }
+    },
+    {
+      "id": "RM-019",
+      "brand": "Richard Mille",
+      "model": "RM 25-01 Adventure Sylvester Stallone",
+      "price": 950000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.9,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "Carbon TPT & Titanium",
+      "bandMaterial": "Rubber",
+      "waterResistance": "100m",
+      "caseSize": 46,
+      "image": "https://via.placeholder.com/300x200?text=RM+25-01+Adventure+Sylvester+Stallone",
+      "analytics": {
+        "popularity": 97,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Stable (Limited Edition)",
+        "investmentGrade": "S+"
+      }
+    },
+    {
+      "id": "RM-020",
+      "brand": "Richard Mille",
+      "model": "RM 88 Smiley Tourbillon",
+      "price": 880000,
+      "currency": "USD",
+      "year": 2023,
+      "rating": 4.8,
+      "movement": "Manual Winding Tourbillon",
+      "caseMaterial": "White Gold & Titanium",
+      "bandMaterial": "Rubber",
+      "waterResistance": "30m",
+      "caseSize": 43,
+      "image": "https://via.placeholder.com/300x200?text=RM+88+Smiley+Tourbillon",
+      "analytics": {
+        "popularity": 96,
+        "marketDemand": "Ultra High",
+        "priceTrend": "Rising (+25% YoY)",
+        "investmentGrade": "S+"
+      }
+    }
+  ,
+
+
+
+
+
+
+
+
+    
+
+
+  {
+    "id": "PP-001",
+    "brand": "Patek Philippe",
+    "model": "Nautilus 5711/1A (Stainless Steel)",
+    "price": 120000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "120m",
+    "caseSize": 40,
+    "image": "https://www.patek.com/en/collection/nautilus/5711-1A-010",
+    "analytics": {
+      "popularity": 99,
+      "marketDemand": "Extreme",
+      "priceTrend": "Rising (+25% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "PP-002",
+    "brand": "Patek Philippe",
+    "model": "Aquanaut 5167A",
+    "price": 45000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Composite",
+    "waterResistance": "120m",
+    "caseSize": 40,
+    "image": "https://www.patek.com/en/collection/aquanaut/5167A-001",
+    "analytics": {
+      "popularity": 92,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+8% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "PP-003",
+    "brand": "Patek Philippe",
+    "model": "Grand Complications 5208P",
+    "price": 1250000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 5.0,
+    "movement": "Manual",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 42,
+    "image": "https://www.patek.com/en/collection/grand-complications/5208P-001",
+    "analytics": {
+      "popularity": 98,
+      "marketDemand": "Elite",
+      "priceTrend": "Stable",
+      "investmentGrade": "S+"
+    }
+  },
+  {
+    "id": "PP-004",
+    "brand": "Patek Philippe",
+    "model": "Calatrava 5227J",
+    "price": 37000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Yellow Gold",
+    "bandMaterial": "Leather",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/calatrava/5227J-001",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "High",
+      "priceTrend": "Steady",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "PP-005",
+    "brand": "Patek Philippe",
+    "model": "Nautilus Travel Time Chronograph 5990/1A",
+    "price": 98000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "120m",
+    "caseSize": 40.5,
+    "image": "https://www.patek.com/en/collection/nautilus/5990-1A-001",
+    "analytics": {
+      "popularity": 94,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+18% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "PP-006",
+    "brand": "Patek Philippe",
+    "model": "Aquanaut Chronograph 5968A",
+    "price": 71000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Rubber",
+    "waterResistance": "120m",
+    "caseSize": 42.2,
+    "image": "https://www.patek.com/en/collection/aquanaut/5968A-001",
+    "analytics": {
+      "popularity": 90,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+10% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "PP-007",
+    "brand": "Patek Philippe",
+    "model": "Perpetual Calendar 5327J",
+    "price": 95000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Yellow Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/grand-complications/5327J-001",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "Strong",
+      "priceTrend": "Stable",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "PP-008",
+    "brand": "Patek Philippe",
+    "model": "Complications Annual Calendar Chronograph 5905P",
+    "price": 92000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Leather",
+    "waterResistance": "30m",
+    "caseSize": 42,
+    "image": "https://www.patek.com/en/collection/complications/5905P-001",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "Strong",
+      "priceTrend": "Rising (+6% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "PP-009",
+    "brand": "Patek Philippe",
+    "model": "Calatrava Pilot Travel Time 5524R",
+    "price": 57000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Rose Gold",
+    "bandMaterial": "Calfskin",
+    "waterResistance": "60m",
+    "caseSize": 42,
+    "image": "https://www.patek.com/en/collection/complications/5524R-001",
+    "analytics": {
+      "popularity": 83,
+      "marketDemand": "Moderate",
+      "priceTrend": "Steady",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "PP-010",
+    "brand": "Patek Philippe",
+    "model": "Golden Ellipse 5738R",
+    "price": 34000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.4,
+    "movement": "Automatic",
+    "caseMaterial": "Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 34.5,
+    "image": "https://www.patek.com/en/collection/golden-ellipse/5738R-001",
+    "analytics": {
+      "popularity": 77,
+      "marketDemand": "Niche",
+      "priceTrend": "Stable",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "PP-011",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5311R",
+    "price": 319761,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "18K Gold",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.patek.com/en/collection/grand-complications/5304-301R-001",
+    "analytics": {
+      "views": 13838,
+      "likes": 1213,
+      "saves": 223,
+      "purchaseInterest": 102
+    }
+  },
+  {
+    "id": "PP-012",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5312R",
+    "price": 361306,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/grand-complications/5271-12P-010",
+    "analytics": {
+      "views": 10931,
+      "likes": 1635,
+      "saves": 206,
+      "purchaseInterest": 86
+    }
+  },
+  {
+    "id": "PP-013",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5313R",
+    "price": 211957,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.patek.com/en/collection/grand-complications/5303R-001",
+    "analytics": {
+      "views": 10423,
+      "likes": 1553,
+      "saves": 275,
+      "purchaseInterest": 58
+    }
+  },
+  {
+    "id": "PP-014",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5314R",
+    "price": 327641,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "18K Gold",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/grand-complications/all-watches",
+    "analytics": {
+      "views": 13010,
+      "likes": 1982,
+      "saves": 259,
+      "purchaseInterest": 100
+    }
+  },
+  {
+    "id": "PP-015",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5315R",
+    "price": 187424,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "18K Gold",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/grand-complications/5327R-001",
+    "analytics": {
+      "views": 11857,
+      "likes": 1517,
+      "saves": 239,
+      "purchaseInterest": 91
+    }
+  },
+  {
+    "id": "PP-016",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5316R",
+    "price": 177538,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 39,
+    "image": "https://www.patek.com/en/collection/grand-complications/5316-50P-001",
+    "analytics": {
+      "views": 13400,
+      "likes": 1553,
+      "saves": 234,
+      "purchaseInterest": 93
+    }
+  },
+  {
+    "id": "PP-017",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5317R",
+    "price": 251722,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 40,
+    "image": "https://www.patek.com/en/collection/grand-complications/6300GR-001",
+    "analytics": {
+      "views": 14129,
+      "likes": 1223,
+      "saves": 255,
+      "purchaseInterest": 62
+    }
+  },
+  {
+    "id": "PP-018",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5318R",
+    "price": 149789,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 40,
+    "image": "https://www.patek.com/en/collection/grand-complications/all-watches",
+    "analytics": {
+      "views": 10495,
+      "likes": 1926,
+      "saves": 282,
+      "purchaseInterest": 83
+    }
+  },
+  {
+    "id": "PP-019",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5319R",
+    "price": 240828,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "18K Gold",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.patek.com/en/collection/grand-complications/5270P-014",
+    "analytics": {
+      "views": 14272,
+      "likes": 1291,
+      "saves": 250,
+      "purchaseInterest": 80
+    }
+  },
+  {
+    "id": "PP-020",
+    "brand": "Patek Philippe",
+    "model": "Grand Complication 5320R",
+    "price": 308604,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "18K Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.patek.com/en/collection/grand-complications/5320G-011",
+    "analytics": {
+      "views": 10815,
+      "likes": 1866,
+      "saves": 295,
+      "purchaseInterest": 102
+    }
+  },
+
+
+
+
+
+
+  
+  {
+    "id": "AP-001",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Jumbo 15202",
+    "price": 85000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "50m",
+    "caseSize": 39,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15202PT.OO.1240PT.01.html",
+    "analytics": {
+      "popularity": 95,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+15% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "AP-002",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore 26420",
+    "price": 55000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 43,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26420CE.OO.A043VE.01.html",
+    "analytics": {
+      "popularity": 88,
+      "marketDemand": "High",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-003",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Selfwinding Chronograph",
+    "price": 68000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Rose Gold",
+    "bandMaterial": "Leather",
+    "waterResistance": "50m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/26315ST.OO.1256ST.01.html",
+    "analytics": {
+      "popularity": 90,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+10% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-004",
+    "brand": "Audemars Piguet",
+    "model": "Code 11.59 Selfwinding",
+    "price": 32000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.3,
+    "movement": "Automatic",
+    "caseMaterial": "White Gold",
+    "bandMaterial": "Leather",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/code-1159/26398BC.OO.D002CR.04.html",
+    "analytics": {
+      "popularity": 75,
+      "marketDemand": "Moderate",
+      "priceTrend": "Stable",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "AP-005",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Concept Flying Tourbillon",
+    "price": 180000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Titanium",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 44,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-concept/26630OR.GG.D626CR.01.html",
+    "analytics": {
+      "popularity": 97,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+20% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "AP-006",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Chronograph Blue Dial",
+    "price": 72000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "50m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/26331ST.OO.1220ST.01.html",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+8% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-007",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Perpetual Calendar",
+    "price": 135000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Platinum",
+    "waterResistance": "20m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/26585CE.OO.1225CE.01.html",
+    "analytics": {
+      "popularity": 93,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+12% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "AP-008",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore Diver",
+    "price": 46000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Ceramic",
+    "bandMaterial": "Rubber",
+    "waterResistance": "300m",
+    "caseSize": 42,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/15720ST.OO.A009CA.01.html",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "High",
+      "priceTrend": "Stable",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-009",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Frosted Gold",
+    "price": 95000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Frosted Gold",
+    "bandMaterial": "Frosted Gold",
+    "waterResistance": "50m",
+    "caseSize": 37,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15550BA.GG.1356BA.01.html",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+6% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-010",
+    "brand": "Audemars Piguet",
+    "model": "Code 11.59 Chronograph",
+    "price": 40000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.4,
+    "movement": "Automatic",
+    "caseMaterial": "Pink Gold",
+    "bandMaterial": "Leather",
+    "waterResistance": "30m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/code-1159/26393BC.OO.A068CR.01.html",
+    "analytics": {
+      "popularity": 78,
+      "marketDemand": "Moderate",
+      "priceTrend": "Stable",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "AP-011",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Quartz Ladies",
+    "price": 32000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.3,
+    "movement": "Quartz",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "50m",
+    "caseSize": 33,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/67651OR.ZZ.1261OR.01.html",
+    "analytics": {
+      "popularity": 82,
+      "marketDemand": "Moderate",
+      "priceTrend": "Stable",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "AP-012",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore Chrono Camouflage",
+    "price": 60000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Ceramic",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 44,
+    "image": "https://www.chrono24.in/audemarspiguet/audemars-piguet-royal-oak-offshore-chronographs-camouflage--id40213206.htm",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+5% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-013",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Tourbillon Extra-Thin",
+    "price": 210000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Platinum",
+    "waterResistance": "20m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/26522CE.OO.1225CE.01.html",
+    "analytics": {
+      "popularity": 95,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+18% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "AP-014",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore Music Edition",
+    "price": 58000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.4,
+    "movement": "Automatic",
+    "caseMaterial": "Titanium",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 43,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/15600TI.OO.A343CA.01.html",
+    "analytics": {
+      "popularity": 83,
+      "marketDemand": "High",
+      "priceTrend": "Stable",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "AP-015",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore Chrono 44mm",
+    "price": 63000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 44,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/26405CE.OO.A002CA.01.A.html",
+    "analytics": {
+      "popularity": 86,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+4% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-016",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Concept Black Panther",
+    "price": 170000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual",
+    "caseMaterial": "Titanium",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 42,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-concept/26623BC.GG.D077CA.01.html",
+    "analytics": {
+      "popularity": 98,
+      "marketDemand": "Extremely High",
+      "priceTrend": "Rising (+22% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "AP-017",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Double Balance Wheel",
+    "price": 82000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Rose Gold",
+    "bandMaterial": "Rose Gold",
+    "waterResistance": "50m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/15412BC.SS.1220BC.02.html",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+7% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-018",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Offshore Navy",
+    "price": 59000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 44,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak-offshore/15710ST.OO.A027CA.01.html",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "High",
+      "priceTrend": "Stable",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-019",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Lady Diamond Bezel",
+    "price": 78000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "White Gold",
+    "bandMaterial": "White Gold",
+    "waterResistance": "50m",
+    "caseSize": 34,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/67651ST.ZZ.1261ST.01.html",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+6% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "AP-020",
+    "brand": "Audemars Piguet",
+    "model": "Royal Oak Chronograph Green Dial",
+    "price": 70000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Stainless Steel",
+    "waterResistance": "50m",
+    "caseSize": 41,
+    "image": "https://www.audemarspiguet.com/com/en/watch-collection/royal-oak/26240ST.OO.1320ST.04.html",
+    "analytics": {
+      "popularity": 88,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+5% YoY)",
+      "investmentGrade": "A"
+    }
+  }
+,
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    
+  {
+    "id": "RLX-001",
+    "brand": "Rolex",
+    "model": "Daytona 116500LN (Ceramic)",
+    "price": 35000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/cosmograph-daytona/m116500ln-0001.html",
+    "analytics": {
+      "popularity": 98,
+      "marketDemand": "Extreme",
+      "priceTrend": "Rising (+20% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "RLX-002",
+    "brand": "Rolex",
+    "model": "Submariner 126610LN",
+    "price": 10500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "300m",
+    "caseSize": 41,
+    "image": "https://www.rolex.com/watches/submariner/m126610ln-0001.html",
+    "analytics": {
+      "popularity": 97,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+12% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "RLX-003",
+    "brand": "Rolex",
+    "model": "GMT-Master II 126710BLNR (Batman)",
+    "price": 12500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Jubilee",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/gmt-master-ii/m126710blnr-0002.html",
+    "analytics": {
+      "popularity": 96,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+15% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "RLX-004",
+    "brand": "Rolex",
+    "model": "Datejust 36 126234 (Blue Dial)",
+    "price": 8500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel/White Gold",
+    "bandMaterial": "Jubilee",
+    "waterResistance": "100m",
+    "caseSize": 36,
+    "image": "https://www.rolex.com/watches/datejust/m126234-0021.html",
+    "analytics": {
+      "popularity": 92,
+      "marketDemand": "High",
+      "priceTrend": "Stable (+5% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "RLX-005",
+    "brand": "Rolex",
+    "model": "Day-Date 40 228235 (Rose Gold)",
+    "price": 42000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Everose Gold",
+    "bandMaterial": "President",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/day-date/m228235-0001.html",
+    "analytics": {
+      "popularity": 90,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+8% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "RLX-006",
+    "brand": "Rolex",
+    "model": "Explorer II 226570 (White Dial)",
+    "price": 9500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 42,
+    "image": "https://www.rolex.com/watches/explorer/m226570-0001.html",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+10% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "RLX-007",
+    "brand": "Rolex",
+    "model": "Yacht-Master 42 226659",
+    "price": 14500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "White Gold",
+    "bandMaterial": "Oysterflex",
+    "waterResistance": "100m",
+    "caseSize": 42,
+    "image": "https://www.rolex.com/watches/yacht-master/m226659-0002.html",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "RLX-008",
+    "brand": "Rolex",
+    "model": "Air-King 126900",
+    "price": 7500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/air-king/m126900-0001.html",
+    "analytics": {
+      "popularity": 82,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+2% YoY)",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "RLX-009",
+    "brand": "Rolex",
+    "model": "Milgauss 116400GV (Z-Blue)",
+    "price": 8900,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/milgauss/m116400gv-0002.html",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+4% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "RLX-010",
+    "brand": "Rolex",
+    "model": "Sea-Dweller 126600",
+    "price": 13500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "1220m",
+    "caseSize": 43,
+    "image": "https://www.rolex.com/watches/sea-dweller/m126600-0001.html",
+    "analytics": {
+      "popularity": 86,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+9% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "RLX-011",
+    "brand": "Rolex",
+    "model": "Sky-Dweller 326934 (Blue Dial)",
+    "price": 15500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel/White Gold",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 42,
+    "image": "https://www.rolex.com/watches/sky-dweller/m326934-0003.html",
+    "analytics": {
+      "popularity": 91,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+14% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "RLX-012",
+    "brand": "Rolex",
+    "model": "GMT-Master II 126715CHNR (Root Beer)",
+    "price": 38500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Everose Gold",
+    "bandMaterial": "Oystersteel/Everose Gold",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/gmt-master-ii/m126715chnr-0001.html",
+    "analytics": {
+      "popularity": 93,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+18% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "RLX-013",
+    "brand": "Rolex",
+    "model": "Daytona 116508 (Yellow Gold)",
+    "price": 42500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Automatic",
+    "caseMaterial": "Yellow Gold",
+    "bandMaterial": "Oystersteel/Yellow Gold",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/cosmograph-daytona/m116508-0004.html",
+    "analytics": {
+      "popularity": 94,
+      "marketDemand": "Extreme",
+      "priceTrend": "Rising (+22% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "RLX-014",
+    "brand": "Rolex",
+    "model": "Submariner 126619LB (White Gold)",
+    "price": 39500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "White Gold",
+    "bandMaterial": "Oystersteel/White Gold",
+    "waterResistance": "300m",
+    "caseSize": 41,
+    "image": "https://www.rolex.com/watches/submariner/m126619lb-0003.html",
+    "analytics": {
+      "popularity": 92,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+15% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "RLX-015",
+    "brand": "Rolex",
+    "model": "Datejust 41 126334 (Silver Dial)",
+    "price": 9200,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel/White Gold",
+    "bandMaterial": "Jubilee",
+    "waterResistance": "100m",
+    "caseSize": 41,
+    "image": "https://www.rolex.com/watches/datejust/m126334-0001.html",
+    "analytics": {
+      "popularity": 88,
+      "marketDemand": "High",
+      "priceTrend": "Stable (+6% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "RLX-016",
+    "brand": "Rolex",
+    "model": "Explorer 124270",
+    "price": 7200,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel",
+    "bandMaterial": "Oystersteel",
+    "waterResistance": "100m",
+    "caseSize": 36,
+    "image": "https://www.rolex.com/watches/explorer/m124270-0001.html",
+    "analytics": {
+      "popularity": 83,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "RLX-017",
+    "brand": "Rolex",
+    "model": "Cellini 50525 (Moonphase)",
+    "price": 18500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Everose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "50m",
+    "caseSize": 39,
+    "image": "https://www.rolex.com/watches/cellini/m50535-0002.html",
+    "analytics": {
+      "popularity": 75,
+      "marketDemand": "Low",
+      "priceTrend": "Stable (+1% YoY)",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "RLX-018",
+    "brand": "Rolex",
+    "model": "GMT-Master II 126711CHNR (Two-Tone Root Beer)",
+    "price": 18500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel/Everose Gold",
+    "bandMaterial": "Oystersteel/Everose Gold",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/gmt-master-ii/m126711chnr-0002.html",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+12% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "RLX-019",
+    "brand": "Rolex",
+    "model": "Yacht-Master 40 126621 (Two-Tone)",
+    "price": 14500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Stainless Steel/Everose Gold",
+    "bandMaterial": "Oystersteel/Everose Gold",
+    "waterResistance": "100m",
+    "caseSize": 40,
+    "image": "https://www.rolex.com/watches/yacht-master/m126621-0001.html",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+5% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "RLX-020",
+    "brand": "Rolex",
+    "model": "Day-Date 36 128238 (Yellow Gold)",
+    "price": 36500,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Automatic",
+    "caseMaterial": "Yellow Gold",
+    "bandMaterial": "President",
+    "waterResistance": "100m",
+    "caseSize": 36,
+    "image": "https://www.rolex.com/watches/day-date/m128238-0001.html",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+10% YoY)",
+      "investmentGrade": "A+"
+    }
+  }
+,
+ 
+    
+
+
+
+
+
+
+
+
+  {
+    "id": "JC-001",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Tourbillon",
+    "price": 450000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-tourbillon-rose.jpg",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+2% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "JC-002",
+    "brand": "Jacob & Co",
+    "model": "Epic X Chrono",
+    "price": 65000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.5,
+    "movement": "Automatic",
+    "caseMaterial": "Titanium",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/epic-x-chrono-titanium.jpg",
+    "analytics": {
+      "popularity": 82,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+1% YoY)",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "JC-003",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Solar Zodiac",
+    "price": 520000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-zodiac-whitegold.jpg",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+5% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "JC-004",
+    "brand": "Jacob & Co",
+    "model": "Twin Turbo Furious",
+    "price": 680000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Rubber",
+    "waterResistance": "30m",
+    "caseSize": 57,
+    "image": "https://jacobandco.com/watches/twin-turbo-furious-rose.jpg",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+8% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "JC-005",
+    "brand": "Jacob & Co",
+    "model": "Opera Godfather",
+    "price": 380000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Black Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 46,
+    "image": "https://jacobandco.com/watches/opera-godfather-black.jpg",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "JC-006",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Sky",
+    "price": 480000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-sky-white.jpg",
+    "analytics": {
+      "popularity": 86,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+6% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "JC-007",
+    "brand": "Jacob & Co",
+    "model": "Epic X Carbon",
+    "price": 72000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "Carbon Fiber",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/epic-x-carbon.jpg",
+    "analytics": {
+      "popularity": 83,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+2% YoY)",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "JC-008",
+    "brand": "Jacob & Co",
+    "model": "Billionaire Timeless Treasure",
+    "price": 1800000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 5.0,
+    "movement": "Manual Winding",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 48,
+    "image": "https://jacobandco.com/watches/billionaire-treasure.jpg",
+    "analytics": {
+      "popularity": 92,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+15% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "JC-009",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Casino",
+    "price": 550000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-casino.jpg",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+4% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "JC-010",
+    "brand": "Jacob & Co",
+    "model": "Opera Scarface",
+    "price": 420000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 46,
+    "image": "https://jacobandco.com/watches/opera-scarface.jpg",
+    "analytics": {
+      "popularity": 88,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+7% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "JC-011",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Dragon",
+    "price": 600000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-dragon.jpg",
+    "analytics": {
+      "popularity": 90,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+12% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "JC-012",
+    "brand": "Jacob & Co",
+    "model": "Epic X Rose Gold",
+    "price": 88000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Automatic",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/epic-x-rosegold.jpg",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "JC-013",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Maestro",
+    "price": 490000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-maestro.jpg",
+    "analytics": {
+      "popularity": 86,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+5% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "JC-014",
+    "brand": "Jacob & Co",
+    "model": "Twin Turbo Furious Sapphire",
+    "price": 750000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual Winding",
+    "caseMaterial": "Sapphire Crystal",
+    "bandMaterial": "Rubber",
+    "waterResistance": "30m",
+    "caseSize": 57,
+    "image": "https://jacobandco.com/watches/twin-turbo-sapphire.jpg",
+    "analytics": {
+      "popularity": 91,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+10% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "JC-015",
+    "brand": "Jacob & Co",
+    "model": "Opera Meccanique",
+    "price": 350000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.6,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 46,
+    "image": "https://jacobandco.com/watches/opera-meccanique.jpg",
+    "analytics": {
+      "popularity": 83,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+2% YoY)",
+      "investmentGrade": "B"
+    }
+  },
+  {
+    "id": "JC-016",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Clarity",
+    "price": 580000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.8,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-clarity.jpg",
+    "analytics": {
+      "popularity": 87,
+      "marketDemand": "High",
+      "priceTrend": "Rising (+7% YoY)",
+      "investmentGrade": "A"
+    }
+  },
+  {
+    "id": "JC-017",
+    "brand": "Jacob & Co",
+    "model": "Epic X Diamond",
+    "price": 125000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Automatic",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Rubber",
+    "waterResistance": "100m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/epic-x-diamond.jpg",
+    "analytics": {
+      "popularity": 85,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+4% YoY)",
+      "investmentGrade": "B+"
+    }
+  },
+  {
+    "id": "JC-018",
+    "brand": "Jacob & Co",
+    "model": "Billionaire III",
+    "price": 2200000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 5.0,
+    "movement": "Manual Winding",
+    "caseMaterial": "Platinum",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 48,
+    "image": "https://jacobandco.com/watches/billionaire-iii.jpg",
+    "analytics": {
+      "popularity": 93,
+      "marketDemand": "Extreme",
+      "priceTrend": "Rising (+18% YoY)",
+      "investmentGrade": "S"
+    }
+  },
+  {
+    "id": "JC-019",
+    "brand": "Jacob & Co",
+    "model": "Astronomia Flawless",
+    "price": 680000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.9,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k Rose Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 47,
+    "image": "https://jacobandco.com/watches/astronomia-flawless.jpg",
+    "analytics": {
+      "popularity": 89,
+      "marketDemand": "Very High",
+      "priceTrend": "Rising (+9% YoY)",
+      "investmentGrade": "A+"
+    }
+  },
+  {
+    "id": "JC-020",
+    "brand": "Jacob & Co",
+    "model": "Opera Musical",
+    "price": 390000,
+    "currency": "USD",
+    "year": 2023,
+    "rating": 4.7,
+    "movement": "Manual Winding",
+    "caseMaterial": "18k White Gold",
+    "bandMaterial": "Alligator Leather",
+    "waterResistance": "30m",
+    "caseSize": 46,
+    "image": "https://jacobandco.com/watches/opera-musical.jpg",
+    "analytics": {
+      "popularity": 84,
+      "marketDemand": "Medium",
+      "priceTrend": "Stable (+3% YoY)",
+      "investmentGrade": "B+"
+    }
+  }
+
+    
+  ]
+}

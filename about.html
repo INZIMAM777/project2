@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Billionaire Hive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Responsive Styles */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #F5DEB3;
+            --black: #0A0A0A;
+            --dark-gray: #1A1A1A;
+            --light-gray: #E5E5E5;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            background-color: var(--black);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* Responsive Container */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        /* Responsive Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(1rem, 3vw, 2rem) 5%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            font-weight: 700;
+            letter-spacing: clamp(1px, 2vw, 3px);
+            text-transform: uppercase;
+            color: white;
+            pointer-events: auto;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1001;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .logo.hidden {
+            opacity: 0;
+            transform: translateX(-20px);
+            pointer-events: none;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -20px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .logo:hover::before,
+        .logo:hover::after {
+            opacity: 1;
+        }
+
+        .logo span {
+            color: var(--gold);
+            font-weight: 400;
+            opacity: 1;
+            position: relative;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Advanced Hamburger Menu */
+        .menu-toggle {
+            pointer-events: auto;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            position: relative;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold) 0%, white 100%);
+            transition: var(--transition);
+            position: absolute;
+            left: 4px;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .menu-toggle span:nth-child(1) {
+            top: 10px;
+            transform-origin: center;
+            width: 20px;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            top: 17px;
+            transform-origin: center;
+            width: 28px;
+        }
+
+        .menu-toggle span:nth-child(3) {
+            top: 24px;
+            transform-origin: center;
+            width: 24px;
+        }
+
+        .menu-toggle:hover span {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(-3px);
+            width: 28px;
+            background: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            width: 0;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(3px);
+            width: 28px;
+            background: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Luxury Side Menu */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 999;
+            padding: 120px 10% 60px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .menu-items {
+            list-style: none;
+            margin-top: 60px;
+        }
+
+        .menu-items li {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .side-menu.active .menu-items li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .side-menu.active .menu-items li:nth-child(1) { transition-delay: 0.15s; }
+        .side-menu.active .menu-items li:nth-child(2) { transition-delay: 0.25s; }
+        .side-menu.active .menu-items li:nth-child(3) { transition-delay: 0.35s; }
+        .side-menu.active .menu-items li:nth-child(4) { transition-delay: 0.45s; }
+
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 10px 0;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .menu-items a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .menu-items a:hover {
+            color: var(--gold);
+            transform: translateX(10px);
+        }
+
+        .menu-items a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .close-menu::before,
+        .close-menu::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .close-menu::before {
+            transform: rotate(45deg);
+        }
+
+        .close-menu::after {
+            transform: rotate(-45deg);
+        }
+
+        .close-menu:hover::before,
+        .close-menu:hover::after {
+            background: var(--light-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Responsive Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0.7));
+            z-index: 1;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.875rem, 2vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: clamp(2px, 4vw, 6px);
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        /* Responsive About Content */
+        .about-content {
+            padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.8rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+            color: var(--gold);
+            text-align: center;
+            letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(2rem, 4vw, 4rem);
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+        }
+
+        .about-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.875rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Responsive Stats Section */
+        .collection-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin: clamp(3rem, 6vw, 5rem) 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            background: var(--dark-gray);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+            font-family: 'Cinzel', serif;
+        }
+
+        .stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Brands Section */
+        .brands-section {
+            margin-top: clamp(4rem, 8vw, 6rem);
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+        }
+
+        .brand-item {
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            background: var(--dark-gray);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .brand-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .brand-name {
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: clamp(0.75rem, 2vw, 1rem);
+            font-family: 'Cinzel', serif;
+        }
+
+        .brand-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            padding: clamp(3rem, 6vw, 5rem) 0 0;
+            margin-top: 100px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        .footer-section h3 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+        
+        .footer-section h3 span {
+            color: var(--gold);
+        }
+
+        .footer-section p, .footer-section li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: clamp(0.75rem, 1.5vw, 1rem);
+            margin-top: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .social-link {
+            color: white;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            transition: var(--transition);
+            width: clamp(35px, 5vw, 40px);
+            height: clamp(35px, 5vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .social-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light-gray);
+        }
+
+        .contact-info li i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .footer-middle {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 60px 5%;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-container h4 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .newsletter-container p {
+            color: var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: clamp(0.75rem, 1.5vw, 1rem);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: clamp(0.75rem, 1.5vw, 1rem);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            background: var(--gold);
+            border: none;
+            color: var(--black);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            background: var(--black);
+            padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+        }
+
+        .footer-bottom-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .footer-bottom p {
+            color: var(--light-gray);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .footer-bottom-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Media Queries */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .about-content {
+                padding: 3rem 1rem;
+            }
+
+            .collection-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                height: 80vh;
+            }
+
+            .about-content {
+                padding: 2rem 1rem;
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .brand-item:hover,
+            .stat-item:hover,
+            .social-link:hover {
+                transform: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .side-menu,
+            .menu-toggle,
+            .footer {
+                display: none;
+            }
+
+            body {
+                color: #000;
+                background: #fff;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            img {
+                max-width: 100%;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="logo">BILLIONAIRE <span>HIVE</span></a>
+    </nav>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <ul class="menu-items">
+            <li><a href="index.html" data-text="Home">Home</a></li>
+            <li><a href="about.html" data-text="About">About</a></li>
+            <li><a href="collection.html" data-text="Collection">Collection</a></li>
+            <li><a href="gallery.html" data-text="Gallery">Gallery</a></li>
+            <li><a href="contact.html" data-text="Contact">Contact</a></li>
+        </ul>
+        
+        <div class="menu-footer">
+            <div class="menu-contact">
+                <strong>BILLIONAIRE HIVE</strong>
+                Exclusive Timepiece Collection<br>
+                By Appointment Only<br>
+                Geneva • Dubai • Hong Kong • New York
+            </div>
+            <div class="menu-contact">
+                <strong>CONTACT</strong>
+                +41 22 555 5555<br>
+                concierge@billionairehive.com
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=2070&auto=format&fit=crop" alt="Luxury Watch Collection" class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Legacy of Excellence</h1>
+                <p class="hero-subtitle">Curating Time's Finest Masterpieces</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <h2 class="section-title">About Billionaire Hive</h2>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Welcome to Billionaire Hive, where passion meets precision in the world of horological excellence. Founded by a collective of distinguished watch enthusiasts and industry veterans, we have established ourselves as the premier destination for connoisseurs of fine timepieces.</p>
+                    <p>Our journey began with a simple yet profound mission: to create a sanctuary where the world's most exceptional timepieces could be appreciated, understood, and acquired by those who truly value the art of watchmaking.</p>
+                </div>
+                
+                <div class="about-text">
+                    <p>With over two decades of experience, our team has cultivated relationships with the most prestigious watchmakers. We pride ourselves on sourcing rare and limited-edition pieces that represent the pinnacle of horological craftsmanship.</p>
+                    <p>Each watch in our collection tells a unique story of innovation and tradition. From the intricate mechanics of a tourbillon to the timeless elegance of a perpetual calendar, we celebrate the artistry that makes each timepiece a masterpiece.</p>
+                </div>
+            </div>
+
+            <div class="collection-stats">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Rare Timepieces</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Luxury Brands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Satisfied Clients</div>
+                </div>
+            </div>
+
+            <div class="brands-section">
+                <h2 class="section-title">Our Featured Brands</h2>
+                
+                <div class="brands-grid">
+                    <div class="brand-item">
+                        <h3 class="brand-name">Patek Philippe</h3>
+                        <p class="brand-description">The crown jewel of Swiss watchmaking, known for exceptional craftsmanship and timeless designs. A testament to centuries of horological excellence.</p>
+                    </div>
+                    
+                    <div class="brand-item">
+                        <h3 class="brand-name">Richard Mille</h3>
+                        <p class="brand-description">Revolutionizing modern watchmaking with innovative materials and avant-garde designs, representing the perfect fusion of technology and luxury.</p>
+                    </div>
+                    
+                    <div class="brand-item">
+                        <h3 class="brand-name">Audemars Piguet</h3>
+                        <p class="brand-description">Masters of complex mechanical movements and iconic designs. Their Royal Oak collection has redefined luxury sports watches since 1972.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-content">
+                <div class="footer-section brand">
+                    <h3 class="footer-logo">Billionaire<span>Hive</span></h3>
+                    <p class="footer-description">Your premier destination for exclusive timepieces and luxury watch collections. We bring together the world's most prestigious watch brands under one roof.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section quick-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section brands">
+                    <h4>Our Brands</h4>
+                    <ul>
+                        <li><a href="#">Rolex</a></li>
+                        <li><a href="#">Patek Philippe</a></li>
+                        <li><a href="#">Richard Mille</a></li>
+                        <li><a href="#">Audemars Piguet</a></li>
+                        <li><a href="#">Jacob & Co</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Luxury Avenue, New York, NY 10001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (212) 555-0123</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@billionairehive.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-middle">
+            <div class="newsletter-container">
+                <h4>Subscribe to Our Newsletter</h4>
+                <p>Stay updated with our latest collections and exclusive offers</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 Billionaire Hive. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sideMenu = document.querySelector('.side-menu');
+            const logo = document.querySelector('.logo');
+            const navbar = document.querySelector('.navbar');
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            // Menu Toggle Handler
+            if (menuToggle && sideMenu && logo) {
+                menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    sideMenu.classList.toggle('active');
+                    logo.classList.toggle('hidden');
+                    document.body.style.overflow = sideMenu.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (sideMenu && menuToggle && logo && 
+                    !sideMenu.contains(e.target) && 
+                    !menuToggle.contains(e.target)) {
+                    sideMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    logo.classList.remove('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Scroll effect for navbar
+            if (navbar) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Newsletter Form Handler
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    // Add your newsletter subscription logic here
+                    alert('Thank you for subscribing to our newsletter!');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
