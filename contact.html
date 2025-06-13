@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -179,6 +180,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar">
@@ -193,12 +195,13 @@
     <!-- Side Menu -->
     <div class="side-menu" id="sideMenu">
         <ul class="menu-items">
+            <li><a href="index.html" data-text="Home">Home</a></li>
             <li><a href="about.html" data-text="About">About</a></li>
             <li><a href="collection.html" data-text="Collection">Collection</a></li>
             <li><a href="gallery.html" data-text="Gallery">Gallery</a></li>
             <li><a href="contact.html" data-text="Contact">Contact</a></li>
         </ul>
-        
+
         <div class="menu-footer">
             <div class="menu-contact">
                 <strong>BILLIONAIRE HIVE</strong>
@@ -226,7 +229,7 @@
             <div class="contact-info">
                 <h1>Contact Us</h1>
                 <p>Experience the world of exclusive timepieces. Schedule a private viewing at one of our boutiques.</p>
-                
+
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -313,7 +316,8 @@
         <div class="footer-content">
             <div class="footer-section brand">
                 <h3 class="footer-logo">BILLIONAIRE <span>HIVE</span></h3>
-                <p>Your premier destination for exclusive timepieces and luxury watch collections. We bring together the world's most prestigious watch brands under one roof.</p>
+                <p>Your premier destination for exclusive timepieces and luxury watch collections. We bring together the
+                    world's most prestigious watch brands under one roof.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
@@ -387,7 +391,7 @@
             e.stopPropagation();
             menuToggle.classList.toggle('active');
             sideMenu.classList.toggle('active');
-            
+
             // Prevent body scroll when menu is open
             if (sideMenu.classList.contains('active')) {
                 body.style.overflow = 'hidden';
@@ -401,12 +405,12 @@
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = link.getAttribute('href');
-                
+
                 // Add transition effect
                 sideMenu.style.opacity = '0';
                 menuToggle.classList.remove('active');
                 body.style.overflow = '';
-                
+
                 // Navigate after transition
                 setTimeout(() => {
                     window.location.href = href;
@@ -479,4 +483,5 @@
         });
     </script>
 </body>
-</html> 
+
+</html>

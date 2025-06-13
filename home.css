@@ -15,6 +15,11 @@
     box-sizing: border-box;
 }
 
+option {
+    color: black;
+}
+
+
 html {
     font-size: 16px;
     scroll-behavior: smooth;
@@ -113,7 +118,9 @@ img {
 }
 
 /* Responsive Forms */
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
     padding: clamp(0.75rem, 2vw, 1rem);
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -130,7 +137,7 @@ input, select, textarea {
     .container {
         padding: 0 1.5rem;
     }
-    
+
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     }
@@ -140,15 +147,15 @@ input, select, textarea {
     .container {
         padding: 0 1rem;
     }
-    
+
     .navbar {
         padding: 0.75rem 1rem;
     }
-    
+
     .side-menu {
         padding: 70px 1rem 30px;
     }
-    
+
     .menu-items a {
         font-size: 1.75rem;
     }
@@ -158,19 +165,19 @@ input, select, textarea {
     .container {
         padding: 0 0.75rem;
     }
-    
+
     .navbar {
         padding: 0.5rem 0.75rem;
     }
-    
+
     .side-menu {
         padding: 60px 0.75rem 25px;
     }
-    
+
     .menu-items a {
         font-size: 1.5rem;
     }
-    
+
     .btn {
         width: 100%;
         text-align: center;
@@ -221,7 +228,6 @@ input, select, textarea {
 }
 
 .watch-card {
-    aspect-ratio: 3/4;
     overflow: hidden;
 }
 
@@ -276,13 +282,14 @@ input, select, textarea {
 
 /* Touch Device Optimizations */
 @media (hover: none) {
+
     .btn:hover,
     .menu-items a:hover,
     .gallery-item:hover,
     .watch-card:hover {
         transform: none;
     }
-    
+
     .menu-toggle:hover span {
         background: linear-gradient(90deg, var(--gold) 0%, white 100%);
     }
@@ -290,23 +297,24 @@ input, select, textarea {
 
 /* Print Styles */
 @media print {
+
     .navbar,
     .side-menu,
     .menu-toggle,
     .footer {
         display: none;
     }
-    
+
     body {
         color: #000;
         background: #fff;
     }
-    
+
     a {
         text-decoration: none;
         color: #000;
     }
-    
+
     img {
         max-width: 100%;
         page-break-inside: avoid;
@@ -408,9 +416,11 @@ input, select, textarea {
     0% {
         text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
     }
+
     50% {
         text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
     }
+
     100% {
         text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
     }
@@ -494,9 +504,11 @@ input, select, textarea {
     0% {
         box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
     }
@@ -587,10 +599,21 @@ input, select, textarea {
     transform: translateX(0);
 }
 
-.side-menu.active .menu-items li:nth-child(1) { transition-delay: 0.15s; }
-.side-menu.active .menu-items li:nth-child(2) { transition-delay: 0.25s; }
-.side-menu.active .menu-items li:nth-child(3) { transition-delay: 0.35s; }
-.side-menu.active .menu-items li:nth-child(4) { transition-delay: 0.45s; }
+.side-menu.active .menu-items li:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.side-menu.active .menu-items li:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.side-menu.active .menu-items li:nth-child(3) {
+    transition-delay: 0.35s;
+}
+
+.side-menu.active .menu-items li:nth-child(4) {
+    transition-delay: 0.45s;
+}
 
 .menu-items a {
     color: white;
@@ -700,12 +723,15 @@ input, select, textarea {
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
 }
 
 .scroll-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 /* Each slide with video */
@@ -756,7 +782,7 @@ input, select, textarea {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-title span {
@@ -769,7 +795,7 @@ input, select, textarea {
     font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero-cta {
@@ -799,7 +825,7 @@ input, select, textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
     z-index: 1;
 }
 
@@ -843,7 +869,7 @@ input, select, textarea {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -925,7 +951,7 @@ input, select, textarea {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     letter-spacing: 2px;
@@ -941,14 +967,16 @@ input, select, textarea {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Watch counter */
 .watch-counter {
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 5rem;
+    right: 5rem;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
@@ -974,6 +1002,7 @@ input, select, textarea {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -1015,7 +1044,7 @@ input, select, textarea {
     gap: 16px;
 }
 
-.collection-link-btn a:hover, 
+.collection-link-btn a:hover,
 .collection-link-btn a:focus {
     background: linear-gradient(90deg, #B8860B 0%, #D4AF37 100%);
     color: #fff;
@@ -1258,18 +1287,18 @@ input, select, textarea {
     .enhanced-footer {
         padding: 60px 5% 30px;
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
+
     .footer-legal {
         justify-content: center;
     }
@@ -1280,7 +1309,7 @@ input, select, textarea {
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .menu-items a {
         font-size: 2.8rem;
     }
@@ -1291,28 +1320,28 @@ input, select, textarea {
         left: 8%;
         max-width: 500px;
     }
-    
+
     .hero-title {
         font-size: 3rem;
     }
-    
+
     .brand-subtitle {
         font-size: 1rem;
         letter-spacing: 6px;
     }
-    
+
     .menu-items a {
         font-size: 2.2rem;
     }
-    
+
     .nav-dots {
         right: 25px;
     }
-    
+
     .watch-counter {
         left: 25px;
     }
-    
+
     .collection-link-btn a {
         padding: 18px 50px;
         font-size: 1.2rem;
@@ -1323,7 +1352,7 @@ input, select, textarea {
     .navbar {
         padding: 20px;
     }
-    
+
     .hero-content {
         left: 50%;
         right: 5%;
@@ -1331,22 +1360,22 @@ input, select, textarea {
         text-align: center;
         padding: 0 20px;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .brand-subtitle {
         font-size: 1.2rem;
         letter-spacing: 4px;
         margin-bottom: 2rem;
     }
-    
+
     .brand-subtitle::after {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
     .scroll-hint {
         font-size: 0.7rem;
         bottom: 30px;
@@ -1361,7 +1390,7 @@ input, select, textarea {
         width: 10px;
         height: 10px;
     }
-    
+
     .nav-dot .dot-label {
         display: none;
     }
@@ -1369,13 +1398,13 @@ input, select, textarea {
     .menu-items a {
         font-size: 1.8rem;
     }
-    
+
     .watch-counter {
         left: 20px;
         bottom: 30px;
         font-size: 1rem;
     }
-    
+
     .collection-link-btn a {
         padding: 15px 40px;
         font-size: 1rem;
@@ -1400,20 +1429,20 @@ input, select, textarea {
     .menu-items a {
         font-size: 1.6rem;
     }
-    
+
     .loader-logo {
         font-size: 2rem;
     }
-    
+
     .watch-counter {
         left: 15px;
-        bottom: 25px;
+        bottom: 5rem;
     }
-    
+
     .collection-link-btn {
         margin: 40px auto 0 auto;
     }
-    
+
     .collection-link-btn a {
         padding: 12px 30px;
         font-size: 0.9rem;
@@ -1424,7 +1453,7 @@ input, select, textarea {
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .brand-subtitle {
         margin-bottom: 1.5rem;
     }
@@ -1443,7 +1472,7 @@ input, select, textarea {
         font-size: 1.4rem;
         letter-spacing: 2px;
     }
-    
+
     .logo::before,
     .logo::after {
         width: 1px;
@@ -1457,7 +1486,7 @@ input, select, textarea {
         font-size: 1.2rem;
         letter-spacing: 1.5px;
     }
-    
+
     .logo::before,
     .logo::after {
         display: none;
@@ -1486,13 +1515,12 @@ input, select, textarea {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent,
-        var(--gold) 20%,
-        var(--light-gold) 50%,
-        var(--gold) 80%,
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            var(--gold) 20%,
+            var(--light-gold) 50%,
+            var(--gold) 80%,
+            transparent);
     opacity: 0.8;
 }
 
@@ -1636,7 +1664,7 @@ input, select, textarea {
     .collection-page .enhanced-footer {
         padding: 80px 5% 30px;
     }
-    
+
     .collection-page .footer-section h3 {
         font-size: 1.3rem;
     }
@@ -1646,11 +1674,11 @@ input, select, textarea {
     .collection-page .enhanced-footer {
         padding: 60px 5% 30px;
     }
-    
+
     .collection-page .footer-section h3 {
         font-size: 1.2rem;
     }
-    
+
     .collection-page .newsletter-form input,
     .collection-page .newsletter-form button {
         padding: 12px 20px;
@@ -2327,7 +2355,7 @@ input, select, textarea {
     .watches-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .section-header h2 {
         font-size: 2.2rem;
     }
@@ -2337,11 +2365,11 @@ input, select, textarea {
     .watches-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
-    
+
     .watch-info h3 {
         font-size: 1.2rem;
     }
@@ -2351,7 +2379,7 @@ input, select, textarea {
     .section-header h2 {
         font-size: 1.8rem;
     }
-    
+
     .watch-info {
         padding: 20px;
     }
@@ -2464,7 +2492,7 @@ input, select, textarea {
     left: 0;
     right: 0;
     padding: 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
     color: #fff;
 }
 
@@ -2584,6 +2612,7 @@ input, select, textarea {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
     .watches-grid,
     .arrivals-slider,
     .brands-grid,
@@ -2646,7 +2675,7 @@ input, select, textarea {
     color: var(--gold);
 }
 
-.contact-info > p {
+.contact-info>p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
@@ -2778,7 +2807,7 @@ input, select, textarea {
     resize: vertical;
 }
 
-.form-group textarea + label {
+.form-group textarea+label {
     top: 25px;
     transform: none;
 }
@@ -2791,11 +2820,11 @@ input, select, textarea {
     background: rgba(212, 175, 55, 0.05);
 }
 
-.form-group input:focus + label,
-.form-group select:focus + label,
-.form-group textarea:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:not(:placeholder-shown) + label {
+.form-group input:focus+label,
+.form-group select:focus+label,
+.form-group textarea:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:not(:placeholder-shown)+label {
     top: -10px;
     left: 10px;
     font-size: 0.8rem;
@@ -2827,11 +2856,11 @@ input, select, textarea {
     .contact-container {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-info h1 {
         font-size: 2.8rem;
     }
-    
+
     .location-grid {
         grid-template-columns: 1fr;
     }
@@ -2841,11 +2870,11 @@ input, select, textarea {
     .contact-section {
         padding: 120px 5% 60px;
     }
-    
+
     .contact-info h1 {
         font-size: 2.5rem;
     }
-    
+
     .contact-form {
         padding: 30px;
     }
@@ -2855,12 +2884,12 @@ input, select, textarea {
     .contact-info h1 {
         font-size: 2rem;
     }
-    
+
     .contact-item {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .contact-item i {
         margin-right: 0;
         margin-bottom: 15px;
