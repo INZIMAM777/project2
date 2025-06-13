@@ -159,7 +159,7 @@
       "bandMaterial": "Stainless Steel",
       "waterResistance": "120m",
       "caseSize": 40.5,
-      "image": "Nautilus Travel Time Chronograph.webp",
+      "image": "Nautilus Travel Time Chronograph.jpg",
       "analytics": {"popularity": 94, "marketDemand": "Very High", "priceTrend": "Rising (+18% YoY)", "investmentGrade": "A+"}
     },
     
@@ -248,6 +248,7 @@
       "id": "RLX-001",
       "brand": "Rolex",
       "model": "Daytona 116500LN (Ceramic)",
+
       "price": 35000,
       "currency": "USD",
       "year": 2023,
@@ -305,7 +306,7 @@
       "bandMaterial": "Jubilee",
       "waterResistance": "100m",
       "caseSize": 36,
-      "image": "Datejust 36 126234 (Blue Dial).webp",
+      "image": "Datejust 36 126234 (Blue Dial).jpg",
       "analytics": {"popularity": 92, "marketDemand": "High", "priceTrend": "Stable (+5% YoY)", "investmentGrade": "A"}
     },
     {
