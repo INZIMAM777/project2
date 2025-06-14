@@ -42,7 +42,12 @@
         /* ================ */
         /* GLOBAL STYLES */
         /* ================ */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Cinzel', serif;
             font-weight: 400;
             color: var(--gold);
@@ -301,8 +306,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .cart-page h1 {
@@ -431,7 +443,7 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 8px;
             padding: 30px;
-            
+
             margin-left: auto;
             animation: fadeIn 0.5s ease 0.2s both;
         }
@@ -496,9 +508,17 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .empty-cart h2 {
@@ -580,6 +600,25 @@
             color: var(--error);
             margin-left: 5px;
         }
+        .form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 1px #e74c3c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.payment-methods.has-error {
+    border: 1px solid #e74c3c;
+    padding: 10px;
+    border-radius: 4px;
+}
 
         .form-group input,
         .form-group select,
@@ -809,12 +848,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateY(0);
             }
+
             40% {
                 transform: translateY(-20px);
             }
+
             60% {
                 transform: translateY(-10px);
             }
@@ -880,7 +926,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .loading p {
@@ -1028,11 +1076,11 @@
                 grid-template-columns: 100px 1fr auto auto;
                 gap: 20px;
             }
-            
+
             .checkout-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .order-summary {
                 position: static;
             }
@@ -1044,21 +1092,21 @@
                 text-align: center;
                 gap: 15px;
             }
-            
+
             .cart-item-image {
                 width: 150px;
                 height: 150px;
                 margin: 0 auto;
             }
-            
+
             .cart-item-quantity {
                 justify-content: center;
             }
-            
+
             .cart-summary {
                 max-width: 100%;
             }
-            
+
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1075,13 +1123,288 @@
                 align-items: flex-start;
                 gap: 10px;
             }
-            
+
             .order-item-total {
                 align-self: flex-end;
             }
 
             .footer-container {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================ */
+        /* MOBILE RESPONSIVE STYLES */
+        /* ================ */
+
+        @media (max-width: 768px) {
+
+            /* General Mobile Styles */
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Navigation */
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            /* Cart Page */
+            .cart-page {
+                padding: 20px 15px;
+            }
+
+            .cart-page h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                grid-template-areas:
+                    "image details"
+                    "quantity quantity"
+                    "remove remove";
+                gap: 15px;
+                padding: 20px 0;
+            }
+
+            .cart-item-image {
+                grid-area: image;
+                width: 80px;
+                height: 80px;
+            }
+
+            .cart-item-details {
+                grid-area: details;
+                text-align: left;
+            }
+
+            .cart-item-quantity {
+                grid-area: quantity;
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+
+            .cart-item-remove {
+                grid-area: remove;
+                justify-content: flex-start;
+                width: auto;
+                height: auto;
+                margin-top: 10px;
+                padding-left: 0;
+            }
+
+            .cart-summary {
+                width: 100%;
+                margin: 30px 0 0 0;
+            }
+
+            /* Checkout Page */
+            .checkout-page {
+                padding: 20px 15px;
+            }
+
+            .checkout-page h1 {
+                font-size: 2rem;
+                margin-bottom: 25px;
+            }
+
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .order-summary {
+                position: static;
+                order: -1;
+                /* Move summary to top */
+                margin-bottom: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .payment-method {
+                padding: 12px;
+            }
+
+            /* Order Confirmation */
+            .order-confirmation {
+                padding: 40px 15px;
+            }
+
+            .order-confirmation h1 {
+                font-size: 1.8rem;
+            }
+
+            .confirmation-actions {
+                flex-direction: column;
+            }
+
+            .confirmation-actions .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-about,
+            .footer-links,
+            .footer-contact {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Extra Small Devices */
+            .cart-page h1,
+            .checkout-page h1 {
+                font-size: 1.8rem;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+
+            .cart-item {
+                grid-template-columns: 70px 1fr;
+            }
+
+            .cart-item-image {
+                width: 70px;
+                height: 70px;
+            }
+
+            .cart-item-details h3 {
+                font-size: 1rem;
+            }
+
+            .order-summary h2,
+            .checkout-form h2 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+
+            .btn-checkout,
+            .btn-place-order {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            /* Order Items in Summary */
+            .order-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .order-item-total {
+                margin-top: 5px;
+                align-self: flex-end;
+            }
+
+            /* Form Elements */
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 10px 12px;
+            }
+
+            /* Side Menu */
+            .side-menu {
+                padding: 90px 25px 30px;
+            }
+
+            .menu-items a {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Special Adjustments for Very Small Screens */
+        @media (max-width: 360px) {
+            .cart-item {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .cart-item-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .quantity-btn {
+                width: 25px;
+                height: 25px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .order-confirmation h1 {
+                font-size: 1.6rem;
+            }
+
+            .confirmation-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Landscape Orientation Adjustments */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .side-menu {
+                padding-top: 70px;
+            }
+
+            .order-items {
+                max-height: 150px;
+            }
+
+            .cart-summary,
+            .order-summary {
+                padding: 20px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .cart-item {
+                grid-template-columns: 100px 1fr auto auto;
+                gap: 20px;
+            }
+
+            .checkout-container {
+                grid-template-columns: 1.2fr 1fr;
+                gap: 30px;
+            }
+
+            .order-summary {
+                top: 100px;
+            }
+        }
+
+        /* Animation Adjustments for Mobile */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -1135,7 +1458,8 @@
         <div class="footer-container">
             <div class="footer-about">
                 <a href="index.html" class="footer-logo">BILLIONAIRE <span>HIVE</span></a>
-                <p>Curating the world's most exclusive timepieces for discerning collectors since 1995. Each watch in our collection tells a story of craftsmanship, heritage, and unparalleled luxury.</p>
+                <p>Curating the world's most exclusive timepieces for discerning collectors since 1995. Each watch in
+                    our collection tells a story of craftsmanship, heritage, and unparalleled luxury.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
@@ -1170,9 +1494,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const container = document.getElementById('main-content');
-            let cart = JSON.parse(localStorage.getItem('watchCart')) || [];
-            let checkoutData = JSON.parse(localStorage.getItem('checkoutData')) || {};
             
+            // Initialize the cart with sample data if empty
+            let cart = JSON.parse(localStorage.getItem('watchCart')) || [
+                {
+                    id: 'watch-1',
+                    brand: 'Rolex',
+                    model: 'Submariner',
+                    price: 10000,
+                    currency: 'USD',
+                    quantity: 1,
+                    image: 'images/watch-placeholder.jpg'
+                }
+            ];
+
             // Initialize the page
             initializePage();
 
@@ -1211,13 +1546,11 @@
             }
 
             function initializeToast() {
-                // Check for success message in URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const success = urlParams.get('success');
-                
+
                 if (success === 'true') {
                     showToast('Order placed successfully!', 'success');
-                    // Remove the success parameter from URL
                     window.history.replaceState({}, document.title, window.location.pathname);
                 }
             }
@@ -1230,11 +1563,11 @@
                     <span>${message}</span>
                 `;
                 document.body.appendChild(toast);
-                
+
                 setTimeout(() => {
                     toast.classList.add('show');
                 }, 100);
-                
+
                 setTimeout(() => {
                     toast.classList.remove('show');
                     setTimeout(() => {
@@ -1262,7 +1595,7 @@
                             <h3>Order Summary</h3>
                             <div class="summary-row">
                                 <span>Subtotal</span>
-                                <span id="cartSubtotal">${calculateSubtotal()}</span>
+                                <span id="cartSubtotal">${formatPrice(calculateSubtotal())}</span>
                             </div>
                             <div class="summary-row">
                                 <span>Shipping</span>
@@ -1270,11 +1603,11 @@
                             </div>
                             <div class="summary-row">
                                 <span>Tax</span>
-                                <span id="cartTax">${calculateTax()}</span>
+                                <span id="cartTax">${formatPrice(calculateTax())}</span>
                             </div>
                             <div class="summary-row total">
                                 <span>Total</span>
-                                <span id="cartTotal">${calculateTotal()}</span>
+                                <span id="cartTotal">${formatPrice(calculateTotal())}</span>
                             </div>
                             <button class="btn btn-checkout" id="proceedToCheckout">Proceed to Checkout</button>
                         </div>
@@ -1286,11 +1619,12 @@
                     const cartItem = document.createElement('div');
                     cartItem.className = 'cart-item';
                     cartItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.brand} ${item.model}" class="cart-item-image">
+                        <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
+                             onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
                         <div class="cart-item-details">
                             <h3>${item.brand}</h3>
                             <p>${item.model}</p>
-                            <div class="cart-item-price">${formatPrice(item.price, item.currency)}</div>
+                            <div class="cart-item-price">${formatPrice(item.price)}</div>
                         </div>
                         <div class="cart-item-quantity">
                             <button class="quantity-btn" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
@@ -1304,9 +1638,8 @@
                     cartItemsContainer.appendChild(cartItem);
                 });
 
-                // Add event listeners for quantity changes and removal
                 document.querySelectorAll('.quantity-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const id = this.getAttribute('data-id');
                         const action = this.getAttribute('data-action');
                         updateCartItemQuantity(id, action);
@@ -1314,7 +1647,7 @@
                 });
 
                 document.querySelectorAll('.cart-item-remove').forEach(btn => {
-                    btn.addEventListener('click', function() {
+                    btn.addEventListener('click', function () {
                         const id = this.getAttribute('data-id');
                         removeFromCart(id);
                     });
@@ -1331,87 +1664,79 @@
                             <form id="checkoutForm" class="checkout-form">
                                 <h2>Shipping Information</h2>
                                 <div class="form-row">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="firstName">First Name</label>
-                                        <input type="text" id="firstName" name="firstName" required value="${checkoutData.firstName || ''}">
-                                        <div class="error-message">Please enter your first name</div>
+                                        <input type="text" id="firstName" name="firstName">
                                     </div>
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="lastName">Last Name</label>
-                                        <input type="text" id="lastName" name="lastName" required value="${checkoutData.lastName || ''}">
-                                        <div class="error-message">Please enter your last name</div>
+                                        <input type="text" id="lastName" name="lastName">
                                     </div>
                                 </div>
-                                <div class="form-group required">
+                                <div class="form-group">
                                     <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" required value="${checkoutData.email || ''}">
-                                    <div class="error-message">Please enter a valid email address</div>
+                                    <input type="email" id="email" name="email">
                                 </div>
-                                <div class="form-group required">
+                                <div class="form-group">
                                     <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" required value="${checkoutData.phone || ''}">
-                                    <div class="error-message">Please enter a valid phone number</div>
+                                    <input type="tel" id="phone" name="phone">
                                 </div>
-                                <div class="form-group required">
+                                <div class="form-group">
                                     <label for="address">Street Address</label>
-                                    <input type="text" id="address" name="address" required value="${checkoutData.address || ''}">
-                                    <div class="error-message">Please enter your address</div>
+                                    <input type="text" id="address" name="address">
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" id="city" name="city" required value="${checkoutData.city || ''}">
-                                        <div class="error-message">Please enter your city</div>
+                                        <input type="text" id="city" name="city">
                                     </div>
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="zip">ZIP/Postal Code</label>
-                                        <input type="text" id="zip" name="zip" required value="${checkoutData.zip || ''}">
-                                        <div class="error-message">Please enter your ZIP code</div>
+                                        <input type="text" id="zip" name="zip">
                                     </div>
                                 </div>
-                                <div class="form-group required">
+                                <div class="form-group">
                                     <label for="country">Country</label>
-                                    <select id="country" name="country" required>
+                                    <select id="country" name="country">
                                         <option value="">Select Country</option>
-                                        <option value="US" ${checkoutData.country === 'US' ? 'selected' : ''}>United States</option>
-                                        <option value="UK" ${checkoutData.country === 'UK' ? 'selected' : ''}>United Kingdom</option>
-                                        <option value="CH" ${checkoutData.country === 'CH' ? 'selected' : ''}>Switzerland</option>
-                                        <option value="AE" ${checkoutData.country === 'AE' ? 'selected' : ''}>United Arab Emirates</option>
-                                        <option value="HK" ${checkoutData.country === 'HK' ? 'selected' : ''}>Hong Kong</option>
-                                        <option value="FR" ${checkoutData.country === 'FR' ? 'selected' : ''}>France</option>
-                                        <option value="DE" ${checkoutData.country === 'DE' ? 'selected' : ''}>Germany</option>
-                                        <option value="IT" ${checkoutData.country === 'IT' ? 'selected' : ''}>Italy</option>
-                                        <option value="JP" ${checkoutData.country === 'JP' ? 'selected' : ''}>Japan</option>
-                                        <option value="SG" ${checkoutData.country === 'SG' ? 'selected' : ''}>Singapore</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="CH">Switzerland</option>
+                                        <option value="AE">United Arab Emirates</option>
+                                        <option value="HK">Hong Kong</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="SG">Singapore</option>
                                         <option value="other">Other</option>
                                     </select>
-                                    <div class="error-message">Please select your country</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="notes">Special Instructions (Optional)</label>
-                                    <textarea id="notes" name="notes">${checkoutData.notes || ''}</textarea>
+                                    <textarea id="notes" name="notes"></textarea>
                                 </div>
                                 
                                 <h2>Payment Method</h2>
                                 <div class="payment-methods">
-                                    <div class="payment-method ${checkoutData.paymentMethod === 'wire' ? 'selected' : ''}" data-method="wire">
-                                        <input type="radio" id="wire" name="paymentMethod" value="wire" ${checkoutData.paymentMethod === 'wire' ? 'checked' : ''} required>
+                                    <div class="payment-method" data-method="wire">
+                                        <input type="radio" id="wire" name="paymentMethod" value="wire" checked>
                                         <label for="wire">Bank Wire Transfer</label>
                                         <i class="fas fa-university payment-icon"></i>
                                     </div>
-                                    <div class="payment-method ${checkoutData.paymentMethod === 'crypto' ? 'selected' : ''}" data-method="crypto">
-                                        <input type="radio" id="crypto" name="paymentMethod" value="crypto" ${checkoutData.paymentMethod === 'crypto' ? 'checked' : ''}>
+                                    <div class="payment-method" data-method="crypto">
+                                        <input type="radio" id="crypto" name="paymentMethod" value="crypto">
                                         <label for="crypto">Cryptocurrency</label>
                                         <i class="fab fa-bitcoin payment-icon"></i>
                                     </div>
-                                    <div class="payment-method ${checkoutData.paymentMethod === 'credit' ? 'selected' : ''}" data-method="credit">
-                                        <input type="radio" id="credit" name="paymentMethod" value="credit" ${checkoutData.paymentMethod === 'credit' ? 'checked' : ''}>
+                                    <div class="payment-method" data-method="credit">
+                                        <input type="radio" id="credit" name="paymentMethod" value="credit">
                                         <label for="credit">Credit Card</label>
                                         <i class="far fa-credit-card payment-icon"></i>
                                     </div>
                                 </div>
                                 
-                                <button type="submit" class="btn-place-order" id="placeOrderBtn">Place Order</button>
+                                <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
                             </form>
                             
                             <div class="order-summary">
@@ -1421,7 +1746,7 @@
                                 </div>
                                 <div class="summary-row">
                                     <span>Subtotal</span>
-                                    <span>${calculateSubtotal()}</span>
+                                    <span>${formatPrice(calculateSubtotal())}</span>
                                 </div>
                                 <div class="summary-row">
                                     <span>Shipping</span>
@@ -1429,196 +1754,164 @@
                                 </div>
                                 <div class="summary-row">
                                     <span>Tax</span>
-                                    <span>${calculateTax()}</span>
+                                    <span>${formatPrice(calculateTax())}</span>
                                 </div>
                                 <div class="summary-row total">
                                     <span>Total</span>
-                                    <span>${calculateTotal()}</span>
+                                    <span>${formatPrice(calculateTotal())}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `;
 
-                // Add event listeners for payment method selection
+                // Payment method selection
                 document.querySelectorAll('.payment-method').forEach(method => {
-                    method.addEventListener('click', function() {
+                    method.addEventListener('click', function () {
                         document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
                         this.classList.add('selected');
                         const radio = this.querySelector('input[type="radio"]');
-                        radio.checked = true;
+                        if (radio) radio.checked = true;
                     });
                 });
 
-                // Form validation
-                const form = document.getElementById('checkoutForm');
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    if (validateForm()) {
-                        placeOrder();
-                    }
-                });
+                // Initialize payment method selection
+                document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
 
-                // Initialize form validation on input
-                document.querySelectorAll('#checkoutForm input, #checkoutForm select').forEach(input => {
-                    input.addEventListener('input', function() {
-                        validateField(this);
-                        saveCheckoutData();
-                    });
-                });
-
-                // Initialize form validation on blur
-                document.querySelectorAll('#checkoutForm input, #checkoutForm select').forEach(input => {
-                    input.addEventListener('blur', function() {
-                        validateField(this);
-                        saveCheckoutData();
-                    });
-                });
-            }
-
-            function validateForm() {
-                let isValid = true;
-                const form = document.getElementById('checkoutForm');
-                const requiredFields = form.querySelectorAll('[required]');
-                
-                requiredFields.forEach(field => {
-                    if (!validateField(field)) {
-                        isValid = false;
-                    }
-                });
-                
-                return isValid;
-            }
-
-            function validateField(field) {
-                const formGroup = field.closest('.form-group');
-                const errorMessage = formGroup.querySelector('.error-message');
-                
-                // Reset error state
-                formGroup.classList.remove('has-error');
-                errorMessage.style.display = 'none';
-                
-                // Check if field is required and empty
-                if (field.required && !field.value.trim()) {
-                    formGroup.classList.add('has-error');
-                    errorMessage.style.display = 'block';
-                    return false;
-                }
-                
-                // Special validation for email
-                if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
-                    formGroup.classList.add('has-error');
-                    errorMessage.textContent = 'Please enter a valid email address';
-                    errorMessage.style.display = 'block';
-                    return false;
-                }
-                
-                // Special validation for phone
-                if (field.id === 'phone' && !/^[\d\s\+\-\(\)]{8,}$/.test(field.value)) {
-                    formGroup.classList.add('has-error');
-                    errorMessage.textContent = 'Please enter a valid phone number';
-                    errorMessage.style.display = 'block';
-                    return false;
-                }
-                
-                return true;
-            }
-
-            function saveCheckoutData() {
-                const form = document.getElementById('checkoutForm');
-                const formData = new FormData(form);
-                const data = {};
-                
-                formData.forEach((value, key) => {
-                    data[key] = value;
-                });
-                
-                localStorage.setItem('checkoutData', JSON.stringify(data));
+                // Place order button
+                document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
             }
 
             function placeOrder() {
-                // Show loading state
                 const btn = document.getElementById('placeOrderBtn');
+                if (!btn) return;
+
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
-                
-                // In a real application, you would send the order to your server here
-                // For this demo, we'll simulate a successful order after a delay
-                setTimeout(() => {
-                    // Create order confirmation
-                    const orderNumber = 'BH-' + Math.floor(Math.random() * 1000000);
-                    const orderDate = new Date().toLocaleDateString('en-US', {
+
+                // Get form data
+                const form = document.getElementById('checkoutForm');
+                const formData = new FormData(form);
+                const orderData = Object.fromEntries(formData.entries());
+
+                // Create order object
+                const order = {
+                    orderNumber: 'BH-' + Math.floor(Math.random() * 1000000),
+                    orderDate: new Date().toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
-                        day: 'numeric'
-                    });
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    }),
+                    customer: {
+                        firstName: orderData.firstName || '',
+                        lastName: orderData.lastName || '',
+                        email: orderData.email || '',
+                        phone: orderData.phone || '',
+                        address: orderData.address || '',
+                        city: orderData.city || '',
+                        zip: orderData.zip || '',
+                        country: orderData.country || '',
+                        notes: orderData.notes || ''
+                    },
+                    paymentMethod: orderData.paymentMethod || 'wire',
+                    items: cart,
+                    subtotal: calculateSubtotal(),
+                    tax: calculateTax(),
+                    total: calculateTotal(),
+                    status: 'Processing'
+                };
+
+                // Simulate processing delay
+                setTimeout(() => {
+                    // Show success page
+                    showOrderSuccess(order);
                     
                     // Clear cart
                     cart = [];
-                    localStorage.setItem('watchCart', JSON.stringify(cart));
+                    saveCart();
                     
-                    // Clear checkout data
-                    localStorage.removeItem('checkoutData');
-                    
-                    // Show confirmation page
-                    showOrderConfirmation(orderNumber, orderDate);
-                }, 2000);
+                    // Reset button
+                    btn.disabled = false;
+                    btn.textContent = 'Place Order';
+                }, 1500);
             }
 
-            function showOrderConfirmation(orderNumber, orderDate) {
+            function showOrderSuccess(order) {
                 container.innerHTML = `
-                    <div class="order-confirmation">
+                    <div class="order-confirmation animate__animated animate__fadeIn">
                         <div class="confirmation-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
-                        <h1>Thank You For Your Order</h1>
-                        <p>Your order has been received and is being processed. A confirmation email has been sent to your registered email address with all the details. Our concierge team will contact you shortly to finalize the payment and delivery arrangements.</p>
                         
-                        <div class="order-details">
-                            <div class="detail-row">
-                                <span>Order Number</span>
-                                <span>${orderNumber}</span>
+                        <h1 class="confirmation-title">Order Confirmed</h1>
+                        <p class="confirmation-number">Your order #${order.orderNumber}</p>
+                        
+                        <div class="confirmation-message">
+                            <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
+                            <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <h2 class="summary-title">Order Summary</h2>
+                            <div class="order-items">
+                                ${order.items.map(item => `
+                                    <div class="order-item">
+                                        <div class="order-item-info">
+                                            <img src="${item.image || 'images/watch-placeholder.jpg'}" 
+                                                 alt="${item.brand} ${item.model}"
+                                                 onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                                            <div>
+                                                <h4>${item.brand} ${item.model}</h4>
+                                                <div>${formatPrice(item.price)} × ${item.quantity}</div>
+                                            </div>
+                                        </div>
+                                        <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
+                                    </div>
+                                `).join('')}
                             </div>
-                            <div class="detail-row">
-                                <span>Date</span>
-                                <span>${orderDate}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span>Total</span>
-                                <span>${calculateTotal()}</span>
-                            </div>
-                            <div class="detail-row">
-                                <span>Payment Method</span>
-                                <span>${getPaymentMethodDisplay()}</span>
+                            <div class="summary-totals">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span>${formatPrice(order.subtotal)}</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Tax:</span>
+                                    <span>${formatPrice(order.tax)}</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span>${formatPrice(order.total)}</span>
+                                </div>
                             </div>
                         </div>
                         
-                        <a href="collection.html" class="btn">Continue Shopping</a>
+                        <div class="confirmation-actions">
+                            <a href="collection.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                            <a href="index.html" class="btn">
+                                <i class="fas fa-home"></i> Back to Home
+                            </a>
+                        </div>
                     </div>
                 `;
-            }
-
-            function getPaymentMethodDisplay() {
-                const formData = JSON.parse(localStorage.getItem('checkoutData') || {});
-                switch(formData.paymentMethod) {
-                    case 'wire': return 'Bank Wire Transfer';
-                    case 'crypto': return 'Cryptocurrency';
-                    case 'credit': return 'Credit Card';
-                    default: return 'Not specified';
-                }
             }
 
             function generateOrderItems() {
                 return cart.map(item => `
                     <div class="order-item">
                         <div class="order-item-info">
-                            <img src="${item.image}" alt="${item.brand} ${item.model}">
+                            <img src="${item.image || 'images/watch-placeholder.jpg'}" 
+                                 alt="${item.brand} ${item.model}"
+                                 onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
                             <div>
                                 <h4>${item.brand} ${item.model}</h4>
-                                <div>${formatPrice(item.price, item.currency)} × ${item.quantity}</div>
+                                <div>${formatPrice(item.price)} × ${item.quantity}</div>
                             </div>
                         </div>
-                        <div class="order-item-total">${formatPrice(item.price * item.quantity, item.currency)}</div>
+                        <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
                     </div>
                 `).join('');
             }
@@ -1626,13 +1919,13 @@
             function updateCartItemQuantity(id, action) {
                 const itemIndex = cart.findIndex(item => item.id === id);
                 if (itemIndex === -1) return;
-                
+
                 if (action === 'increase') {
                     cart[itemIndex].quantity += 1;
                 } else if (action === 'decrease' && cart[itemIndex].quantity > 1) {
                     cart[itemIndex].quantity -= 1;
                 }
-                
+
                 saveCart();
                 showCartPage();
                 showToast('Cart updated', 'success');
@@ -1646,29 +1939,25 @@
             }
 
             function calculateSubtotal() {
-                return formatPrice(cart.reduce((total, item) => total + (item.price * item.quantity), 0));
+                return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
             }
 
             function calculateTax() {
-                // Assuming 8% tax rate for demonstration
-                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-                const tax = subtotal * 0.08;
-                return formatPrice(tax);
+                const subtotal = calculateSubtotal();
+                return subtotal * 0.08; // 8% tax
             }
 
             function calculateTotal() {
-                const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-                const tax = subtotal * 0.08;
-                return formatPrice(subtotal + tax);
+                return calculateSubtotal() + calculateTax();
             }
 
             function formatPrice(price, currency = 'USD') {
                 if (price === null || price === undefined) return 'Price on Request';
-                return new Intl.NumberFormat('en-US', { 
-                    style: 'currency', 
-                    currency, 
-                    minimumFractionDigits: 0, 
-                    maximumFractionDigits: 0 
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency,
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
                 }).format(price);
             }
 
@@ -1678,4 +1967,5 @@
         });
     </script>
 </body>
+
 </html>
