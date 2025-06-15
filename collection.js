@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.body.classList.remove('modal-open');
             }
         });
-        
+
+    
         // Filter toggle button logic
         if (toggleFiltersBtn && filtersSection) {
             toggleFiltersBtn.addEventListener('click', () => {

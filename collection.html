@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -123,6 +124,26 @@
             background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
+
+        .cart-link {
+            position: relative;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
 
         /* Active State */
         .menu-toggle.active span:nth-child(1) {
@@ -370,7 +391,7 @@
             justify-content: center;
             position: relative;
             text-align: center;
-            
+
         }
 
         .hero::before {
@@ -1723,6 +1744,10 @@
     <nav class="navbar" id="navbar">
         <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
         <a href="index.html" class="logo">BILLIONAIRE <span>HIVE</span></a>
+        <a href="carts&orders.html" class="cart-link" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span> </a>
+
     </nav>
 
     <div class="side-menu" id="sideMenu">
@@ -1839,15 +1864,15 @@
                 <ul class="contact-info">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Rue du Rhône 45, 1204 Geneva, Switzerland</span>
+                        <span>Gulzar street 1st cross, Pernambut, vellore, Tamil Nadu, India - 635810</span>
                     </li>
                     <li>
                         <i class="fas fa-phone"></i>
-                        <span>+41 22 555 5555</span>
+                        <span>+91 9043531165</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <span>concierge@billionairehive.com</span>
+                        <span>billionairehive@gmail.com</span>
                     </li>
                 </ul>
             </div>
@@ -1855,7 +1880,7 @@
 
         <div class="footer-bottom">
             <div class="footer-bottom-content">
-                <p>&copy; 2024 Billionaire Hive. All rights reserved.</p>
+                <p>&copy; 2025 Billionaire Hive. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
