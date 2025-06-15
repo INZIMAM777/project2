@@ -70,6 +70,7 @@
 
         .btn {
             display: inline-block;
+            margin-top: 1rem;
             padding: 12px 30px;
             background: transparent;
             color: var(--gold);
@@ -328,7 +329,7 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            right: 41%;
             width: 80px;
             height: 2px;
             background: var(--gold);
@@ -743,7 +744,6 @@
             border-radius: 8px;
             padding: 30px;
             align-self: start;
-            position: sticky;
             top: 120px;
             animation: fadeIn 0.5s ease 0.2s both;
         }
@@ -1493,478 +1493,555 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const container = document.getElementById('main-content');
-            
-            // Initialize the cart with sample data if empty
-            let cart = JSON.parse(localStorage.getItem('watchCart')) || [
-                {
-                    id: 'watch-1',
-                    brand: 'Rolex',
-                    model: 'Submariner',
-                    price: 10000,
-                    currency: 'USD',
-                    quantity: 1,
-                    image: 'images/watch-placeholder.jpg'
-                }
-            ];
+    const container = document.getElementById('main-content');
+    let cart = JSON.parse(localStorage.getItem('watchCart')) || [];
 
-            // Initialize the page
-            initializePage();
+   
 
-            function initializePage() {
-                initializeMenu();
-                showCartPage();
-                initializeToast();
-            }
+    // Initialize the page
+    initializePage();
 
-            function initializeMenu() {
-                const navbar = document.getElementById('navbar');
-                const menuToggle = document.getElementById('menuToggle');
-                const sideMenu = document.getElementById('sideMenu');
+    function initializePage() {
+        initializeMenu();
+        showCartPage();
+        initializeToast();
+    }
 
-                // Navbar scroll effect
-                window.addEventListener('scroll', () => {
-                    navbar.classList.toggle('scrolled', window.scrollY > 50);
-                });
+    function initializeMenu() {
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const sideMenu = document.getElementById('sideMenu');
 
-                // Side Menu Toggle
-                menuToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isActive = menuToggle.classList.toggle('active');
-                    sideMenu.classList.toggle('active', isActive);
-                    document.body.classList.toggle('modal-open', isActive);
-                });
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target) && sideMenu.classList.contains('active')) {
-                        menuToggle.classList.remove('active');
-                        sideMenu.classList.remove('active');
-                        document.body.classList.remove('modal-open');
-                    }
-                });
-            }
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isActive = menuToggle.classList.toggle('active');
+            sideMenu.classList.toggle('active', isActive);
+            document.body.classList.toggle('modal-open', isActive);
+        });
 
-            function initializeToast() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const success = urlParams.get('success');
-
-                if (success === 'true') {
-                    showToast('Order placed successfully!', 'success');
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-            }
-
-            function showToast(message, type = 'success') {
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.innerHTML = `
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                    <span>${message}</span>
-                `;
-                document.body.appendChild(toast);
-
-                setTimeout(() => {
-                    toast.classList.add('show');
-                }, 100);
-
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                    setTimeout(() => {
-                        toast.remove();
-                    }, 300);
-                }, 5000);
-            }
-
-            function showCartPage() {
-                if (cart.length === 0) {
-                    container.innerHTML = `<div class="empty-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h2>Your Cart is Empty</h2>
-                        <p>Browse our collection to find your perfect watch</p>
-                        <a href="collection.html" class="btn" id="continueShopping">Continue Shopping</a>
-                    </div>`;
-                    return;
-                }
-
-                container.innerHTML = `
-                    <div class="cart-page">
-                        <h1>Your Shopping Cart</h1>
-                        <div class="cart-items-container" id="cartItems"></div>
-                        <div class="cart-summary">
-                            <h3>Order Summary</h3>
-                            <div class="summary-row">
-                                <span>Subtotal</span>
-                                <span id="cartSubtotal">${formatPrice(calculateSubtotal())}</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Shipping</span>
-                                <span>Free</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Tax</span>
-                                <span id="cartTax">${formatPrice(calculateTax())}</span>
-                            </div>
-                            <div class="summary-row total">
-                                <span>Total</span>
-                                <span id="cartTotal">${formatPrice(calculateTotal())}</span>
-                            </div>
-                            <button class="btn btn-checkout" id="proceedToCheckout">Proceed to Checkout</button>
-                        </div>
-                    </div>
-                `;
-
-                const cartItemsContainer = document.getElementById('cartItems');
-                cart.forEach(item => {
-                    const cartItem = document.createElement('div');
-                    cartItem.className = 'cart-item';
-                    cartItem.innerHTML = `
-                        <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
-                             onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
-                        <div class="cart-item-details">
-                            <h3>${item.brand}</h3>
-                            <p>${item.model}</p>
-                            <div class="cart-item-price">${formatPrice(item.price)}</div>
-                        </div>
-                        <div class="cart-item-quantity">
-                            <button class="quantity-btn" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
-                        </div>
-                        <button class="cart-item-remove" data-id="${item.id}">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    `;
-                    cartItemsContainer.appendChild(cartItem);
-                });
-
-                document.querySelectorAll('.quantity-btn').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        const id = this.getAttribute('data-id');
-                        const action = this.getAttribute('data-action');
-                        updateCartItemQuantity(id, action);
-                    });
-                });
-
-                document.querySelectorAll('.cart-item-remove').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        const id = this.getAttribute('data-id');
-                        removeFromCart(id);
-                    });
-                });
-
-                document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
-            }
-
-            function showCheckoutPage() {
-                container.innerHTML = `
-                    <div class="checkout-page">
-                        <h1>Checkout</h1>
-                        <div class="checkout-container">
-                            <form id="checkoutForm" class="checkout-form">
-                                <h2>Shipping Information</h2>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" id="firstName" name="firstName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" id="lastName" name="lastName">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Street Address</label>
-                                    <input type="text" id="address" name="address">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="city">City</label>
-                                        <input type="text" id="city" name="city">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="zip">ZIP/Postal Code</label>
-                                        <input type="text" id="zip" name="zip">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="country">Country</label>
-                                    <select id="country" name="country">
-                                        <option value="">Select Country</option>
-                                        <option value="US">United States</option>
-                                        <option value="UK">United Kingdom</option>
-                                        <option value="CH">Switzerland</option>
-                                        <option value="AE">United Arab Emirates</option>
-                                        <option value="HK">Hong Kong</option>
-                                        <option value="FR">France</option>
-                                        <option value="DE">Germany</option>
-                                        <option value="IT">Italy</option>
-                                        <option value="JP">Japan</option>
-                                        <option value="SG">Singapore</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="notes">Special Instructions (Optional)</label>
-                                    <textarea id="notes" name="notes"></textarea>
-                                </div>
-                                
-                                <h2>Payment Method</h2>
-                                <div class="payment-methods">
-                                    <div class="payment-method" data-method="wire">
-                                        <input type="radio" id="wire" name="paymentMethod" value="wire" checked>
-                                        <label for="wire">Bank Wire Transfer</label>
-                                        <i class="fas fa-university payment-icon"></i>
-                                    </div>
-                                    <div class="payment-method" data-method="crypto">
-                                        <input type="radio" id="crypto" name="paymentMethod" value="crypto">
-                                        <label for="crypto">Cryptocurrency</label>
-                                        <i class="fab fa-bitcoin payment-icon"></i>
-                                    </div>
-                                    <div class="payment-method" data-method="credit">
-                                        <input type="radio" id="credit" name="paymentMethod" value="credit">
-                                        <label for="credit">Credit Card</label>
-                                        <i class="far fa-credit-card payment-icon"></i>
-                                    </div>
-                                </div>
-                                
-                                <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
-                            </form>
-                            
-                            <div class="order-summary">
-                                <h2>Order Summary</h2>
-                                <div class="order-items" id="orderItems">
-                                    ${generateOrderItems()}
-                                </div>
-                                <div class="summary-row">
-                                    <span>Subtotal</span>
-                                    <span>${formatPrice(calculateSubtotal())}</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Shipping</span>
-                                    <span>Free</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Tax</span>
-                                    <span>${formatPrice(calculateTax())}</span>
-                                </div>
-                                <div class="summary-row total">
-                                    <span>Total</span>
-                                    <span>${formatPrice(calculateTotal())}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                // Payment method selection
-                document.querySelectorAll('.payment-method').forEach(method => {
-                    method.addEventListener('click', function () {
-                        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
-                        this.classList.add('selected');
-                        const radio = this.querySelector('input[type="radio"]');
-                        if (radio) radio.checked = true;
-                    });
-                });
-
-                // Initialize payment method selection
-                document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
-
-                // Place order button
-                document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
-            }
-
-            function placeOrder() {
-                const btn = document.getElementById('placeOrderBtn');
-                if (!btn) return;
-
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
-
-                // Get form data
-                const form = document.getElementById('checkoutForm');
-                const formData = new FormData(form);
-                const orderData = Object.fromEntries(formData.entries());
-
-                // Create order object
-                const order = {
-                    orderNumber: 'BH-' + Math.floor(Math.random() * 1000000),
-                    orderDate: new Date().toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    }),
-                    customer: {
-                        firstName: orderData.firstName || '',
-                        lastName: orderData.lastName || '',
-                        email: orderData.email || '',
-                        phone: orderData.phone || '',
-                        address: orderData.address || '',
-                        city: orderData.city || '',
-                        zip: orderData.zip || '',
-                        country: orderData.country || '',
-                        notes: orderData.notes || ''
-                    },
-                    paymentMethod: orderData.paymentMethod || 'wire',
-                    items: cart,
-                    subtotal: calculateSubtotal(),
-                    tax: calculateTax(),
-                    total: calculateTotal(),
-                    status: 'Processing'
-                };
-
-                // Simulate processing delay
-                setTimeout(() => {
-                    // Show success page
-                    showOrderSuccess(order);
-                    
-                    // Clear cart
-                    cart = [];
-                    saveCart();
-                    
-                    // Reset button
-                    btn.disabled = false;
-                    btn.textContent = 'Place Order';
-                }, 1500);
-            }
-
-            function showOrderSuccess(order) {
-                container.innerHTML = `
-                    <div class="order-confirmation animate__animated animate__fadeIn">
-                        <div class="confirmation-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        
-                        <h1 class="confirmation-title">Order Confirmed</h1>
-                        <p class="confirmation-number">Your order #${order.orderNumber}</p>
-                        
-                        <div class="confirmation-message">
-                            <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
-                            <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>
-                        </div>
-                        
-                        <div class="order-summary">
-                            <h2 class="summary-title">Order Summary</h2>
-                            <div class="order-items">
-                                ${order.items.map(item => `
-                                    <div class="order-item">
-                                        <div class="order-item-info">
-                                            <img src="${item.image || 'images/watch-placeholder.jpg'}" 
-                                                 alt="${item.brand} ${item.model}"
-                                                 onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
-                                            <div>
-                                                <h4>${item.brand} ${item.model}</h4>
-                                                <div>${formatPrice(item.price)} × ${item.quantity}</div>
-                                            </div>
-                                        </div>
-                                        <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div class="summary-totals">
-                                <div class="summary-row">
-                                    <span>Subtotal:</span>
-                                    <span>${formatPrice(order.subtotal)}</span>
-                                </div>
-                                <div class="summary-row">
-                                    <span>Tax:</span>
-                                    <span>${formatPrice(order.tax)}</span>
-                                </div>
-                                <div class="summary-row total">
-                                    <span>Total:</span>
-                                    <span>${formatPrice(order.total)}</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="confirmation-actions">
-                            <a href="collection.html" class="btn btn-primary">
-                                <i class="fas fa-arrow-left"></i> Continue Shopping
-                            </a>
-                            <a href="index.html" class="btn">
-                                <i class="fas fa-home"></i> Back to Home
-                            </a>
-                        </div>
-                    </div>
-                `;
-            }
-
-            function generateOrderItems() {
-                return cart.map(item => `
-                    <div class="order-item">
-                        <div class="order-item-info">
-                            <img src="${item.image || 'images/watch-placeholder.jpg'}" 
-                                 alt="${item.brand} ${item.model}"
-                                 onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
-                            <div>
-                                <h4>${item.brand} ${item.model}</h4>
-                                <div>${formatPrice(item.price)} × ${item.quantity}</div>
-                            </div>
-                        </div>
-                        <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
-                    </div>
-                `).join('');
-            }
-
-            function updateCartItemQuantity(id, action) {
-                const itemIndex = cart.findIndex(item => item.id === id);
-                if (itemIndex === -1) return;
-
-                if (action === 'increase') {
-                    cart[itemIndex].quantity += 1;
-                } else if (action === 'decrease' && cart[itemIndex].quantity > 1) {
-                    cart[itemIndex].quantity -= 1;
-                }
-
-                saveCart();
-                showCartPage();
-                showToast('Cart updated', 'success');
-            }
-
-            function removeFromCart(id) {
-                cart = cart.filter(item => item.id !== id);
-                saveCart();
-                showCartPage();
-                showToast('Item removed from cart', 'success');
-            }
-
-            function calculateSubtotal() {
-                return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            }
-
-            function calculateTax() {
-                const subtotal = calculateSubtotal();
-                return subtotal * 0.08; // 8% tax
-            }
-
-            function calculateTotal() {
-                return calculateSubtotal() + calculateTax();
-            }
-
-            function formatPrice(price, currency = 'USD') {
-                if (price === null || price === undefined) return 'Price on Request';
-                return new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency,
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0
-                }).format(price);
-            }
-
-            function saveCart() {
-                localStorage.setItem('watchCart', JSON.stringify(cart));
+        document.addEventListener('click', (e) => {
+            if (!sideMenu.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                sideMenu.classList.remove('active');
+                document.body.classList.remove('modal-open');
             }
         });
+    }
+
+    function initializeToast() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+
+        if (success === 'true') {
+            showToast('Order placed successfully!', 'success');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        `;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 100);
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, 5000);
+    }
+
+    function showCartPage() {
+        if (cart.length === 0) {
+            container.innerHTML = `<div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Your Cart is Empty</h2>
+                <p>Browse our collection to find your perfect watch</p>
+                <a href="collection.html" class="btn" id="continueShopping">Continue Shopping</a>
+            </div>`;
+            return;
+        }
+
+        container.innerHTML = `
+            <div class="cart-page">
+                <h1>Your Shopping Cart</h1>
+                <div class="cart-items-container" id="cartItems"></div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotal">${formatPrice(calculateSubtotal())}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span id="cartTax">${formatPrice(calculateTax())}</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cartTotal">${formatPrice(calculateTotal())}</span>
+                    </div>
+                    <button class="btn btn-checkout" id="proceedToCheckout">Proceed to Checkout</button>
+                </div>
+            </div>
+        `;
+
+        const cartItemsContainer = document.getElementById('cartItems');
+        cart.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.innerHTML = `
+                <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
+                     onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                <div class="cart-item-details">
+                    <h3>${item.brand}</h3>
+                    <p>${item.model}</p>
+                    <div class="cart-item-price">${formatPrice(item.price)}</div>
+                </div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
+                    <span>${item.quantity}</span>
+                    <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                </div>
+                <button class="cart-item-remove" data-id="${item.id}">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+
+        document.querySelectorAll('.quantity-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const action = this.getAttribute('data-action');
+                updateCartItemQuantity(id, action);
+            });
+        });
+
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                removeFromCart(id);
+            });
+        });
+
+        document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
+    }
+
+    function showCheckoutPage() {
+        container.innerHTML = `
+            <div class="checkout-page">
+                <h1>Checkout</h1>
+                <div class="checkout-container">
+                    <form id="checkoutForm" class="checkout-form">
+                        <h2>Shipping Information</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <div class="error-message" id="firstNameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <div class="error-message" id="lastNameError"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address*</label>
+                            <input type="text" id="address" name="address" required>
+                            <div class="error-message" id="addressError"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City*</label>
+                                <input type="text" id="city" name="city" required>
+                                <div class="error-message" id="cityError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">ZIP/Postal Code*</label>
+                                <input type="text" id="zip" name="zip" required>
+                                <div class="error-message" id="zipError"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country*</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                                <option value="IT">Italy</option>
+                                <option value="JP">Japan</option>
+                                <option value="SG">Singapore</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="countryError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Special Instructions (Optional)</label>
+                            <textarea id="notes" name="notes"></textarea>
+                        </div>
+                        
+                        <h2>Payment Method</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method" data-method="wire">
+                                <input type="radio" id="wire" name="paymentMethod" value="wire" checked>
+                                <label for="wire">Bank Wire Transfer</label>
+                                <i class="fas fa-university payment-icon"></i>
+                            </div>
+                            <div class="payment-method" data-method="crypto">
+                                <input type="radio" id="crypto" name="paymentMethod" value="crypto">
+                                <label for="crypto">Cryptocurrency</label>
+                                <i class="fab fa-bitcoin payment-icon"></i>
+                            </div>
+                            <div class="payment-method" data-method="credit">
+                                <input type="radio" id="credit" name="paymentMethod" value="credit">
+                                <label for="credit">Credit Card</label>
+                                <i class="far fa-credit-card payment-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
+                    </form>
+                    
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        <div class="order-items" id="orderItems">
+                            ${generateOrderItems()}
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>${formatPrice(calculateSubtotal())}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span>${formatPrice(calculateTax())}</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>${formatPrice(calculateTotal())}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                this.classList.add('selected');
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
+            });
+        });
+
+        // Initialize payment method selection
+        document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
+
+        // Setup form validation
+        setupFormValidation();
+
+        // Place order button
+        document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+    }
+
+    function setupFormValidation() {
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', validateEmail);
+
+        const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
+        requiredFields.forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            if (input) {
+                input.addEventListener('blur', () => validateRequiredField(input, fieldId));
+            }
+        });
+    }
+
+    function validateEmail() {
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email) {
+            emailError.textContent = 'Email is required';
+            return false;
+        } else if (!emailRegex.test(email)) {
+            emailError.textContent = 'Please enter a valid email address';
+            return false;
+        } else {
+            emailError.textContent = '';
+            return true;
+        }
+    }
+
+    function validateRequiredField(input, fieldId) {
+        const errorElement = document.getElementById(`${fieldId}Error`);
+        const value = input.value.trim();
+
+        if (!value) {
+            errorElement.textContent = `${input.labels[0].textContent.replace('*', '')} is required`;
+            return false;
+        } else {
+            errorElement.textContent = '';
+            return true;
+        }
+    }
+
+    function validateForm() {
+        let isValid = true;
+        
+        if (!validateEmail()) isValid = false;
+        
+        const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
+        requiredFields.forEach(fieldId => {
+            const input = document.getElementById(fieldId);
+            if (!validateRequiredField(input, fieldId)) isValid = false;
+        });
+        
+        return isValid;
+    }
+
+    async function placeOrder() {
+  if (!validateForm()) {
+    showToast('Please fill in all required fields correctly', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('placeOrderBtn');
+  if (!btn) return;
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
+
+  // Create order object
+  const order = {
+    orderNumber: 'BH-' + Math.floor(Math.random() * 1000000),
+    orderDate: new Date().toISOString(),
+    customer: {
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      address: document.getElementById('address').value,
+      city: document.getElementById('city').value,
+      zip: document.getElementById('zip').value,
+      country: document.getElementById('country').value,
+      notes: document.getElementById('notes').value || ''
+    },
+    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+    items: cart.map(item => ({
+      id: item.id,
+      brand: item.brand,
+      model: item.model,
+      price: item.price,
+      quantity: item.quantity,
+      image: item.image || 'images/watch-placeholder.jpg'
+    })),
+    subtotal: calculateSubtotal(),
+    tax: calculateTax(),
+    total: calculateTotal()
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(order)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Order processing failed');
+    }
+
+    const result = await response.json();
+    
+    // Clear cart on success
+    cart = [];
+    saveCart();
+    
+    // Show success page
+    showOrderSuccess(order);
+    
+    // Update URL
+    window.history.pushState({}, document.title, window.location.pathname + '?success=true');
+
+  } catch (error) {
+    console.error('Order error:', error);
+    showToast(`Order failed: ${error.message}`, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Place Order';
+  }
+}
+
+    function showOrderSuccess(order) {
+        container.innerHTML = `
+            <div class="order-confirmation animate__animated animate__fadeIn">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                <h1 class="confirmation-title">Order Confirmed</h1>
+                <p class="confirmation-number">Your order #${order.orderNumber}</p>
+                
+                <div class="confirmation-message">
+                    <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
+                    <p>A confirmation email has been sent to ${order.customer.email}.</p>
+                    <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>
+                </div>
+                
+                <div class="order-summary">
+                    <h2 class="summary-title">Order Summary</h2>
+                    <div class="order-items">
+                        ${order.items.map(item => `
+                            <div class="order-item">
+                                <div class="order-item-info">
+                                    <img src="${item.image || 'images/watch-placeholder.jpg'}" 
+                                         alt="${item.brand} ${item.model}"
+                                         onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                                    <div>
+                                        <h4>${item.brand} ${item.model}</h4>
+                                        <div>${formatPrice(item.price)} × ${item.quantity}</div>
+                                    </div>
+                                </div>
+                                <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span>${formatPrice(order.subtotal)}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax:</span>
+                            <span>${formatPrice(order.tax)}</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span>${formatPrice(order.total)}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <a href="collection.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                    <a href="index.html" class="btn">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    function generateOrderItems() {
+        return cart.map(item => `
+            <div class="order-item">
+                <div class="order-item-info">
+                    <img src="${item.image || 'images/watch-placeholder.jpg'}" 
+                         alt="${item.brand} ${item.model}"
+                         onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                    <div>
+                        <h4>${item.brand} ${item.model}</h4>
+                        <div>${formatPrice(item.price)} × ${item.quantity}</div>
+                    </div>
+                </div>
+                <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
+            </div>
+        `).join('');
+    }
+
+    function updateCartItemQuantity(id, action) {
+        const itemIndex = cart.findIndex(item => item.id === id);
+        if (itemIndex === -1) return;
+
+        if (action === 'increase') {
+            cart[itemIndex].quantity += 1;
+        } else if (action === 'decrease' && cart[itemIndex].quantity > 1) {
+            cart[itemIndex].quantity -= 1;
+        }
+
+        saveCart();
+        showCartPage();
+        showToast('Cart updated', 'success');
+    }
+
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        saveCart();
+        showCartPage();
+        showToast('Item removed from cart', 'success');
+    }
+
+    function calculateSubtotal() {
+        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    }
+
+    function calculateTax() {
+        const subtotal = calculateSubtotal();
+        return subtotal * 0.08; // 8% tax
+    }
+
+    function calculateTotal() {
+        return calculateSubtotal() + calculateTax();
+    }
+
+    function formatPrice(price, currency = 'USD') {
+        if (price === null || price === undefined) return 'Price on Request';
+        return new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(price);
+    }
+
+    function saveCart() {
+        localStorage.setItem('watchCart', JSON.stringify(cart));
+    }
+});
     </script>
 </body>
 
