@@ -215,10 +215,14 @@
                 billionairehive@gmail.com
             </div>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Pinterest"><i
+                        class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -319,10 +323,14 @@
                 <p>Your premier destination for exclusive timepieces and luxury watch collections. We bring together the
                     world's most prestigious watch brands under one roof.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Pinterest"><i
+                            class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -442,13 +450,36 @@
         });
 
         // Form handling
-        const form = document.getElementById('appointmentForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Add your form submission logic here
-            alert('Thank you for your interest. We will contact you shortly to confirm your appointment.');
-            form.reset();
-        });
+        // Update the form handling script for WhatsApp
+    const form = document.getElementById('appointmentForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const location = document.getElementById('location').value;
+        const message = document.getElementById('message').value;
+        
+        // Format the message content
+        const whatsappMessage = `New Appointment Request:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Location: ${location}
+Message: ${message}`;
+        
+        // Create WhatsApp link
+        const whatsappLink = `https://wa.me/919043531165?text=${encodeURIComponent(whatsappMessage)}`;
+        
+        // Open WhatsApp in a new tab
+        window.open(whatsappLink, '_blank');
+        
+        // Show confirmation
+        alert('Thank you for your interest. You will now be redirected to WhatsApp to complete your appointment request.');
+        form.reset();
+    });
 
         // Navbar scroll effect
         let lastScroll = 0;
@@ -481,6 +512,9 @@
                 link.classList.add('active');
             }
         });
+
+
+        
     </script>
 </body>
 

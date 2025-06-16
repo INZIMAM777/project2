@@ -11,7 +11,6 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
     <style>
         /* Reset and base styles */
         :root {
@@ -39,7 +38,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Enhanced Navbar Styles */
+        /* Enhanced Navbar Styles with Animation */
         .navbar {
             position: fixed;
             top: 0;
@@ -50,8 +49,20 @@
             align-items: center;
             padding: 25px 5%;
             z-index: 1000;
-            transition: var(--transition);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
+            transform: translateY(-100%);
+            animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
         }
 
         .navbar.scrolled {
@@ -74,8 +85,25 @@
             font-family: 'Cinzel', serif;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             padding: 10px 0;
-            opacity: 1;
-            transform: translateX(0);
+            opacity: 0;
+            animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .logo span {
@@ -87,7 +115,7 @@
             transition: var(--transition);
         }
 
-        /* Enhanced Hamburger Menu */
+        /* Enhanced Hamburger Menu with Animation */
         .menu-toggle {
             pointer-events: auto;
             cursor: pointer;
@@ -100,6 +128,21 @@
             justify-content: center;
             align-items: center;
             transition: var(--transition);
+            opacity: 0;
+            transform: translateX(20px);
+            animation: fadeInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .menu-toggle span {
@@ -157,7 +200,7 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
 
-        /* Side Menu Styles */
+        /* Side Menu Styles with Animation */
         .side-menu {
             position: fixed;
             top: 0;
@@ -170,9 +213,15 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 100px 5% 50px;
+            padding: 120px 10% 60px;
             transform: translateX(-100%);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (max-width: 768px) {
+            .side-menu {
+                padding: 5% 30px;
+            }
         }
 
         .side-menu.active {
@@ -182,7 +231,7 @@
         .menu-items {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin-top: 55px;
         }
 
         .menu-items li {
@@ -194,26 +243,69 @@
             color: white;
             text-decoration: none;
             font-size: 2.8rem;
-            /* font-weight: 700; */
-            /* text-transform: uppercase; */
             letter-spacing: 2px;
             position: relative;
             display: inline-block;
             transition: var(--transition);
+            transform: translateX(-30px);
+            opacity: 0;
+        }
+
+        .side-menu.active .menu-items a {
+            animation: menuItemFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes menuItemFadeIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-items a {
+                font-size: 1.6rem;
+                line-height: 3rem;
+            }
+        }
+
+
+        .side-menu.active .menu-items li:nth-child(1) a {
+            animation-delay: 0.1s;
+        }
+
+        .side-menu.active .menu-items li:nth-child(2) a {
+            animation-delay: 0.2s;
+        }
+
+        .side-menu.active .menu-items li:nth-child(3) a {
+            animation-delay: 0.3s;
+        }
+
+        .side-menu.active .menu-items li:nth-child(4) a {
+            animation-delay: 0.4s;
+        }
+
+        .side-menu.active .menu-items li:nth-child(5) a {
+            animation-delay: 0.5s;
         }
 
         .menu-items a:hover {
             color: var(--gold);
-            transform: translateX(20px);
-        }
-
-        
-        .menu-items a:hover::before {
-            transform: translateY(0);
+            transform: translateX(20px) !important;
         }
 
         .menu-footer {
             margin-top: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .side-menu.active .menu-footer {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
         }
 
         .menu-contact {
@@ -237,38 +329,43 @@
             color: var(--light-gray);
             font-size: 1.2rem;
             transition: var(--transition);
+            transform: translateY(10px);
+            opacity: 0;
+        }
+
+        .side-menu.active .social-links a {
+            animation: socialFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes socialFadeIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .side-menu.active .social-links a:nth-child(1) {
+            animation-delay: 0.7s;
+        }
+
+        .side-menu.active .social-links a:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .side-menu.active .social-links a:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .side-menu.active .social-links a:nth-child(4) {
+            animation-delay: 1.0s;
         }
 
         .social-links a:hover {
             color: var(--gold);
-            transform: translateY(-5px);
+            transform: translateY(-5px) !important;
         }
 
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 20px 5%;
-            }
-
-            .logo {
-                font-size: 1rem;
-            }
-
-            .menu-toggle {
-                width: 36px;
-                height: 36px;
-            }
-
-            .menu-items a {
-                font-size: 1.6rem;
-            }
-
-            .menu-footer {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-
-        /* Gallery Section Styles */
+        /* Gallery Section Styles with Advanced Animations */
         .gallery-section {
             padding: 120px 5% 60px;
             min-height: 100vh;
@@ -278,11 +375,31 @@
         .gallery-header {
             padding: clamp(4rem, 10vw, 8rem) 0 clamp(2rem, 5vw, 4rem);
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .gallery-title {
             font-size: clamp(2.5rem, 6vw, 4rem);
             margin-bottom: clamp(1rem, 3vw, 2rem);
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
         }
 
         .gallery-description {
@@ -290,21 +407,133 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 clamp(1rem, 3vw, 2rem);
+            color: var(--light-gray);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
         }
 
+        /* Advanced Masonry Grid Layout with Staggered Animations */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: clamp(1rem, 2vw, 1.5rem);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: minmax(200px, auto);
+            gap: 20px;
             padding: clamp(1rem, 3vw, 2rem);
+            perspective: 1000px;
         }
 
         .gallery-item {
             position: relative;
-            aspect-ratio: 1;
             overflow: hidden;
             border-radius: 8px;
             cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px) rotateX(15deg);
+            animation: itemFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes itemFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        /* Staggered animations for grid items */
+        .gallery-item:nth-child(1) {
+            animation-delay: 1.0s;
+        }
+
+        .gallery-item:nth-child(2) {
+            animation-delay: 1.1s;
+        }
+
+        .gallery-item:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        .gallery-item:nth-child(4) {
+            animation-delay: 1.3s;
+        }
+
+        .gallery-item:nth-child(5) {
+            animation-delay: 1.4s;
+        }
+
+        .gallery-item:nth-child(6) {
+            animation-delay: 1.5s;
+        }
+
+        .gallery-item:nth-child(7) {
+            animation-delay: 1.6s;
+        }
+
+        .gallery-item:nth-child(8) {
+            animation-delay: 1.7s;
+        }
+
+        .gallery-item:nth-child(9) {
+            animation-delay: 1.8s;
+        }
+
+        .gallery-item:nth-child(10) {
+            animation-delay: 1.9s;
+        }
+
+        .gallery-item:nth-child(11) {
+            animation-delay: 2.0s;
+        }
+
+        .gallery-item:nth-child(12) {
+            animation-delay: 2.1s;
+        }
+
+        .gallery-item:nth-child(13) {
+            animation-delay: 2.2s;
+        }
+
+        .gallery-item:nth-child(14) {
+            animation-delay: 2.3s;
+        }
+
+        .gallery-item:nth-child(15) {
+            animation-delay: 2.4s;
+        }
+
+        .gallery-item:nth-child(16) {
+            animation-delay: 2.5s;
+        }
+
+        .gallery-item:nth-child(17) {
+            animation-delay: 2.6s;
+        }
+
+        .gallery-item:nth-child(18) {
+            animation-delay: 2.7s;
+        }
+
+        .gallery-item:nth-child(19) {
+            animation-delay: 2.8s;
+        }
+
+        .gallery-item:nth-child(20) {
+            animation-delay: 2.9s;
+        }
+
+        /* Different sizes for masonry effect */
+        .gallery-item.size-small {
+            grid-row: span 1;
+        }
+
+        .gallery-item.size-medium {
+            grid-row: span 2;
+        }
+
+        .gallery-item.size-large {
+            grid-row: span 3;
         }
 
         .gallery-item img {
@@ -312,10 +541,17 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
+            transform: scale(1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+            z-index: 10;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .gallery-item-info {
@@ -324,7 +560,7 @@
             left: 0;
             right: 0;
             padding: clamp(1rem, 3vw, 2rem);
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
             color: white;
             transform: translateY(100%);
             transition: var(--transition);
@@ -337,11 +573,38 @@
         .gallery-item-title {
             font-size: clamp(1.25rem, 3vw, 1.5rem);
             margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+            font-weight: 700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover .gallery-item-title {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.1s;
         }
 
         .gallery-item-description {
             font-size: clamp(0.875rem, 2vw, 1rem);
             opacity: 0.9;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover .gallery-item-description {
+            transform: translateY(0);
+            opacity: 0.9;
+            transition-delay: 0.2s;
         }
 
         .gallery-item-specs {
@@ -351,19 +614,109 @@
             font-size: 0.9rem;
             color: var(--light-gold);
             font-family: 'Montserrat', sans-serif;
+            flex-wrap: wrap;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover .gallery-item-specs {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.3s;
         }
 
         .gallery-item-spec {
             display: flex;
             align-items: center;
             gap: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover .gallery-item-spec {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-item-spec:nth-child(1) {
+            transition-delay: 0.4s;
+        }
+
+        .gallery-item:hover .gallery-item-spec:nth-child(2) {
+            transition-delay: 0.5s;
+        }
+
+        .gallery-item:hover .gallery-item-spec:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+
+        .gallery-item:hover .gallery-item-spec:nth-child(4) {
+            transition-delay: 0.7s;
         }
 
         .gallery-item-spec i {
             color: var(--gold);
+            font-size: 0.8rem;
         }
 
-        /* Lightbox Styles */
+        .gallery-item-price {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--gold);
+            backdrop-filter: blur(5px);
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-item-price {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .gallery-item-rating {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: white;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-item-rating {
+            transform: translateY(0);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .gallery-item-rating i {
+            color: var(--gold);
+        }
+
+        /* Lightbox Styles with Enhanced Animations */
         .lightbox {
             position: fixed;
             top: 0;
@@ -377,7 +730,8 @@
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
         }
 
         .lightbox.active {
@@ -392,25 +746,53 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+            opacity: 1;
         }
 
         .lightbox img {
             max-width: 100%;
             max-height: 80vh;
             object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
         }
 
         .lightbox-close {
             position: absolute;
-            top: -40px;
+            top: -50px;
             right: 0;
             width: 40px;
             height: 40px;
-            background: none;
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
             font-size: 24px;
             cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            transform: rotate(0deg);
+        }
+
+        .lightbox-close:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: rotate(90deg);
         }
 
         .lightbox-nav {
@@ -424,27 +806,164 @@
         }
 
         .lightbox-nav button {
-            background: none;
+            background: rgba(255, 255, 255, 0.1);
             border: none;
             color: white;
             font-size: clamp(1.5rem, 4vw, 2rem);
             cursor: pointer;
             padding: clamp(0.5rem, 1.5vw, 1rem);
             transition: var(--transition);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            transform: translateX(0);
+        }
+
+        .lightbox-nav button.prev {
+            transform: translateX(-20px);
+        }
+
+        .lightbox-nav button.next {
+            transform: translateX(20px);
+        }
+
+        .lightbox.active .lightbox-nav button {
+            transform: translateX(0);
         }
 
         .lightbox-nav button:hover {
-            color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Filter Controls with Animation */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light-gray);
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--gold), var(--dark-gold));
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 30px;
+        }
+
+        .filter-btn:hover {
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .filter-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .filter-btn.active {
+            background: var(--gold);
+            color: var(--black);
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .filter-btn.active::before {
+            display: none;
+        }
+
+        /* Floating gold particles animation */
+        .gold-particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
             .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
 
             .gallery-item-info {
-                transform: translateY(0);
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
+                padding: 1rem;
+                transform: translateY(0) !important;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)) !important;
+            }
+
+            .gallery-item-title,
+            .gallery-item-description,
+            .gallery-item-specs,
+            .gallery-item-spec {
+                transform: translateY(0) !important;
+                opacity: 1 !important;
+            }
+
+            .lightbox-nav button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
 
@@ -456,130 +975,211 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
                 padding: 0.75rem;
+                gap: 15px;
+            }
+
+            .gallery-item {
+                grid-column: span 1 !important;
             }
 
             .lightbox-nav {
                 padding: 0 0.75rem;
             }
-
-            .lightbox-nav button {
-                font-size: 1.5rem;
-            }
         }
 
-        /* Touch Device Optimizations */
-        @media (hover: none) {
-            .gallery-item-info {
-                transform: translateY(0);
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
-            }
-
-            .gallery-item:hover img {
-                transform: none;
-            }
-        }
-
-        /* Footer */
+        /* Footer with Animation */
         .footer {
             background: var(--dark-gray);
-            padding: 60px 5% 30px;
+            padding: 80px 5% 40px;
+            position: relative;
+            overflow: hidden;
             text-align: center;
         }
 
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: white;
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: footerBorder 1.2s cubic-bezier(0.22, 1, 0.36, 1) 2.5s forwards;
+        }
+
+        @keyframes footerBorder {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 2.7s forwards;
+        }
+
+        .footer-section {
             margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
             font-family: 'Cinzel', serif;
-        }
-
-        .footer-logo span {
-            color: var(--gold);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-link {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .footer-link:hover {
-            color: var(--gold);
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .footer-social a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        .footer-copyright {
-            font-family: 'Montserrat', sans-serif;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.8rem;
             letter-spacing: 1px;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .modal-content {
-                flex-direction: column;
-                width: 90%;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-
-            .modal-image {
-                width: 100%;
-                height: 300px;
-            }
-
-            .modal-details {
-                width: 100%;
-                padding: 30px;
-            }
+        .footer-section p {
+            color: var(--light-gray);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        @media (max-width: 576px) {
-            .section-title {
-                font-size: 1.8rem;
-            }
+        .footer-links {
+            list-style: none;
+        }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
 
-            .gallery-item {
-                height: 350px;
-            }
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .newsletter-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--gold), var(--dark-gold));
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .newsletter-form:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .newsletter-form:hover input {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .newsletter-form button {
+            padding: 0 20px;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form:hover button {
+            background: var(--light-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 3.0s forwards;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold);
         }
     </style>
 </head>
@@ -614,14 +1214,14 @@
             </div>
             <div class="menu-contact">
                 <strong>CONTACT</strong>
-                +41 22 555 5555<br>
-                concierge@billionairehive.com
+                +91 9043531165<br>
+                billionairehive@gmail.com
             </div>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -634,126 +1234,419 @@
                 meets artistry. Each watch represents the pinnacle of horological craftsmanship, combining cutting-edge
                 technology with timeless elegance.</p>
         </div>
+
+        <!-- Filter Controls -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="richard-mille">Richard Mille</button>
+            <button class="filter-btn" data-filter="patek-philippe">Patek Philippe</button>
+            <button class="filter-btn" data-filter="audemars-piguet">Audemars Piguet</button>
+            <button class="filter-btn" data-filter="rolex">Rolex</button>
+            <button class="filter-btn" data-filter="jacob-co">Jacob & Co</button>
+        </div>
+
         <div class="gallery-grid">
-            <!-- Last four images first -->
-            <div class="gallery-item">
-                <img src="p-richard4.jpg" alt="Richard Mille Collection">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Richard Mille Collection</h3>
-                    <p class="gallery-item-description">A masterpiece of modern watchmaking, showcasing revolutionary
-                        materials and innovative engineering. Each timepiece is a testament to the brand's commitment to
-                        pushing boundaries.</p>
-                    <div class="gallery-item-specs">
-                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Premium Materials</span>
-                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Advanced Movement</span>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="p-richard3.jpg" alt="Richard Mille Innovation">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Innovation in Motion</h3>
-                    <p class="gallery-item-description">Where cutting-edge technology meets artistic design. These
-                        timepieces represent the future of watchmaking, featuring revolutionary materials and
-                        groundbreaking mechanics.</p>
-                    <div class="gallery-item-specs">
-                        <span class="gallery-item-spec"><i class="fas fa-microchip"></i> Smart Technology</span>
-                        <span class="gallery-item-spec"><i class="fas fa-paint-brush"></i> Artistic Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="p-richard2.jpg" alt="Richard Mille Craftsmanship">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Masterful Craftsmanship</h3>
-                    <p class="gallery-item-description">A celebration of traditional watchmaking techniques combined
-                        with modern innovation. Each component is meticulously crafted to perfection.</p>
-                    <div class="gallery-item-specs">
-                        <span class="gallery-item-spec"><i class="fas fa-tools"></i> Handcrafted</span>
-                        <span class="gallery-item-spec"><i class="fas fa-clock"></i> Precision</span>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="P-richard1.jpg" alt="Richard Mille Heritage">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Heritage of Excellence</h3>
-                    <p class="gallery-item-description">Drawing inspiration from decades of horological mastery, these
-                        timepieces embody the perfect balance of tradition and innovation.</p>
-                    <div class="gallery-item-specs">
-                        <span class="gallery-item-spec"><i class="fas fa-history"></i> Rich Heritage</span>
-                        <span class="gallery-item-spec"><i class="fas fa-award"></i> Excellence</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Adding more images in reverse order -->
-            <div class="gallery-item">
-                <img src="jacob5.avif" alt="Jacob & Co. Masterpiece">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Jacob & Co. Masterpiece</h3>
-                    <p class="gallery-item-description">A symphony of mechanical artistry, where every detail tells a
-                        story of innovation and luxury. These timepieces redefine the boundaries of watchmaking.</p>
-                    <div class="gallery-item-specs">
-                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Luxury</span>
-                        <span class="gallery-item-spec"><i class="fas fa-magic"></i> Innovation</span>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="jacob4.avif" alt="Jacob & Co. Innovation">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Innovative Design</h3>
-                    <p class="gallery-item-description">Breaking conventional boundaries</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="jacob3.avif" alt="Jacob & Co. Luxury">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Luxury Redefined</h3>
-                    <p class="gallery-item-description">Where luxury meets innovation</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="jacob2.avif" alt="Jacob & Co. Craftsmanship">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Artistic Craftsmanship</h3>
-                    <p class="gallery-item-description">A masterpiece of horological art</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="jacob1.avif" alt="Jacob & Co. Heritage">
-                <div class="gallery-item-info">
-                    <h3 class="gallery-item-title">Heritage Collection</h3>
-                    <p class="gallery-item-description">Timeless elegance reimagined</p>
-                </div>
-            </div>
-            <!-- Adding watch images -->
-            <div class="gallery-item">
+            <!-- Richard Mille Watches -->
+            <div class="gallery-item size-large" data-brand="richard-mille">
                 <img src="RM 056 Sapphire Tourbillon.jpg" alt="RM 056 Sapphire Tourbillon">
+                <div class="gallery-item-price">$2,000,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 5.0</div>
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">RM 056 Sapphire Tourbillon</h3>
-                    <p class="gallery-item-description">The pinnacle of transparency</p>
+                    <p class="gallery-item-description">The pinnacle of transparency in watchmaking, crafted entirely
+                        from sapphire crystal. This masterpiece showcases the intricate tourbillon movement in full
+                        view, representing the ultimate fusion of technology and artistry.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Sapphire Case</span>
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Tourbillon</span>
+                        <span class="gallery-item-spec"><i class="fas fa-clock"></i> 5-Day Power Reserve</span>
+                        <span class="gallery-item-spec"><i class="fas fa-tag"></i> Limited Edition</span>
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
+
+            <div class="gallery-item size-medium" data-brand="richard-mille">
                 <img src="RM 027 Nadal Tourbillon.jpg" alt="RM 027 Nadal Tourbillon">
+                <div class="gallery-item-price">$750,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">RM 027 Nadal Tourbillon</h3>
-                    <p class="gallery-item-description">Lightweight excellence</p>
+                    <p class="gallery-item-description">Designed in collaboration with tennis champion Rafael Nadal,
+                        this ultra-lightweight tourbillon weighs less than 20 grams including the strap. Engineered for
+                        performance under extreme conditions.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-weight"></i> 19g Weight</span>
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Tourbillon</span>
+                        <span class="gallery-item-spec"><i class="fas fa-bolt"></i> Shock Resistant</span>
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
+
+            <div class="gallery-item size-small" data-brand="richard-mille">
                 <img src="RM 035 Rafael Nadal.jpg" alt="RM 035 Rafael Nadal">
+                <div class="gallery-item-price">$250,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">RM 035 Rafael Nadal</h3>
-                    <p class="gallery-item-description">Performance meets precision</p>
+                    <p class="gallery-item-description">A technical marvel designed for athletes, featuring a
+                        skeletonized movement and carbon composite case.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-atom"></i> Carbon Composite</span>
+                        <span class="gallery-item-spec"><i class="fas fa-bolt"></i> Shock Resistant</span>
+                    </div>
                 </div>
             </div>
-            <div class="gallery-item">
+
+            <div class="gallery-item size-small" data-brand="richard-mille">
                 <img src="RM 011 Felipe Massa.jpg" alt="RM 011 Felipe Massa">
+                <div class="gallery-item-price">$185,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
                 <div class="gallery-item-info">
                     <h3 class="gallery-item-title">RM 011 Felipe Massa</h3>
-                    <p class="gallery-item-description">Racing-inspired innovation</p>
+                    <p class="gallery-item-description">Inspired by Formula 1 racing, featuring a flyback chronograph
+                        and annual calendar complication.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-flag-checkered"></i> Racing Inspired</span>
+                        <span class="gallery-item-spec"><i class="fas fa-calendar-alt"></i> Annual Calendar</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="richard-mille">
+                <img src="RM 67-02 Charles Leclerc.jpg" alt="RM 67-02 Charles Leclerc">
+                <div class="gallery-item-price">$320,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">RM 67-02 Charles Leclerc</h3>
+                    <p class="gallery-item-description">Ultra-thin automatic movement designed for Formula 1 driver
+                        Charles Leclerc, featuring exceptional shock resistance and lightweight construction.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-weight"></i> Ultra Light</span>
+                        <span class="gallery-item-spec"><i class="fas fa-bolt"></i> Shock Resistant</span>
+                        <span class="gallery-item-spec"><i class="fas fa-tachometer-alt"></i> Racing Inspired</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patek Philippe Watches -->
+            <div class="gallery-item size-large" data-brand="patek-philippe">
+                <img src="Grand Complications 5208P.jpg" alt="Grand Complications 5208P">
+                <div class="gallery-item-price">$1,250,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 5.0</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Grand Complications 5208P</h3>
+                    <p class="gallery-item-description">One of Patek Philippe's most complicated wristwatches, featuring
+                        minute repeater, monopusher chronograph, and instantaneous perpetual calendar with displays for
+                        the day, date, month, leap year, and moon phases.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Platinum</span>
+                        <span class="gallery-item-spec"><i class="fas fa-bell"></i> Minute Repeater</span>
+                        <span class="gallery-item-spec"><i class="fas fa-calendar-alt"></i> Perpetual Calendar</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="patek-philippe">
+                <img src="Nautilus Stainless Steel.jpg" alt="Nautilus 5711/1A">
+                <div class="gallery-item-price">$120,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Nautilus 5711/1A</h3>
+                    <p class="gallery-item-description">The iconic stainless steel Nautilus with blue dial, one of the
+                        most sought-after watches in the world. Discontinued model that has become a legend in watch
+                        collecting.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-anchor"></i> Nautilus</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 120m Water Resistant</span>
+                        <span class="gallery-item-spec"><i class="fas fa-tag"></i> Collector's Item</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="patek-philippe">
+                <img src="Aquanaut 5167A.jpg" alt="Aquanaut 5167A">
+                <div class="gallery-item-price">$45,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Aquanaut 5167A</h3>
+                    <p class="gallery-item-description">The sporty yet elegant Aquanaut with its distinctive porthole
+                        shape and tropical composite strap. A modern classic from Patek Philippe.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-compass"></i> Sporty Elegance</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 120m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="patek-philippe">
+                <img src="Calatrava 5227J.jpg" alt="Calatrava 5227J">
+                <div class="gallery-item-price">$37,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.6</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Calatrava 5227J</h3>
+                    <p class="gallery-item-description">The quintessential dress watch with a hinged sapphire crystal
+                        caseback, showcasing Patek Philippe's commitment to traditional watchmaking.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Yellow Gold</span>
+                        <span class="gallery-item-spec"><i class="fas fa-clock"></i> Classic Dress Watch</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="patek-philippe">
+                <img src="Nautilus Travel Time Chronograph.jpg" alt="Nautilus Travel Time Chronograph">
+                <div class="gallery-item-price">$98,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Nautilus Travel Time Chronograph</h3>
+                    <p class="gallery-item-description">Combining the iconic Nautilus design with useful travel time
+                        function and chronograph complication, perfect for the global traveler.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-plane"></i> Travel Time</span>
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 120m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audemars Piguet Watches -->
+            <div class="gallery-item size-large" data-brand="audemars-piguet">
+                <img src="Royal Oak Concept Flying Tourbillon.jpg" alt="Royal Oak Concept Flying Tourbillon">
+                <div class="gallery-item-price">$180,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Royal Oak Concept Flying Tourbillon</h3>
+                    <p class="gallery-item-description">A futuristic interpretation of the Royal Oak with an openworked
+                        dial showcasing the flying tourbillon. Pushes the boundaries of traditional watchmaking.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-atom"></i> Titanium Case</span>
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Flying Tourbillon</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 100m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="audemars-piguet">
+                <img src="Royal Oak Jumbo 15202.jpg" alt="Royal Oak Jumbo 15202">
+                <div class="gallery-item-price">$85,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Royal Oak Jumbo 15202</h3>
+                    <p class="gallery-item-description">The ultra-thin "Jumbo" extra-flat version of the iconic Royal
+                        Oak, staying true to the original 1972 design with its beautiful "Petite Tapisserie" dial.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-ruler-vertical"></i> Ultra Thin</span>
+                        <span class="gallery-item-spec"><i class="fas fa-history"></i> Iconic Design</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 50m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="audemars-piguet">
+                <img src="Royal Oak Offshore 26420.jpg" alt="Royal Oak Offshore 26420">
+                <div class="gallery-item-price">$55,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.6</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Royal Oak Offshore 26420</h3>
+                    <p class="gallery-item-description">The sportier, more robust version of the Royal Oak with
+                        chronograph function and bold design elements.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 100m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="audemars-piguet">
+                <img src="Royal Oak Selfwinding Chronograph.jpg" alt="Royal Oak Selfwinding Chronograph">
+                <div class="gallery-item-price">$68,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Royal Oak Selfwinding Chronograph</h3>
+                    <p class="gallery-item-description">Elegant rose gold Royal Oak with chronograph function, combining
+                        sportiness with luxury.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Rose Gold</span>
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="audemars-piguet">
+                <img src="Code 11.59 Selfwinding.jpg" alt="Code 11.59 Selfwinding">
+                <div class="gallery-item-price">$32,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.3</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Code 11.59 Selfwinding</h3>
+                    <p class="gallery-item-description">Audemars Piguet's modern classic with an ultra-thin case and
+                        stunning lacquered dial, representing a new direction for the brand.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> White Gold</span>
+                        <span class="gallery-item-spec"><i class="fas fa-paint-brush"></i> Lacquered Dial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rolex Watches -->
+            <div class="gallery-item size-large" data-brand="rolex">
+                <img src="Daytona 116500LN (Ceramic).jpg" alt="Daytona 116500LN">
+                <div class="gallery-item-price">$35,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Daytona 116500LN</h3>
+                    <p class="gallery-item-description">The iconic Rolex Daytona with ceramic bezel, one of the most
+                        sought-after watches in the world. Perfect combination of precision chronograph functionality
+                        and timeless design.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                        <span class="gallery-item-spec"><i class="fas fa-tachometer-alt"></i> Tachymeter</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 100m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="rolex">
+                <img src="Submariner 126610LN.jpg" alt="Submariner 126610LN">
+                <div class="gallery-item-price">$10,500</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Submariner 126610LN</h3>
+                    <p class="gallery-item-description">The ultimate dive watch with 300m water resistance, ceramic
+                        bezel, and the latest generation Rolex movement. A true icon of horology.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 300m Waterproof</span>
+                        <span class="gallery-item-spec"><i class="fas fa-clock"></i> Chronometer</span>
+                        <span class="gallery-item-spec"><i class="fas fa-history"></i> Iconic Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="rolex">
+                <img src="GMT-Master II 126710BLNR (Batman).jpg" alt="GMT-Master II 126710BLNR">
+                <div class="gallery-item-price">$12,500</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">GMT-Master II 126710BLNR</h3>
+                    <p class="gallery-item-description">The famous "Batman" GMT with blue and black ceramic bezel,
+                        allowing tracking of two time zones simultaneously. Perfect for travelers.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-globe"></i> Dual Time Zone</span>
+                        <span class="gallery-item-spec"><i class="fas fa-water"></i> 100m Water Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="rolex">
+                <img src="Datejust 36 126234 (Blue Dial).jpg" alt="Datejust 36 126234">
+                <div class="gallery-item-price">$8,500</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Datejust 36 126234</h3>
+                    <p class="gallery-item-description">The classic Rolex Datejust with fluted bezel and jubilee
+                        bracelet, now with updated movement and modern proportions.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> White Gold Bezel</span>
+                        <span class="gallery-item-spec"><i class="fas fa-calendar-alt"></i> Date Display</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="rolex">
+                <img src="Day-Date 40 228235 (Rose Gold).jpg" alt="Day-Date 40 228235">
+                <div class="gallery-item-price">$42,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Day-Date 40 228235</h3>
+                    <p class="gallery-item-description">The prestigious "President" watch in Everose gold, displaying
+                        both the date and day of the week in full. Worn by world leaders and celebrities.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Everose Gold</span>
+                        <span class="gallery-item-spec"><i class="fas fa-calendar-day"></i> Day-Date</span>
+                        <span class="gallery-item-spec"><i class="fas fa-medal"></i> President Bracelet</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jacob & Co Watches -->
+            <div class="gallery-item size-large" data-brand="jacob-co">
+                <img src="Astronomia Tourbillon.jpg" alt="Astronomia Tourbillon">
+                <div class="gallery-item-price">$450,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Astronomia Tourbillon</h3>
+                    <p class="gallery-item-description">A celestial masterpiece with a four-arm carousel that rotates
+                        around the dial every 20 minutes, featuring a tourbillon, diamond-cut celestial globe, and
+                        hand-painted magnesium lacquer micro-painted earth.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-globe"></i> Celestial Display</span>
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Tourbillon</span>
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> 18k Rose Gold</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="jacob-co">
+                <img src="Astronomia Solar Zodiac.jpg" alt="Astronomia Solar Zodiac">
+                <div class="gallery-item-price">$520,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.8</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Astronomia Solar Zodiac</h3>
+                    <p class="gallery-item-description">An evolution of the Astronomia with a zodiac disc that completes
+                        one full rotation around the dial every 365 days, synchronized with the earth's orbit around the
+                        sun.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-sun"></i> Zodiac Display</span>
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> 18k White Gold</span>
+                        <span class="gallery-item-spec"><i class="fas fa-star"></i> Celestial Mechanics</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="jacob-co">
+                <img src="Epic X Chrono.jpg" alt="Epic X Chrono">
+                <div class="gallery-item-price">$65,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.5</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Epic X Chrono</h3>
+                    <p class="gallery-item-description">Bold and angular design with a skeletonized movement and
+                        chronograph function. The X-shaped case is instantly recognizable.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                        <span class="gallery-item-spec"><i class="fas fa-atom"></i> Skeletonized</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-small" data-brand="jacob-co">
+                <img src="Twin Turbo Furious.jpg" alt="Twin Turbo Furious">
+                <div class="gallery-item-price">$680,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.9</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Twin Turbo Furious</h3>
+                    <p class="gallery-item-description">A horological powerhouse with two triple-axis tourbillons,
+                        monopusher chronograph, and decimal minute repeater. One of the most complicated watches ever
+                        made.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Dual Tourbillons</span>
+                        <span class="gallery-item-spec"><i class="fas fa-stopwatch"></i> Chronograph</span>
+                        <span class="gallery-item-spec"><i class="fas fa-bell"></i> Minute Repeater</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-medium" data-brand="jacob-co">
+                <img src="Opera Godfather.jpg" alt="Opera Godfather">
+                <div class="gallery-item-price">$380,000</div>
+                <div class="gallery-item-rating"><i class="fas fa-star"></i> 4.7</div>
+                <div class="gallery-item-info">
+                    <h3 class="gallery-item-title">Opera Godfather</h3>
+                    <p class="gallery-item-description">A musical masterpiece that plays the Godfather theme on demand,
+                        with a triple-axis tourbillon and striking black gold case.</p>
+                    <div class="gallery-item-specs">
+                        <span class="gallery-item-spec"><i class="fas fa-music"></i> Musical Complication</span>
+                        <span class="gallery-item-spec"><i class="fas fa-cogs"></i> Triple-Axis Tourbillon</span>
+                        <span class="gallery-item-spec"><i class="fas fa-gem"></i> Black Gold</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -773,145 +1666,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>BILLIONAIRE <span>HIVE</span></h3>
-                <p>Discover the pinnacle of horological excellence with our curated collection of luxury timepieces.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="collection.html">Collection</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            &copy; 2025 BILLIONAIRE HIVE. ALL RIGHTS RESERVED.
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('watchModal');
-            const modalClose = document.getElementById('modalClose');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const lightbox = document.querySelector('.lightbox');
-            const lightboxImg = lightbox.querySelector('img');
-            const closeBtn = lightbox.querySelector('.lightbox-close');
-            const prevBtn = lightbox.querySelector('.prev');
-            const nextBtn = lightbox.querySelector('.next');
-            let currentIndex = 0;
-
-            // Gallery item click handler
-            galleryItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateLightbox();
-                    lightbox.classList.add('active');
-                });
-            });
-
-            // Close lightbox
-            closeBtn.addEventListener('click', () => {
-                lightbox.classList.remove('active');
-            });
-
-            // Navigation
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-                updateLightbox();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % galleryItems.length;
-                updateLightbox();
-            });
-
-            // Update lightbox content
-            function updateLightbox() {
-                const img = galleryItems[currentIndex].querySelector('img');
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-
-                switch (e.key) {
-                    case 'Escape':
-                        lightbox.classList.remove('active');
-                        break;
-                    case 'ArrowLeft':
-                        prevBtn.click();
-                        break;
-                    case 'ArrowRight':
-                        nextBtn.click();
-                        break;
-                }
-            });
-
-            // Menu Toggle
-            const menuToggle = document.getElementById('menuToggle');
-            const sideMenu = document.getElementById('sideMenu');
-            const menuLinks = document.querySelectorAll('.menu-items a');
-
-
-            // Handle menu link clicks
-            menuLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const href = link.getAttribute('href');
-
-                    // Add transition effect
-                    sideMenu.style.opacity = '0';
-                    menuToggle.classList.remove('active');
-
-                    // Navigate after transition
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 300);
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !sideMenu.contains(e.target)) {
-                    menuToggle.classList.remove('active');
-                    sideMenu.classList.remove('active');
-                }
-            });
-
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-        });
-    </script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="home.js"></script>
-
-    <!-- Enhanced Footer -->
-    <footer class="enhanced-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>BILLIONAIRE HIVE</h3>
@@ -958,13 +1712,150 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Billionaire Hive. All rights reserved.</p>
+            <p class="footer-copyright">&copy; 2025 Billionaire Hive. All rights reserved.</p>
             <div class="footer-legal">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const sideMenu = document.getElementById('sideMenu');
+            const menuLinks = document.querySelectorAll('.menu-items a');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.prev');
+            const nextBtn = lightbox.querySelector('.next');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            let currentIndex = 0;
+
+            // Menu toggle functionality
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                sideMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking on links
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    sideMenu.classList.remove('active');
+                });
+            });
+
+            // Gallery lightbox functionality
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close lightbox
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Navigation
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateLightbox();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateLightbox();
+            });
+
+            // Update lightbox content
+            function updateLightbox() {
+                const img = galleryItems[currentIndex].querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+
+                switch (e.key) {
+                    case 'Escape':
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = '';
+                        break;
+                    case 'ArrowLeft':
+                        prevBtn.click();
+                        break;
+                    case 'ArrowRight':
+                        nextBtn.click();
+                        break;
+                }
+            });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !sideMenu.contains(e.target)) {
+                    menuToggle.classList.remove('active');
+                    sideMenu.classList.remove('active');
+                }
+            });
+
+            // Filter functionality
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.brand === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Randomize item sizes for masonry effect
+            function randomizeItemSizes() {
+                const items = document.querySelectorAll('.gallery-item');
+                items.forEach(item => {
+                    const sizes = ['size-small', 'size-medium', 'size-large'];
+                    const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+
+                    // Remove all size classes
+                    item.classList.remove('size-small', 'size-medium', 'size-large');
+                    // Add random size class
+                    item.classList.add(randomSize);
+                });
+            }
+
+            // Call the function to randomize sizes
+            randomizeItemSizes();
+        });
+    </script>
 </body>
 
 </html>

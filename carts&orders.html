@@ -601,25 +601,26 @@
             color: var(--error);
             margin-left: 5px;
         }
+
         .form-group.has-error input,
-.form-group.has-error select,
-.form-group.has-error textarea {
-    border-color: #e74c3c;
-    box-shadow: 0 0 0 1px #e74c3c;
-}
+        .form-group.has-error select,
+        .form-group.has-error textarea {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 1px #e74c3c;
+        }
 
-.error-message {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    display: none;
-}
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
 
-.payment-methods.has-error {
-    border: 1px solid #e74c3c;
-    padding: 10px;
-    border-radius: 4px;
-}
+        .payment-methods.has-error {
+            border: 1px solid #e74c3c;
+            padding: 10px;
+            border-radius: 4px;
+        }
 
         .form-group input,
         .form-group select,
@@ -1438,10 +1439,14 @@
                 billionairehive@gmail.com
             </div>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Pinterest"><i
+                        class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -1461,10 +1466,14 @@
                 <p>Curating the world's most exclusive timepieces for discerning collectors since 1995. Each watch in
                     our collection tells a story of craftsmanship, heritage, and unparalleled luxury.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Pinterest"><i
+                            class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/inzimamulhaqn/" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-links">
@@ -1480,7 +1489,8 @@
             </div>
             <div class="footer-contact">
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Gulzar street 1st cross, Pernambut, vellore, Tamil Nadu, India - 635810</p>
+                <p><i class="fas fa-map-marker-alt"></i> Gulzar street 1st cross, Pernambut, vellore, Tamil Nadu, India
+                    - 635810</p>
                 <p><i class="fas fa-phone"></i> +91 9043531165</p>
                 <p><i class="fas fa-envelope"></i> billionairehive@gmail.com</p>
                 <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM (GMT+1)</p>
@@ -1493,88 +1503,88 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-    const container = document.getElementById('main-content');
-    let cart = JSON.parse(localStorage.getItem('watchCart')) || [];
+            const container = document.getElementById('main-content');
+            let cart = JSON.parse(localStorage.getItem('watchCart')) || [];
 
-   
 
-    // Initialize the page
-    initializePage();
 
-    function initializePage() {
-        initializeMenu();
-        showCartPage();
-        initializeToast();
-    }
+            // Initialize the page
+            initializePage();
 
-    function initializeMenu() {
-        const navbar = document.getElementById('navbar');
-        const menuToggle = document.getElementById('menuToggle');
-        const sideMenu = document.getElementById('sideMenu');
-
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isActive = menuToggle.classList.toggle('active');
-            sideMenu.classList.toggle('active', isActive);
-            document.body.classList.toggle('modal-open', isActive);
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sideMenu.contains(e.target)) {
-                menuToggle.classList.remove('active');
-                sideMenu.classList.remove('active');
-                document.body.classList.remove('modal-open');
+            function initializePage() {
+                initializeMenu();
+                showCartPage();
+                initializeToast();
             }
-        });
-    }
 
-    function initializeToast() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const success = urlParams.get('success');
+            function initializeMenu() {
+                const navbar = document.getElementById('navbar');
+                const menuToggle = document.getElementById('menuToggle');
+                const sideMenu = document.getElementById('sideMenu');
 
-        if (success === 'true') {
-            showToast('Order placed successfully!', 'success');
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-    }
+                window.addEventListener('scroll', () => {
+                    navbar.classList.toggle('scrolled', window.scrollY > 50);
+                });
 
-    function showToast(message, type = 'success') {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = `
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isActive = menuToggle.classList.toggle('active');
+                    sideMenu.classList.toggle('active', isActive);
+                    document.body.classList.toggle('modal-open', isActive);
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!sideMenu.contains(e.target)) {
+                        menuToggle.classList.remove('active');
+                        sideMenu.classList.remove('active');
+                        document.body.classList.remove('modal-open');
+                    }
+                });
+            }
+
+            function initializeToast() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const success = urlParams.get('success');
+
+                if (success === 'true') {
+                    showToast('Order placed successfully!', 'success');
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+
+            function showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `
             <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
             <span>${message}</span>
         `;
-        document.body.appendChild(toast);
+                document.body.appendChild(toast);
 
-        setTimeout(() => {
-            toast.classList.add('show');
-        }, 100);
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 100);
 
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
-        }, 5000);
-    }
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                }, 5000);
+            }
 
-    function showCartPage() {
-        if (cart.length === 0) {
-            container.innerHTML = `<div class="empty-cart">
+            function showCartPage() {
+                if (cart.length === 0) {
+                    container.innerHTML = `<div class="empty-cart">
                 <i class="fas fa-shopping-cart"></i>
                 <h2>Your Cart is Empty</h2>
                 <p>Browse our collection to find your perfect watch</p>
                 <a href="collection.html" class="btn" id="continueShopping">Continue Shopping</a>
             </div>`;
-            return;
-        }
+                    return;
+                }
 
-        container.innerHTML = `
+                container.innerHTML = `
             <div class="cart-page">
                 <h1>Your Shopping Cart</h1>
                 <div class="cart-items-container" id="cartItems"></div>
@@ -1601,11 +1611,11 @@
             </div>
         `;
 
-        const cartItemsContainer = document.getElementById('cartItems');
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.className = 'cart-item';
-            cartItem.innerHTML = `
+                const cartItemsContainer = document.getElementById('cartItems');
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
                 <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
                      onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
                 <div class="cart-item-details">
@@ -1622,29 +1632,29 @@
                     <i class="fas fa-trash"></i>
                 </button>
             `;
-            cartItemsContainer.appendChild(cartItem);
-        });
+                    cartItemsContainer.appendChild(cartItem);
+                });
 
-        document.querySelectorAll('.quantity-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const action = this.getAttribute('data-action');
-                updateCartItemQuantity(id, action);
-            });
-        });
+                document.querySelectorAll('.quantity-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        const action = this.getAttribute('data-action');
+                        updateCartItemQuantity(id, action);
+                    });
+                });
 
-        document.querySelectorAll('.cart-item-remove').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                removeFromCart(id);
-            });
-        });
+                document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        removeFromCart(id);
+                    });
+                });
 
-        document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
-    }
+                document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
+            }
 
-    function showCheckoutPage() {
-        container.innerHTML = `
+            function showCheckoutPage() {
+                container.innerHTML = `
             <div class="checkout-page">
                 <h1>Checkout</h1>
                 <div class="checkout-container">
@@ -1729,6 +1739,11 @@
                                 <label for="credit">Credit Card</label>
                                 <i class="far fa-credit-card payment-icon"></i>
                             </div>
+                            <div class="payment-method" data-method="cod">
+                                <input type="radio" id="cod" name="paymentMethod" value="cod">
+                                <label for="cod">Cash on Delivery</label>
+                                <i class="fas fa-money-bill-wave payment-icon"></i>
+                            </div>
                         </div>
                         
                         <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
@@ -1760,224 +1775,236 @@
             </div>
         `;
 
-        // Payment method selection
-        document.querySelectorAll('.payment-method').forEach(method => {
-            method.addEventListener('click', function() {
-                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
-                this.classList.add('selected');
-                const radio = this.querySelector('input[type="radio"]');
-                if (radio) radio.checked = true;
-            });
-        });
+                // Payment method selection
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.addEventListener('click', function () {
+                        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                        this.classList.add('selected');
+                        const radio = this.querySelector('input[type="radio"]');
+                        if (radio) radio.checked = true;
+                    });
+                });
 
-        // Initialize payment method selection
-        document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
+                // Initialize payment method selection
+                document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
 
-        // Setup form validation
-        setupFormValidation();
+                // Setup form validation
+                setupFormValidation();
 
-        // Place order button
-        document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
-    }
-
-    function setupFormValidation() {
-        const emailInput = document.getElementById('email');
-        emailInput.addEventListener('blur', validateEmail);
-
-        const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
-        requiredFields.forEach(fieldId => {
-            const input = document.getElementById(fieldId);
-            if (input) {
-                input.addEventListener('blur', () => validateRequiredField(input, fieldId));
+                // Place order button
+                document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
             }
-        });
-    }
 
-    function validateEmail() {
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('emailError');
-        const email = emailInput.value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            function setupFormValidation() {
+                const emailInput = document.getElementById('email');
+                emailInput.addEventListener('blur', validateEmail);
 
-        if (!email) {
-            emailError.textContent = 'Email is required';
-            return false;
-        } else if (!emailRegex.test(email)) {
-            emailError.textContent = 'Please enter a valid email address';
-            return false;
-        } else {
-            emailError.textContent = '';
-            return true;
-        }
-    }
+                const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
+                requiredFields.forEach(fieldId => {
+                    const input = document.getElementById(fieldId);
+                    if (input) {
+                        input.addEventListener('blur', () => validateRequiredField(input, fieldId));
+                    }
+                });
+            }
 
-    function validateRequiredField(input, fieldId) {
-        const errorElement = document.getElementById(`${fieldId}Error`);
-        const value = input.value.trim();
+            function validateEmail() {
+                const emailInput = document.getElementById('email');
+                const emailError = document.getElementById('emailError');
+                const email = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!value) {
-            errorElement.textContent = `${input.labels[0].textContent.replace('*', '')} is required`;
-            return false;
-        } else {
-            errorElement.textContent = '';
-            return true;
-        }
-    }
+                if (!email) {
+                    emailError.textContent = 'Email is required';
+                    return false;
+                } else if (!emailRegex.test(email)) {
+                    emailError.textContent = 'Please enter a valid email address';
+                    return false;
+                } else {
+                    emailError.textContent = '';
+                    return true;
+                }
+            }
 
-    function validateForm() {
-        let isValid = true;
-        
-        if (!validateEmail()) isValid = false;
-        
-        const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
-        requiredFields.forEach(fieldId => {
-            const input = document.getElementById(fieldId);
-            if (!validateRequiredField(input, fieldId)) isValid = false;
-        });
-        
-        return isValid;
-    }
+            function validateRequiredField(input, fieldId) {
+                const errorElement = document.getElementById(`${fieldId}Error`);
+                const value = input.value.trim();
 
-    async function placeOrder() {
-  if (!validateForm()) {
-    showToast('Please fill in all required fields correctly', 'error');
-    return;
-  }
+                if (!value) {
+                    errorElement.textContent = `${input.labels[0].textContent.replace('*', '')} is required`;
+                    return false;
+                } else {
+                    errorElement.textContent = '';
+                    return true;
+                }
+            }
 
-  const btn = document.getElementById('placeOrderBtn');
-  if (!btn) return;
+            function validateForm() {
+                let isValid = true;
 
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
+                if (!validateEmail()) isValid = false;
 
-  // Create order object
-  const order = {
-    orderNumber: 'BH-' + Math.floor(Math.random() * 1000000),
-    orderDate: new Date().toISOString(),
-    customer: {
-      firstName: document.getElementById('firstName').value,
-      lastName: document.getElementById('lastName').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      address: document.getElementById('address').value,
-      city: document.getElementById('city').value,
-      zip: document.getElementById('zip').value,
-      country: document.getElementById('country').value,
-      notes: document.getElementById('notes').value || ''
-    },
-    paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
-    items: cart.map(item => ({
-      id: item.id,
-      brand: item.brand,
-      model: item.model,
-      price: item.price,
-      quantity: item.quantity,
-      image: item.image || 'images/watch-placeholder.jpg'
-    })),
-    subtotal: calculateSubtotal(),
-    tax: calculateTax(),
-    total: calculateTotal()
-  };
+                const requiredFields = ['firstName', 'lastName', 'phone', 'address', 'city', 'zip', 'country'];
+                requiredFields.forEach(fieldId => {
+                    const input = document.getElementById(fieldId);
+                    if (!validateRequiredField(input, fieldId)) isValid = false;
+                });
 
-  try {
-    const response = await fetch('http://localhost:3000/api/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(order)
-    });
+                // Validate payment method is selected
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+                if (!paymentMethod) {
+                    showToast('Please select a payment method', 'error');
+                    isValid = false;
+                }
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Order processing failed');
-    }
+                return isValid;
+            }
 
-    const result = await response.json();
-    
-    // Clear cart on success
-    cart = [];
-    saveCart();
-    
-    // Show success page
-    showOrderSuccess(order);
-    
-    // Update URL
-    window.history.pushState({}, document.title, window.location.pathname + '?success=true');
+            async function placeOrder() {
+                if (!validateForm()) {
+                    showToast('Please fill in all required fields correctly', 'error');
+                    return;
+                }
 
-  } catch (error) {
-    console.error('Order error:', error);
-    showToast(`Order failed: ${error.message}`, 'error');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Place Order';
-  }
-}
+                const btn = document.getElementById('placeOrderBtn');
+                if (!btn) return;
 
-    function showOrderSuccess(order) {
-        container.innerHTML = `
-            <div class="order-confirmation animate__animated animate__fadeIn">
-                <div class="confirmation-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                
-                <h1 class="confirmation-title">Order Confirmed</h1>
-                <p class="confirmation-number">Your order #${order.orderNumber}</p>
-                
-                <div class="confirmation-message">
-                    <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
-                    <p>A confirmation email has been sent to ${order.customer.email}.</p>
-                    <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>
-                </div>
-                
-                <div class="order-summary">
-                    <h2 class="summary-title">Order Summary</h2>
-                    <div class="order-items">
-                        ${order.items.map(item => `
-                            <div class="order-item">
-                                <div class="order-item-info">
-                                    <img src="${item.image || 'images/watch-placeholder.jpg'}" 
-                                         alt="${item.brand} ${item.model}"
-                                         onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
-                                    <div>
-                                        <h4>${item.brand} ${item.model}</h4>
-                                        <div>${formatPrice(item.price)} × ${item.quantity}</div>
-                                    </div>
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Order...';
+
+                // Get payment method
+                const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+                // Create order object
+                const order = {
+                    orderNumber: 'BH-' + Math.floor(Math.random() * 1000000),
+                    orderDate: new Date().toISOString(),
+                    customer: {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        address: document.getElementById('address').value,
+                        city: document.getElementById('city').value,
+                        zip: document.getElementById('zip').value,
+                        country: document.getElementById('country').value,
+                        notes: document.getElementById('notes').value || ''
+                    },
+                    paymentMethod: paymentMethod,
+                    items: cart.map(item => ({
+                        id: item.id,
+                        brand: item.brand,
+                        model: item.model,
+                        price: item.price,
+                        quantity: item.quantity,
+                        image: item.image || 'images/watch-placeholder.jpg'
+                    })),
+                    subtotal: calculateSubtotal(),
+                    tax: calculateTax(),
+                    total: calculateTotal(),
+                    status: 'pending'
+                };
+
+                // For Cash on Delivery, we don't need to process payment
+                if (paymentMethod === 'cod') {
+                    order.paymentStatus = 'pending';
+                    order.status = 'confirmed';
+                    order.notes = (order.notes ? order.notes + '\n' : '') + 'Payment Method: Cash on Delivery';
+                } else {
+                    order.paymentStatus = 'processing';
+                }
+
+                try {
+                    // In a real implementation, you would send this to your backend
+                    // For demo purposes, we'll simulate the API call
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    // Clear cart on success
+                    cart = [];
+                    saveCart();
+
+                    // Show success page with payment method info
+                    showOrderSuccess(order, paymentMethod === 'cod');
+
+                    // Update URL
+                    window.history.pushState({}, document.title, window.location.pathname + '?success=true');
+
+                } catch (error) {
+                    console.error('Order error:', error);
+                    showToast(`Order failed: ${error.message}`, 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = 'Place Order';
+                }
+            }
+
+            function showOrderSuccess(order, isCOD) {
+    container.innerHTML = `
+        <div class="order-confirmation animate__animated animate__fadeIn">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1 class="confirmation-title">Order Confirmed</h1>
+            <p class="confirmation-number">Your order #${order.orderNumber}</p>
+            
+            <div class="confirmation-message">
+                <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
+                ${isCOD ? 
+                    `<p>Your order will be prepared for delivery. Payment of ${formatPrice(order.total)} will be collected upon delivery.</p>
+                     <p>Please have the exact amount ready for our delivery representative.</p>` :
+                    `<p>A confirmation email has been sent to ${order.customer.email}.</p>
+                     <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>`}
+            </div>
+            
+            <div class="order-summary">
+                <h2 class="summary-title">Order Summary</h2>
+                <div class="order-items">
+                    ${order.items.map(item => `
+                        <div class="order-item">
+                            <div class="order-item-info">
+                                <img src="${item.image || 'images/watch-placeholder.jpg'}" 
+                                     alt="${item.brand} ${item.model}"
+                                     onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                                <div>
+                                    <h4>${item.brand} ${item.model}</h4>
+                                    <div>${formatPrice(item.price)} × ${item.quantity}</div>
                                 </div>
-                                <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
                             </div>
-                        `).join('')}
-                    </div>
-                    <div class="summary-totals">
-                        <div class="summary-row">
-                            <span>Subtotal:</span>
-                            <span>${formatPrice(order.subtotal)}</span>
+                            <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
                         </div>
-                        <div class="summary-row">
-                            <span>Tax:</span>
-                            <span>${formatPrice(order.tax)}</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>Total:</span>
-                            <span>${formatPrice(order.total)}</span>
-                        </div>
-                    </div>
+                    `).join('')}
                 </div>
-                
-                <div class="confirmation-actions">
-                    <a href="collection.html" class="btn btn-primary">
-                        <i class="fas fa-arrow-left"></i> Continue Shopping
-                    </a>
-                    <a href="index.html" class="btn">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span>${formatPrice(order.subtotal)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span>${formatPrice(order.tax)}</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span>${formatPrice(order.total)}</span>
+                    </div>
                 </div>
             </div>
-        `;
-    }
+            
+            <div class="confirmation-actions">
+                <a href="collection.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+                <a href="index.html" class="btn">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    `;
+}
 
-    function generateOrderItems() {
-        return cart.map(item => `
+            function generateOrderItems() {
+                return cart.map(item => `
             <div class="order-item">
                 <div class="order-item-info">
                     <img src="${item.image || 'images/watch-placeholder.jpg'}" 
@@ -1991,57 +2018,57 @@
                 <div class="order-item-total">${formatPrice(item.price * item.quantity)}</div>
             </div>
         `).join('');
-    }
+            }
 
-    function updateCartItemQuantity(id, action) {
-        const itemIndex = cart.findIndex(item => item.id === id);
-        if (itemIndex === -1) return;
+            function updateCartItemQuantity(id, action) {
+                const itemIndex = cart.findIndex(item => item.id === id);
+                if (itemIndex === -1) return;
 
-        if (action === 'increase') {
-            cart[itemIndex].quantity += 1;
-        } else if (action === 'decrease' && cart[itemIndex].quantity > 1) {
-            cart[itemIndex].quantity -= 1;
-        }
+                if (action === 'increase') {
+                    cart[itemIndex].quantity += 1;
+                } else if (action === 'decrease' && cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity -= 1;
+                }
 
-        saveCart();
-        showCartPage();
-        showToast('Cart updated', 'success');
-    }
+                saveCart();
+                showCartPage();
+                showToast('Cart updated', 'success');
+            }
 
-    function removeFromCart(id) {
-        cart = cart.filter(item => item.id !== id);
-        saveCart();
-        showCartPage();
-        showToast('Item removed from cart', 'success');
-    }
+            function removeFromCart(id) {
+                cart = cart.filter(item => item.id !== id);
+                saveCart();
+                showCartPage();
+                showToast('Item removed from cart', 'success');
+            }
 
-    function calculateSubtotal() {
-        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    }
+            function calculateSubtotal() {
+                return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            }
 
-    function calculateTax() {
-        const subtotal = calculateSubtotal();
-        return subtotal * 0.08; // 8% tax
-    }
+            function calculateTax() {
+                const subtotal = calculateSubtotal();
+                return subtotal * 0.08; // 8% tax
+            }
 
-    function calculateTotal() {
-        return calculateSubtotal() + calculateTax();
-    }
+            function calculateTotal() {
+                return calculateSubtotal() + calculateTax();
+            }
 
-    function formatPrice(price, currency = 'USD') {
-        if (price === null || price === undefined) return 'Price on Request';
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency,
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        }).format(price);
-    }
+            function formatPrice(price, currency = 'USD') {
+                if (price === null || price === undefined) return 'Price on Request';
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency,
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(price);
+            }
 
-    function saveCart() {
-        localStorage.setItem('watchCart', JSON.stringify(cart));
-    }
-});
+            function saveCart() {
+                localStorage.setItem('watchCart', JSON.stringify(cart));
+            }
+        });
     </script>
 </body>
 
