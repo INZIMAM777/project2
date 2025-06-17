@@ -2,8 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- Global Variables & Constants ---
     const container = document.getElementById('watch-container');
     const modalContainer = document.getElementById('modal-container');
+    const preloader = document.getElementById('preloader'); // Add this to your HTML
     let allWatches = [], filteredWatches = [];
     let cart = JSON.parse(localStorage.getItem('watchCart')) || [];
+    let loadedImagesCount = 0;
+    let totalImagesToLoad = 0;
 
     // --- Initialization ---
     initializePage();
@@ -75,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (allWatches.length === 0) {
                 showError("No watches found in the collection.");
+                hidePreloader(); // Add this
                 return;
             }
             
@@ -85,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error("Error loading watch collection:", error);
             showError("Failed to load the collection. Please try again.");
+            hidePreloader(); // Add this
         }
     }
 
@@ -92,8 +97,13 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = '';
         if (watches.length === 0) {
             showError("No watches match the current filters.");
+            hidePreloader(); // Add this
             return;
         }
+        
+        // Initialize image loading tracking
+        loadedImagesCount = 0;
+        totalImagesToLoad = watches.length;
         
         const fragment = document.createDocumentFragment();
         for (const watch of watches) {
@@ -171,12 +181,42 @@ document.addEventListener('DOMContentLoaded', function () {
         img.src = imageUrl;
         img.alt = `${watch.brand} ${watch.model}`;
         img.loading = 'lazy';
+        
         img.onload = () => {
             img.style.opacity = '0';
             container.appendChild(img);
             requestAnimationFrame(() => { img.style.opacity = '1'; });
+            imageLoaded(); // Call this when image is loaded
+        };
+        
+        img.onerror = () => {
+            // If image fails to load, still count it as loaded
+            imageLoaded();
         };
     }
+
+    function imageLoaded() {
+        loadedImagesCount++;
+        // Hide preloader when all images are loaded
+        if (loadedImagesCount >= totalImagesToLoad) {
+            hidePreloader();
+        }
+    }
+
+    function hidePreloader() {
+        if (preloader) {
+            preloader.style.opacity = '1';
+            // Fade out animation
+            preloader.style.transition = 'opacity 0.5s ease';
+            preloader.style.opacity = '0';
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }
+    }
+
 
     // --- Modal Functionality ---
     function showWatchModal(watch) {
