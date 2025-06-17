@@ -631,7 +631,7 @@
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 4px;
-            color: white;
+            color: black;
             font-family: 'Montserrat', sans-serif;
             transition: all 0.3s ease;
         }
@@ -1585,190 +1585,43 @@
         }, 5000);
     }
 
-    function showCartPage() {
-        if (cart.length === 0) {
-            container.innerHTML = `<div class="empty-cart">
-                <i class="fas fa-shopping-cart"></i>
-                <h2>Your Cart is Empty</h2>
-                <p>Browse our collection to find your perfect watch</p>
-                <a href="collection.html" class="btn" id="continueShopping">Continue Shopping</a>
-            </div>`;
-            return;
-        }
-
+    function showLoading() {
         container.innerHTML = `
-            <div class="cart-page">
-                <h1>Your Shopping Cart</h1>
-                <div class="cart-items-container" id="cartItems"></div>
-                <div class="cart-summary">
-                    <h3>Order Summary</h3>
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <span id="cartSubtotal">${formatPrice(calculateSubtotal())}</span>
+            <div class="preloader-container">
+                <div class="preloader">
+                    <div class="preloader-spinner">
+                        <div class="preloader-spinner-inner"></div>
                     </div>
-                    <div class="summary-row">
-                        <span>Shipping</span>
-                        <span>Free</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Tax</span>
-                        <span id="cartTax">${formatPrice(calculateTax())}</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Total</span>
-                        <span id="cartTotal">${formatPrice(calculateTotal())}</span>
-                    </div>
-                    <button class="btn btn-checkout" id="proceedToCheckout">Proceed to Checkout</button>
+                    <p>Loading your cart...</p>
                 </div>
             </div>
         `;
-
-        const cartItemsContainer = document.getElementById('cartItems');
-        cart.forEach(item => {
-            const cartItem = document.createElement('div');
-            cartItem.className = 'cart-item';
-            cartItem.innerHTML = `
-                <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
-                     onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
-                <div class="cart-item-details">
-                    <h3>${item.brand}</h3>
-                    <p>${item.model}</p>
-                    <div class="cart-item-price">${formatPrice(item.price)}</div>
-                </div>
-                <div class="cart-item-quantity">
-                    <button class="quantity-btn" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
-                    <span>${item.quantity}</span>
-                    <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
-                </div>
-                <button class="cart-item-remove" data-id="${item.id}">
-                    <i class="fas fa-trash"></i>
-                </button>
-            `;
-            cartItemsContainer.appendChild(cartItem);
-        });
-
-        document.querySelectorAll('.quantity-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const id = this.getAttribute('data-id');
-                const action = this.getAttribute('data-action');
-                updateCartItemQuantity(id, action);
-            });
-        });
-
-        document.querySelectorAll('.cart-item-remove').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const id = this.getAttribute('data-id');
-                removeFromCart(id);
-            });
-        });
-
-        document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
     }
 
-    function showCheckoutPage() {
-        container.innerHTML = `
-            <div class="checkout-page">
-                <h1>Checkout</h1>
-                <div class="checkout-container">
-                    <form id="checkoutForm" class="checkout-form">
-                        <h2>Shipping Information</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name*</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                                <div class="error-message" id="firstNameError"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name*</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                                <div class="error-message" id="lastNameError"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address*</label>
-                            <input type="email" id="email" name="email" required>
-                            <div class="error-message" id="emailError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number*</label>
-                            <input type="tel" id="phone" name="phone" required>
-                            <div class="error-message" id="phoneError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Street Address*</label>
-                            <input type="text" id="address" name="address" required>
-                            <div class="error-message" id="addressError"></div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="city">City*</label>
-                                <input type="text" id="city" name="city" required>
-                                <div class="error-message" id="cityError"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="zip">ZIP/Postal Code*</label>
-                                <input type="text" id="zip" name="zip" required>
-                                <div class="error-message" id="zipError"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="country">Country*</label>
-                            <select id="country" name="country" required>
-                                <option value="">Select Country</option>
-                                <option value="US">United States</option>
-                                <option value="UK">United Kingdom</option>
-                                <option value="CH">Switzerland</option>
-                                <option value="AE">United Arab Emirates</option>
-                                <option value="HK">Hong Kong</option>
-                                <option value="FR">France</option>
-                                <option value="DE">Germany</option>
-                                <option value="IT">Italy</option>
-                                <option value="JP">Japan</option>
-                                <option value="SG">Singapore</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <div class="error-message" id="countryError"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="notes">Special Instructions (Optional)</label>
-                            <textarea id="notes" name="notes"></textarea>
-                        </div>
-                        
-                        <h2>Payment Method</h2>
-                        <div class="payment-methods">
-                            <div class="payment-method" data-method="wire">
-                                <input type="radio" id="wire" name="paymentMethod" value="wire" checked>
-                                <label for="wire">Bank Wire Transfer</label>
-                                <i class="fas fa-university payment-icon"></i>
-                            </div>
-                            <div class="payment-method" data-method="crypto">
-                                <input type="radio" id="crypto" name="paymentMethod" value="crypto">
-                                <label for="crypto">Cryptocurrency</label>
-                                <i class="fab fa-bitcoin payment-icon"></i>
-                            </div>
-                            <div class="payment-method" data-method="credit">
-                                <input type="radio" id="credit" name="paymentMethod" value="credit">
-                                <label for="credit">Credit Card</label>
-                                <i class="far fa-credit-card payment-icon"></i>
-                            </div>
-                            <div class="payment-method" data-method="cod">
-                                <input type="radio" id="cod" name="paymentMethod" value="cod">
-                                <label for="cod">Cash on Delivery</label>
-                                <i class="fas fa-money-bill-wave payment-icon"></i>
-                            </div>
-                        </div>
-                        
-                        <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
-                    </form>
-                    
-                    <div class="order-summary">
-                        <h2>Order Summary</h2>
-                        <div class="order-items" id="orderItems">
-                            ${generateOrderItems()}
-                        </div>
+    function showCartPage() {
+        showLoading(); // Show preloader first
+        
+        // Simulate loading delay (remove this in production)
+        setTimeout(() => {
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2>Your Cart is Empty</h2>
+                    <p>Browse our collection to find your perfect watch</p>
+                    <a href="collection.html" class="btn" id="continueShopping">Continue Shopping</a>
+                </div>`;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="cart-page">
+                    <h1>Your Shopping Cart</h1>
+                    <div class="cart-items-container" id="cartItems"></div>
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
                         <div class="summary-row">
                             <span>Subtotal</span>
-                            <span>${formatPrice(calculateSubtotal())}</span>
+                            <span id="cartSubtotal">${formatPrice(calculateSubtotal())}</span>
                         </div>
                         <div class="summary-row">
                             <span>Shipping</span>
@@ -1776,30 +1629,199 @@
                         </div>
                         <div class="summary-row">
                             <span>Tax</span>
-                            <span>${formatPrice(calculateTax())}</span>
+                            <span id="cartTax">${formatPrice(calculateTax())}</span>
                         </div>
                         <div class="summary-row total">
                             <span>Total</span>
-                            <span>${formatPrice(calculateTotal())}</span>
+                            <span id="cartTotal">${formatPrice(calculateTotal())}</span>
+                        </div>
+                        <button class="btn btn-checkout" id="proceedToCheckout">Proceed to Checkout</button>
+                    </div>
+                </div>
+            `;
+
+            const cartItemsContainer = document.getElementById('cartItems');
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image || 'images/watch-placeholder.jpg'}" alt="${item.brand} ${item.model}" class="cart-item-image"
+                         onerror="this.onerror=null;this.src='images/watch-placeholder.jpg'">
+                    <div class="cart-item-details">
+                        <h3>${item.brand}</h3>
+                        <p>${item.model}</p>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn" data-id="${item.id}" data-action="decrease" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                    </div>
+                    <button class="cart-item-remove" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            document.querySelectorAll('.quantity-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    const action = this.getAttribute('data-action');
+                    updateCartItemQuantity(id, action);
+                });
+            });
+
+            document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.getAttribute('data-id');
+                    removeFromCart(id);
+                });
+            });
+
+            document.getElementById('proceedToCheckout').addEventListener('click', showCheckoutPage);
+        }, 800); // Simulated loading delay
+    }
+
+    function showCheckoutPage() {
+        showLoading(); // Show preloader first
+        
+        setTimeout(() => {
+            container.innerHTML = `
+                <div class="checkout-page">
+                    <h1>Checkout</h1>
+                    <div class="checkout-container">
+                        <form id="checkoutForm" class="checkout-form">
+                            <h2>Shipping Information</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name*</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                    <div class="error-message" id="firstNameError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name*</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                    <div class="error-message" id="lastNameError"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error-message" id="emailError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number*</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Street Address*</label>
+                                <input type="text" id="address" name="address" required>
+                                <div class="error-message" id="addressError"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City*</label>
+                                    <input type="text" id="city" name="city" required>
+                                    <div class="error-message" id="cityError"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP/Postal Code*</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                    <div class="error-message" id="zipError"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country*</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CH">Switzerland</option>
+                                    <option value="AE">United Arab Emirates</option>
+                                    <option value="HK">Hong Kong</option>
+                                    <option value="FR">France</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="IT">Italy</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="SG">Singapore</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="error-message" id="countryError"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Special Instructions (Optional)</label>
+                                <textarea id="notes" name="notes"></textarea>
+                            </div>
+                            
+                            <h2>Payment Method</h2>
+                            <div class="payment-methods">
+                                <div class="payment-method" data-method="wire">
+                                    <input type="radio" id="wire" name="paymentMethod" value="wire" checked>
+                                    <label for="wire">Bank Wire Transfer</label>
+                                    <i class="fas fa-university payment-icon"></i>
+                                </div>
+                                <div class="payment-method" data-method="crypto">
+                                    <input type="radio" id="crypto" name="paymentMethod" value="crypto">
+                                    <label for="crypto">Cryptocurrency</label>
+                                    <i class="fab fa-bitcoin payment-icon"></i>
+                                </div>
+                                <div class="payment-method" data-method="credit">
+                                    <input type="radio" id="credit" name="paymentMethod" value="credit">
+                                    <label for="credit">Credit Card</label>
+                                    <i class="far fa-credit-card payment-icon"></i>
+                                </div>
+                                <div class="payment-method" data-method="cod">
+                                    <input type="radio" id="cod" name="paymentMethod" value="cod">
+                                    <label for="cod">Cash on Delivery</label>
+                                    <i class="fas fa-money-bill-wave payment-icon"></i>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="btn-place-order" id="placeOrderBtn">Place Order</button>
+                        </form>
+                        
+                        <div class="order-summary">
+                            <h2>Order Summary</h2>
+                            <div class="order-items" id="orderItems">
+                                ${generateOrderItems()}
+                            </div>
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span>${formatPrice(calculateSubtotal())}</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span>Free</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span>${formatPrice(calculateTax())}</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span>${formatPrice(calculateTotal())}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
+            `;
 
-        document.querySelectorAll('.payment-method').forEach(method => {
-            method.addEventListener('click', function () {
-                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
-                this.classList.add('selected');
-                const radio = this.querySelector('input[type="radio"]');
-                if (radio) radio.checked = true;
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function () {
+                    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+                });
             });
-        });
 
-        document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
+            document.querySelector('.payment-method[data-method="wire"]').classList.add('selected');
 
-        setupFormValidation();
-        document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+            setupFormValidation();
+            document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+        }, 800); // Simulated loading delay
     }
 
     function setupFormValidation() {
@@ -1926,6 +1948,9 @@
     }
 
     async function sendOrderEmails(order) {
+        const isCOD = order.paymentMethod === 'cod';
+        
+        // Admin email
         await emailjs.send(
             'service_b960fqn',
             'template_n57d6xn',
@@ -1951,10 +1976,14 @@
                 subtotal: order.subtotal,
                 tax: order.tax,
                 total: order.total,
-                to_email: 'admin@billionairehive.com'
+                to_email: 'admin@billionairehive.com',
+                special_instructions: isCOD ? 
+                    `<p><strong>COD Instructions:</strong> Please collect ${order.total} in cash upon delivery. 
+                    Verify the amount before handing over the package.</p>` : ''
             }
         );
 
+        // Customer email
         await emailjs.send(
             'service_b960fqn',
             'template_z6col5r',
@@ -1977,14 +2006,19 @@
                 shipping_address: `${order.customer.address}, ${order.customer.city}, ${order.customer.zip}, ${order.customer.country}`,
                 customer_service_email: 'inzimamulhaqn@gmail.com',
                 customer_service_phone: '+91 9043531165',
-                to_email: order.customer.email
+                to_email: order.customer.email,
+                payment_instructions: isCOD ? 
+                    `<p><strong>Payment Instructions:</strong> Please prepare ${order.total} in cash for our delivery representative. 
+                    We recommend having the exact amount ready for a smooth transaction.</p>
+                    <p>Our delivery team will contact you shortly to schedule the delivery.</p>` : 
+                    `<p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>`
             }
         );
     }
 
     function showOrderSuccess(order, isCOD) {
         container.innerHTML = `
-            <div class="order-confirmation animate__animated animate__fadeIn">
+            <div class="order-confirmation animate__animated animate__fadeInDown">
                 <div class="confirmation-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
@@ -1996,7 +2030,8 @@
                     <p>Thank you for your purchase${order.customer.firstName ? ', ' + order.customer.firstName : ''}!</p>
                     ${isCOD ?
                         `<p>Your order will be prepared for delivery. Payment of ${order.total} will be collected upon delivery.</p>
-                         <p>Please have the exact amount ready for our delivery representative.</p>` :
+                         <p>Please have the exact amount ready for our delivery representative.</p>
+                         <p>You will receive a confirmation call from our delivery team within 24 hours to schedule your delivery.</p>` :
                         `<p>A confirmation email has been sent to ${order.customer.email}.</p>
                          <p>Our concierge team will contact you within 24 hours to finalize payment and delivery arrangements.</p>`}
                 </div>
